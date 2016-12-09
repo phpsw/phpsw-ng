@@ -1,0 +1,3 @@
+---
+- name: Add vagrant to ssh-users and ssl-certs groups
+  user: name=vagrant groups=ssh-users,ssl-cert append=yes

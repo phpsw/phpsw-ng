@@ -1,0 +1,6 @@
+---
+-   hosts: vagrant
+    become: false
+    tasks:
+    -   name: Composer install
+        composer: command=install no_dev=no working_dir=/vagrant

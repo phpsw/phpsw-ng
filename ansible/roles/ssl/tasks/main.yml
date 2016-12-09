@@ -1,0 +1,24 @@
+---
+- name: Install private keys
+  copy: content='{{ item.value|b64decode }}' dest=/etc/ssl/private/{{ item.key }}.key owner=root group=ssl-cert mode=0640
+  with_dict: '{{ ssl_keys }}'
+  no_log: true
+
+- name: Install certificates
+  copy: content='{{ item.value|b64decode }}' dest=/etc/ssl/certs/{{ item.key }}.crt owner=root group=root mode=0644
+  with_dict: '{{ ssl_certs }}'
+  no_log: true
+
+- name: Install stapling certs
+  copy: content='{{ item.value|b64decode }}' dest=/etc/ssl/certs/{{ item.key }}.stapling.pem owner=root group=root mode=0644
+  with_dict: '{{ ssl_stapling }}'
+  no_log: true
+
+- name: Create DH folder
+  file: path=/etc/ssl/dh state=directory owner=root group=ssl-cert mode=0750
+
+- name: Generate DH params (slow)
+  command: openssl dhparam -out /etc/ssl/dh/dhparam.pem 2048 creates=/etc/ssl/dh/dhparam.pem
+
+- name: Secure DH params
+  file: path=/etc/ssl/dh/dhparam.pem state=file owner=root group=ssl-cert mode=0640

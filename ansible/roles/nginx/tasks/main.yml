@@ -1,0 +1,32 @@
+---
+# TODO: re-enable to get http2 with ALPN in chrome, new openssl version required which is causing php segfaults
+#- name: Install backports openssl
+#  apt: pkg=openssl default_release=jessie-backports state=latest update_cache=yes cache_valid_time=3600
+
+- name: Install backports certbot
+  apt: pkg=certbot,python-certbot-nginx default_release=jessie-backports state=latest update_cache=yes cache_valid_time=3600
+
+- name: Install Nginx
+  apt: pkg=nginx-light state=latest update_cache=yes cache_valid_time=3600
+
+- name: Configure Nginx
+  template: src=etc/nginx/nginx.conf.j2 dest=/etc/nginx/nginx.conf
+  notify: restart nginx
+
+- name: Disable default Nginx site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  notify: restart nginx
+
+- name: Add web user to ssl-cert group
+  user: name={{ nginx_user }} append=yes groups=ssl-cert
+  notify: restart nginx
+
+- name: Install vhosts
+  template: src='templates/vhosts/{{ item.src }}' dest='/etc/nginx/sites-available/{{ item.dest }}'
+  with_items: '{{ nginx_vhosts }}'
+  notify: restart nginx
+
+- name: Enable vhosts
+  file: src='/etc/nginx/sites-available/{{ item.dest }}' dest='/etc/nginx/sites-enabled/{{ item.dest }}' state=link
+  with_items: '{{ nginx_vhosts }}'
+  notify: restart nginx

@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: true
+#  pre_tasks:
+#  - name: Import secure vars
+#    include_vars: secure_vars/{{ secure_vars_file }}
+#    when: secure_vars_file is defined
+  roles:
+  - base
+  - dotdeb
+  - ssl
+  - nginx
+  - git
+  - php7.0-cli
+  - composer
+  tasks:
+  - include: tasks/provision/app.yml
+  post_tasks:
+  - name: restart sshd
+    service: name=ssh state=restarted enabled=yes
+    when: sshd_status.changed

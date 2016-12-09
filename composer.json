@@ -1,0 +1,14 @@
+{
+    "name": "phpsw/phpsw-ng",
+    "description": "PHP South West UK User Group Website",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PHPSW",
+            "email": "info@phpsw.uk"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

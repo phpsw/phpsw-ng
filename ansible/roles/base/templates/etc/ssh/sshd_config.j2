@@ -1,0 +1,70 @@
+#
+# {{ ansible_managed }}
+#
+
+AddressFamily inet
+Port 22
+ListenAddress 0.0.0.0
+
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-ripemd160-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,hmac-ripemd160,umac-128@openssh.com
+
+AcceptEnv LANG LC_*
+AllowAgentForwarding yes
+AllowGroups ssh-users
+AllowTcpForwarding yes
+AllowStreamLocalForwarding no
+AuthorizedKeysFile %h/.ssh/authorized_keys
+Banner none
+ChallengeResponseAuthentication no
+ClientAliveCountMax 3
+ClientAliveInterval 600
+DebianBanner no
+GatewayPorts no
+GSSAPIAuthentication no
+GSSAPIKeyExchange no
+GSSAPICleanupCredentials yes
+GSSAPIStrictAcceptorCheck yes
+GSSAPIStoreCredentialsOnRekey no
+HostbasedAuthentication no
+HostbasedUsesNameFromPacketOnly no
+HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_rsa_key
+IgnoreRhosts yes
+IgnoreUserKnownHosts yes
+KbdInteractiveAuthentication no
+KerberosAuthentication no
+KerberosOrLocalPasswd no
+KerberosTicketCleanup yes
+LoginGraceTime 120s
+LogLevel INFO
+MaxAuthTries 3
+MaxSessions 10
+MaxStartups 10:30:100
+PasswordAuthentication no
+PermitEmptyPasswords no
+PermitRootLogin no
+PermitTunnel no
+PermitTTY yes
+PermitUserEnvironment no
+PermitUserRC yes
+PrintLastLog yes
+PrintMotd no
+Protocol 2
+PubkeyAuthentication yes
+RekeyLimit default none
+StreamLocalBindMask 0177
+StreamLocalBindUnlink no
+StrictModes yes
+Subsystem sftp /usr/lib/openssh/sftp-server
+SyslogFacility AUTH
+TCPKeepAlive no
+UseDNS yes
+UseLogin no
+UsePAM no
+UsePrivilegeSeparation yes
+VersionAddendum none
+X11DisplayOffset 10
+X11Forwarding no
+X11UseLocalhost yes

@@ -1,0 +1,12 @@
+---
+ntp_host: uk.pool.ntp.org
+system_locales:
+  - en_US.UTF-8
+  - en_GB.UTF-8
+system_default_locale: en_GB.UTF-8
+system_timezone: Europe/London
+dns_primary_nameserver: 8.8.8.8
+dns_secondary_nameserver: 8.8.4.4
+default_users: []
+users: []
+local_hostnames: []

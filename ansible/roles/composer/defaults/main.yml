@@ -1,0 +1,4 @@
+---
+# { name: example/example, version: * }
+composer_global_packages: []
+composer_keep_updated: true

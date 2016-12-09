@@ -1,0 +1,12 @@
+# project files
+/.idea
+
+# composer
+/vendor
+
+# Mac indexes
+.DS_Store
+
+# local env and provisioning
+/.vagrant
+/ansible/*.retry

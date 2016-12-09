@@ -1,0 +1,12 @@
+---
+php_cli_date_timezone: Europe/London
+php_cli_error_reporting: E_ALL & ~E_DEPRECATED & ~E_STRICT
+php_cli_display_errors: Off
+php_cli_display_startup_errors: Off
+php_cli_track_errors: Off
+php_cli_mysqlnd_collect_statistics: Off
+php_cli_opcache_file_cache: /tmp/php-opcache
+php_cli_opcache_file_cache_only: 1
+php_cli_curl_cainfo:
+php_cli_openssl_cafile:
+php_xdebug: false

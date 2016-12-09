@@ -1,0 +1,20 @@
+---
+- name: Create swap file
+  command: dd if=/dev/zero of=/var/swap.1 bs=1M count=2048
+  args:
+    creates: /var/swap.1
+  register: swap_created
+
+- name: Secure swap file
+  file: path=/var/swap.1 mode=0600
+
+- name: Format swap file
+  command: mkswap /var/swap.1
+  when: swap_created|changed
+
+- name: Enable swapfile
+  command: swapon /var/swap.1
+  when: swap_created|changed
+
+- name: Add swap to fstab
+  mount: src=/var/swap.1 name=none fstype=swap opts=defaults passno=0 dump=0 state=present
