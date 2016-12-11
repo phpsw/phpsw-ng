@@ -1,0 +1,15 @@
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->in(__DIR__);
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@Symfony' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'ordered_imports' => true,
+        'phpdoc_align' => false,
+        'phpdoc_order' => true,
+    ])
+    ->setFinder($finder)
+    ->setCacheFile(__DIR__.'/ci/cache/.php_cs.cache');

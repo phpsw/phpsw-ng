@@ -4,5 +4,11 @@ machine:
     version: 7.0.11
 
 dependencies:
+  cache_directories:
+  - "ci/cache"
   pre:
-    - rm /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
+  - rm /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
+
+test:
+  override:
+  - vendor/bin/php-cs-fixer fix --dry-run --format=junit

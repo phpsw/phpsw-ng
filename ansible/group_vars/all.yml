@@ -16,5 +16,6 @@ default_users:
 
 php_packages:
 - php7.0-opcache
+- php7.0-dom
 
 php_xdebug: false
