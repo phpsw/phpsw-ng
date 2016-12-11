@@ -10,5 +10,7 @@ dependencies:
   - rm /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
 
 test:
+  pre:
+  - mkdir -p $CIRCLE_TEST_REPORTS/phpcs
   override:
-  - vendor/bin/php-cs-fixer fix --dry-run --format=junit > $CIRCLE_ARTIFACTS/php_cs.xml
+  - vendor/bin/php-cs-fixer fix --dry-run --format=junit > $CIRCLE_TEST_REPORTS/phpcs/junit.xml
