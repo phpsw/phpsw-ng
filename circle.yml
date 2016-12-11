@@ -1,0 +1,8 @@
+machine:
+  timezone: Europe/London
+  php:
+    version: 7.0.11
+
+dependencies:
+  pre:
+    - rm /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
