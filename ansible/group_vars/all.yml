@@ -13,6 +13,11 @@ default_users:
   groups: sudo,ssh-users
   authorized_keys:
   - files/keys/dliddament.pub
+- name: kzien
+  password: '*'
+  groups: sudo, ssh-users
+  authorized_keys:
+  - files/keys/kzien.pub
 
 php_packages:
 - php7.0-opcache
