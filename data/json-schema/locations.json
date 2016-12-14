@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Location",
+    "description": "This defines our locations (venues and pub)",
+    "type": "object",
+    "properties": {
+        "name": {
+            "description": "Name of the location",
+            "type": "string"
+        },
+        "address": {
+            "description": "Address",
+            "type": "string"
+        },
+         "postcode": {
+            "description": "Postcode",
+            "type": "string"
+        },
+        "website-url": {
+            "description": "A link to the location's website (optional)",
+            "type": "string"
+        },
+        "maps-url": {
+            "description": "A link to google maps",
+            "type": "string"
+        }
+    },
+    "required": ["name", "address", "postcode", "maps-url"]
+}

@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Sponsor",
+    "description": "This defines the meetup sponsor",
+    "type": "object",
+    "properties": {
+        "name": {
+            "description": "Name of the sponsor",
+            "type": "string"
+        },
+        "logo-url": {
+            "description": "Sponsor's logo",
+            "type": "string"
+        },
+        "website-url": {
+            "description": "Link to the sponsor's website",
+            "type": "string"
+        }
+    },
+    "required": ["name", "logo-url", "website-url"]
+}
