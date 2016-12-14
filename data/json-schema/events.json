@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Event",
+    "description": "This defines an event (meetup)",
+    "type": "object",
+    "properties": {
+        "meetup-id": {
+            "description": "The meetup ID",
+            "type": "integer"
+        },
+        "date": {
+            "description": "Date of the event",
+            "type": "string"
+        },
+        "title": {
+            "description": "Event's title",
+            "type": "string"
+        },
+        "description": {
+            "description": "Event's description",
+            "type": "string"
+        },
+        "talks": {
+            "description": "Talks",
+            "type": "array"
+        },
+        "venue": {
+            "description": "Event's location",
+            "type": "string"
+        },
+        "pub": {
+            "description": "Pub afterwards",
+            "type": "string"
+        },
+        "sponsors": {
+            "description": "Event sponsors",
+            "type": "array"
+        },
+        "joindin-url": {
+            "description": "Link to the joind.in event",
+            "type": "string"
+        }
+    },
+    "required": ["date", "title"]
+}
