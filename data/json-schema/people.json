@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Person",
+  "description": "This defines a person, they may be a speaker or an organiser (not an attendee)",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of the person",
+      "type": "string"
+    },
+    "photo-url": {
+      "description": "URL of a photo of the person",
+      "type": "string"
+    },
+    "description": {
+      "description": "Brief description about the person (e.g. lead developer at Acme Co.)",
+      "type": "string"
+    },
+    "twitter-handle": {
+      "description": "Person's twitter handle",
+      "type": "string"
+    },
+    "github-url": {
+      "description": "Person's github URL ",
+      "type": "string"
+    },
+    "website-url": {
+      "description": "Person's website (or link to their meetup profile)",
+      "type": "string"
+    }
+  },
+  "required": ["name", "photo-url", "description"]
+}

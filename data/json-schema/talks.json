@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Talks",
+  "description": "This defines our talks",
+  "type": "object",
+  "properties": {
+    "title": {
+      "description": "Title of the talk",
+      "type": "string"
+    },
+    "abstract": {
+      "description": "Description of the talk",
+      "type": "string"
+    },
+    "speakers": {
+      "description": "Speakers giving the talk",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "video-url": {
+      "description": "A link to the video of the talk",
+      "type": "string"
+    },
+    "slide-url": {
+      "description": "A link to the slide deck",
+      "type": "string"
+    },
+    "joindin-url": {
+      "description": "A link to the talk in joind-in",
+      "type": "string"
+    }
+  },
+  "required": ["title", "abstract", "speakers"]
+}
