@@ -7,7 +7,7 @@
 </svg>
 
 # PHPSW Website
-<img src="https://circleci.com/gh/phpsw/phpsw-ng.svg?style=shield&circle-token=210ad69b49f17f455c92532edc96728d5c12b353">
+<a href="https://circleci.com/gh/phpsw/phpsw-ng"><img src="https://circleci.com/gh/phpsw/phpsw-ng.svg?style=shield&circle-token=210ad69b49f17f455c92532edc96728d5c12b353"></a>
 
 ## Requirements
 - Ansible 2.x (http://docs.ansible.com/ansible/intro_installation.html)
