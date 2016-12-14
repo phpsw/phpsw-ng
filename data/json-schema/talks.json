@@ -29,7 +29,7 @@
       "description": "A link to the slide deck",
       "type": "string"
     },
-    "joind-in-url": {
+    "joindin-url": {
       "description": "A link to the talk in joind-in",
       "type": "string"
     }
