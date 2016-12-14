@@ -27,6 +27,10 @@
     "website-url": {
       "description": "Person's website (or link to their meetup profile)",
       "type": "string"
+    },
+    "meetup-id": {
+      "description": "Person's meetup ID",
+      "type": "integer"
     }
   },
   "required": ["name", "photo-url", "description"]

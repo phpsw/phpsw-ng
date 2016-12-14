@@ -35,6 +35,13 @@
             "description": "Pub afterwards",
             "type": "string"
         },
+        "organisers": {
+            "description": "Meetup IDs of the organisers",
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
         "sponsors": {
             "description": "Event sponsors",
             "type": "array",
