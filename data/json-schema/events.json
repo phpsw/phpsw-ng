@@ -22,7 +22,10 @@
         },
         "talks": {
             "description": "Talks",
-            "type": "array"
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         },
         "venue": {
             "description": "Event's location",
@@ -34,7 +37,10 @@
         },
         "sponsors": {
             "description": "Event sponsors",
-            "type": "array"
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         },
         "joindin-url": {
             "description": "Link to the joind.in event",
