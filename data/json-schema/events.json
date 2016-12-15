@@ -12,6 +12,14 @@
             "description": "Date of the event",
             "type": "string"
         },
+        "start-time": {
+            "description": "Start time of the event",
+            "type": "string"
+        },
+        "end-time": {
+            "description": "End time of the event",
+            "type": "string"
+        },
         "title": {
             "description": "Event's title",
             "type": "string"
@@ -36,10 +44,10 @@
             "type": "string"
         },
         "organisers": {
-            "description": "Meetup IDs of the organisers",
+            "description": "A list of the organisers",
             "type": "array",
             "items": {
-                "type": "integer"
+                "type": "string"
             }
         },
         "sponsors": {
