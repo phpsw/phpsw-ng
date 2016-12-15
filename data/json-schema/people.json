@@ -20,8 +20,8 @@
       "description": "Person's twitter handle",
       "type": "string"
     },
-    "github-url": {
-      "description": "Person's github URL ",
+    "github-handle": {
+      "description": "Person's github handle ",
       "type": "string"
     },
     "website-url": {
