@@ -14,3 +14,8 @@
 
 ## CI
 Execute ```ci/run.sh``` from within the VM to run the CI tests locally.
+
+## Architecture
+See the architecture.md file in the app directory for details on architecture. 
+ 
+ 
