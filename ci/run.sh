@@ -34,6 +34,7 @@ function print_summary() {
 
 run_tool "vendor/bin/php-cs-fixer fix" "PHP Coding Standards Fixer"
 run_tool "vendor/bin/security-checker security:check" "Security Check"
+run_tool "vendor/bin/phpunit" "Unit tests"
 
 print_summary
 
