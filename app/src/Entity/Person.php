@@ -2,6 +2,8 @@
 
 namespace Phpsw\Website\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Represents a person. This could be a speaker or organiser (not an attendee).
  *
@@ -13,41 +15,59 @@ class Person
 {
     /**
      * @var string;
+     *
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
      */
     private $slug;
 
     /**
      * @var string
+     * @Assert\NotBlank()
+     * @Assert\Length(min="3")
+     * @Assert\Type("string")
      */
     private $name;
 
     /**
      * @var string
+     *
+     * @Assert\Url()
+     * @Assert\Type("string")
      */
     private $photoUrl;
 
     /**
      * @var string
+     * @Assert\NotBlank()
+     * @Assert\Length(min="3")
+     * @Assert\Type("string")
      */
     private $description;
 
     /**
      * @var string
+     * @Assert\Type("string")
      */
     private $twitterHandle;
 
     /**
      * @var string
+     * @Assert\Type("string")
      */
     private $githubHandle;
 
     /**
      * @var string
+     * @Assert\Type("string")
+     * @Assert\Url()
      */
     private $websiteUrl;
 
     /**
      * @var int
+     * @Assert\Type("int")
+     * @Assert\GreaterThan(0)
      */
     private $meetupId;
 

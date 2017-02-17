@@ -6,6 +6,7 @@ use Phpsw\Website\Container\Form\FormBuilder;
 use Phpsw\Website\Entity\Person;
 use Phpsw\Website\Importer\EntityImporter\DataToEntityConverter;
 use Phpsw\Website\Importer\EntityImporter\PersonImporter;
+use Phpsw\Website\Importer\ValidationException;
 use Phpsw\Website\Repository\PersonRepositoryInterface;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
@@ -92,5 +93,66 @@ class PersonImporterTest extends TestCase
 
         // Expect
         $this->personImporter->importEntity(self::SLUG, $inputData);
+    }
+
+    public function testImportPersonWithMissingDescriptionField()
+    {
+        $inputData = [
+            'name' => self::NAME,
+        ];
+
+        try {
+            $this->personImporter->importEntity(self::SLUG, $inputData);
+            $this->fail('Expected ValidatorException to be thrown');
+        } catch (ValidationException $e) {
+            $this->assertValidationErrors([
+                ['field' => 'description', 'entity' => self::SLUG],
+            ], $e);
+        }
+    }
+
+    public function testImportPersonWithInvalidData()
+    {
+        $inputData = [
+            'name' => self::NAME,
+            'description' => self::DESCRIPTION,
+            'meetup-id' => 'foo',
+            'website-url' => 'Not a web address',
+        ];
+
+        try {
+            $this->personImporter->importEntity(self::SLUG, $inputData);
+            $this->fail('Expected ValidatorException to be thrown');
+        } catch (ValidationException $e) {
+            $this->assertValidationErrors([
+                ['field' => 'meetup-id', 'entity' => self::SLUG],
+                ['field' => 'website-url', 'entity' => self::SLUG],
+            ], $e);
+        }
+    }
+
+    /**
+     * @param array $expectedValidationErrors
+     * @param ValidationException $e
+     */
+    private function assertValidationErrors(array $expectedValidationErrors, ValidationException $e)
+    {
+        $actualValidationErrors = $e->getValidationErrors();
+        $this->assertEquals(count($expectedValidationErrors), count($actualValidationErrors));
+
+        foreach ($expectedValidationErrors as $expectedValidationError) {
+            $found = false;
+            foreach ($actualValidationErrors as $actualValidationError) {
+                if (($actualValidationError->getEntityType() == Person::class) &&
+                    ($actualValidationError->getField() == $expectedValidationError['field']) &&
+                    ($actualValidationError->getEntity() == $expectedValidationError['entity'])
+                ) {
+                    $found = true;
+                }
+            }
+            if (!$found) {
+                $this->fail("Could not find error for field [{$expectedValidationError['field']}]");
+            }
+        }
     }
 }

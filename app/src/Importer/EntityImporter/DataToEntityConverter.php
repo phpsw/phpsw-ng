@@ -3,6 +3,7 @@
 namespace Phpsw\Website\Importer\EntityImporter;
 
 use Phpsw\Website\Container\Form\FormBuilder;
+use Phpsw\Website\Importer\ValidationError;
 use Phpsw\Website\Importer\ValidationException;
 
 /**
@@ -48,7 +49,12 @@ class DataToEntityConverter
             $validationErrors = [];
 
             foreach ($form->getErrors(true) as $error) {
-                $validationErrors[] = "{$error->getOrigin()->getName()} [{$error->getMessage()}]";
+                $validationErrors[] = new ValidationError(
+                    $form->getConfig()->getDataClass(),
+                    $slug,
+                    $error->getOrigin()->getName(),
+                    $error->getMessage()
+                );
             }
             throw new ValidationException($validationErrors);
         }

@@ -10,14 +10,14 @@ use Exception;
 class ValidationException extends Exception
 {
     /**
-     * @var array
+     * @var ValidationError[]
      */
     private $validationErrors;
 
     /**
      * ValidationException constructor.
      *
-     * @param array $validationErrors
+     * @param ValidationError[] $validationErrors
      */
     public function __construct(array $validationErrors)
     {
@@ -27,7 +27,7 @@ class ValidationException extends Exception
     /**
      * Returns an array of strings. Each array entry is a validation failure message.
      *
-     * @return string[]
+     * @return ValidationError[]
      */
     public function getValidationErrors()
     {
