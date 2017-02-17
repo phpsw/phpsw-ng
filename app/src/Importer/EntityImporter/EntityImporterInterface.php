@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpsw\Website\Importer;
+namespace Phpsw\Website\Importer\EntityImporter;
 
 /**
  * Interface for all entity importers.

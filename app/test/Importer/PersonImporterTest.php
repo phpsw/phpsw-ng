@@ -2,8 +2,10 @@
 
 namespace Phpsw\Website\Tests\Importer;
 
+use Phpsw\Website\Container\Form\FormBuilder;
 use Phpsw\Website\Entity\Person;
-use Phpsw\Website\Importer\PersonImporter;
+use Phpsw\Website\Importer\EntityImporter\DataToEntityConverter;
+use Phpsw\Website\Importer\EntityImporter\PersonImporter;
 use Phpsw\Website\Repository\PersonRepositoryInterface;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
@@ -25,14 +27,17 @@ class PersonImporterTest extends TestCase
     private $mockPersonRepository;
 
     /**
-     * @var PersonImporter
+     * @var \Phpsw\Website\Importer\EntityImporter\PersonImporter
      */
     private $personImporter;
 
     public function setUp()
     {
+        $formBuilder = new FormBuilder();
+        $dataToEntityConverter = new DataToEntityConverter($formBuilder);
+
         $this->mockPersonRepository = $this->getMockBuilder(PersonRepositoryInterface::class)->getMock();
-        $this->personImporter = new PersonImporter($this->mockPersonRepository);
+        $this->personImporter = new PersonImporter($this->mockPersonRepository, $dataToEntityConverter);
     }
 
     public function testImportPersonAllFieldsSet()
