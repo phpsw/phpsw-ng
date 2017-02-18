@@ -1,0 +1,8 @@
+# DI for importer related setup
+
+services:
+
+  app.common.rootDirectory:
+    class: \Phpsw\Website\Common\RootDirectory
+    arguments: ['%rootDirectory%']
+

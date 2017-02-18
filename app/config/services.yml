@@ -1,3 +1,4 @@
 imports:
+    - { resource: common.yml }
     - { resource: importer.yml }
 
