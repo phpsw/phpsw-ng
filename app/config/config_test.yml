@@ -4,6 +4,8 @@
 
 parameters:
 
+  importDataDirectory: "app/test/data"
+
 
 imports:
-    - { resource: services.yml }
+  - { resource: services.yml }

@@ -8,3 +8,16 @@ services:
   app.importer.dataToEntityImporter:
     class: \Phpsw\Website\Importer\EntityImporter\DataToEntityConverter
     autowire: true
+
+  app.importer:
+    class: \Phpsw\Website\Importer\Importer
+    autowire: true
+
+
+  # All entity importers should include the tag EntityImporter
+
+  app.importer.personImporter:
+    class: \Phpsw\Website\Importer\EntityImporter\PersonImporter
+    autowire: true
+    tags:
+      - { name: "EntityImporter", directory: "%importDataDirectory%/people", order: 1 }
