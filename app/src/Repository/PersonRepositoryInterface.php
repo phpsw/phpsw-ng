@@ -12,4 +12,11 @@ interface PersonRepositoryInterface
      * @param Person $person
      */
     public function persist(Person $person);
+
+    /**
+     * Returns all people ordered by person slug (in alphabetical order).
+     *
+     * @return Person[]
+     */
+    public function getAll();
 }

@@ -6,3 +6,7 @@ services:
     class: \Phpsw\Website\Common\RootDirectory
     arguments: ['%rootDirectory%']
 
+
+  app.common.personRepository:
+    class: Phpsw\Website\Repository\InMemory\PersonRepository
+
