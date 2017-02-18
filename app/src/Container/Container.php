@@ -28,11 +28,11 @@ class Container
     /**
      * Get class of given name.
      *
-     * @param $className
+     * @param string $className
      *
      * @return mixed
      */
-    public function get($className)
+    public function get(string $className)
     {
         return $this->containerBuilder->get($className);
     }
