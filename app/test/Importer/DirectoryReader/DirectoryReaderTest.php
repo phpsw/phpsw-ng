@@ -13,7 +13,7 @@ class DirectoryReaderTest extends TestCase
 
     public function testReadDirectory()
     {
-        $container = new Container();
+        $container = new Container('test');
 
         /** @var RootDirectory $rootDirectory */
         $rootDirectory = $container->get('app.common.rootDirectory');

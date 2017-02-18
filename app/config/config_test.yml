@@ -1,0 +1,9 @@
+#
+# Configure for testing purposes
+#
+
+parameters:
+
+
+imports:
+    - { resource: services.yml }

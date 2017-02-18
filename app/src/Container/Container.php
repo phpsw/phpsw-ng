@@ -17,11 +17,16 @@ class Container
      */
     private $containerBuilder;
 
-    public function __construct()
+    /**
+     * Container constructor.
+     *
+     * @param string $environment
+     */
+    public function __construct(string $environment)
     {
         $this->containerBuilder = new ContainerBuilder($this->getParameters());
         $loader = new YamlFileLoader($this->containerBuilder, new FileLocator(__DIR__.'/../../config/'));
-        $loader->load('services.yml');
+        $loader->load("config_$environment.yml");
         $this->containerBuilder->compile();
     }
 
