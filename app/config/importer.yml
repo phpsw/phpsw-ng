@@ -21,3 +21,9 @@ services:
     autowire: true
     tags:
       - { name: "EntityImporter", directory: "%importDataDirectory%/people", order: 1 }
+      
+  app.importer.locationImporter:
+    class: \Phpsw\Website\Importer\EntityImporter\LocationImporter
+    autowire: true
+    tags:
+      - { name: "EntityImporter", directory: "%importDataDirectory%/locations", order: 2 }

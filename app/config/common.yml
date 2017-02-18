@@ -10,3 +10,5 @@ services:
   app.common.personRepository:
     class: Phpsw\Website\Repository\InMemory\PersonRepository
 
+  app.common.locationRepository:
+    class: Phpsw\Website\Repository\InMemory\LocationRepository

@@ -3,8 +3,10 @@
 namespace Phpsw\Website\Tests\Importer;
 
 use Phpsw\Website\Container\Container;
+use Phpsw\Website\Entity\Location;
 use Phpsw\Website\Entity\Person;
 use Phpsw\Website\Importer\Importer;
+use Phpsw\Website\Repository\LocationRepositoryInterface;
 use Phpsw\Website\Repository\PersonRepositoryInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -45,5 +47,19 @@ class ImporterTest extends TestCase
         $johnSmith->setGithubHandle('JSmith');
 
         $this->assertEquals([$fredBlogs, $johnSmith], $personRepository->getAll());
+    }
+
+    private function assertLocations(Container $container)
+    {
+        /** @var LocationRepositoryInterface $locationRepository */
+        $locationRepository = $container->get('app.common.locationRepository');
+
+        $basekit = new Location();
+        $basekit->setSlug('basekit');
+        $basekit->setName('Basekit');
+        $basekit->setAddress('5th Floor One Castle Park, Tower Hill, Bristol');
+        $basekit->setPostcode('BS2 0JA"');
+        $basekit->setMapsUrl('http://map.google.com/basekit');
+        $this->assertEquals([$basekit], $locationRepository->getAll());
     }
 }
