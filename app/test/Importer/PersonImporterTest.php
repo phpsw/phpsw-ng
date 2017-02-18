@@ -2,9 +2,8 @@
 
 namespace Phpsw\Website\Tests\Importer;
 
-use Phpsw\Website\Container\Form\FormBuilder;
+use Phpsw\Website\Container\Container;
 use Phpsw\Website\Entity\Person;
-use Phpsw\Website\Importer\EntityImporter\DataToEntityConverter;
 use Phpsw\Website\Importer\EntityImporter\PersonImporter;
 use Phpsw\Website\Importer\ValidationException;
 use Phpsw\Website\Repository\PersonRepositoryInterface;
@@ -28,14 +27,14 @@ class PersonImporterTest extends TestCase
     private $mockPersonRepository;
 
     /**
-     * @var \Phpsw\Website\Importer\EntityImporter\PersonImporter
+     * @var PersonImporter
      */
     private $personImporter;
 
     public function setUp()
     {
-        $formBuilder = new FormBuilder();
-        $dataToEntityConverter = new DataToEntityConverter($formBuilder);
+        $container = new Container();
+        $dataToEntityConverter = $container->get('app.importer.dataToEntityImporter');
 
         $this->mockPersonRepository = $this->getMockBuilder(PersonRepositoryInterface::class)->getMock();
         $this->personImporter = new PersonImporter($this->mockPersonRepository, $dataToEntityConverter);

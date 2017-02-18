@@ -2,7 +2,7 @@
 
 namespace Phpsw\Website\Importer\EntityImporter;
 
-use Phpsw\Website\Container\Form\FormBuilder;
+use Phpsw\Website\Importer\EntityImporter\Form\FormBuilder;
 use Phpsw\Website\Importer\ValidationError;
 use Phpsw\Website\Importer\ValidationException;
 
@@ -12,7 +12,7 @@ use Phpsw\Website\Importer\ValidationException;
 class DataToEntityConverter
 {
     /**
-     * @var FormBuilder
+     * @var \Phpsw\Website\Importer\EntityImporter\Form\FormBuilder
      */
     private $formBuilder;
 

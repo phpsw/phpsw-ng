@@ -1,0 +1,10 @@
+# DI for importer related setup
+
+services:
+
+  app.container.formBuilder:
+    class: \Phpsw\Website\Importer\EntityImporter\Form\FormBuilder
+
+  app.importer.dataToEntityImporter:
+    class: \Phpsw\Website\Importer\EntityImporter\DataToEntityConverter
+    autowire: true

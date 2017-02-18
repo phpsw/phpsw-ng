@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpsw\Website\Container\Form;
+namespace Phpsw\Website\Importer\EntityImporter\Form;
 
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -26,7 +26,6 @@ class FormBuilder
         $validatorInterface = Validation::createValidatorBuilder()->enableAnnotationMapping()->getValidator();
 
         $builder = Forms::createFormFactoryBuilder();
-        $builder->addExtension(new DependencyInjectionFormExtension());
         $builder->addExtension(new ValidatorExtension($validatorInterface));
         $this->formFactory = $builder->getFormFactory();
     }
