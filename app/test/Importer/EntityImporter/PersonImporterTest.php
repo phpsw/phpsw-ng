@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpsw\Website\Tests\Importer;
+namespace Phpsw\Website\Tests\Importer\EntityImporter;
 
 use Phpsw\Website\Container\Container;
 use Phpsw\Website\Entity\Person;
@@ -33,7 +33,7 @@ class PersonImporterTest extends TestCase
 
     public function setUp()
     {
-        $container = new Container();
+        $container = new Container('test');
         $dataToEntityConverter = $container->get('app.importer.dataToEntityImporter');
 
         $this->mockPersonRepository = $this->getMockBuilder(PersonRepositoryInterface::class)->getMock();
