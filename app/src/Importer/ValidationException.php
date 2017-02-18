@@ -21,6 +21,7 @@ class ValidationException extends Exception
      */
     public function __construct(array $validationErrors)
     {
+        parent::__construct(implode("\n", $validationErrors));
         $this->validationErrors = $validationErrors;
     }
 
