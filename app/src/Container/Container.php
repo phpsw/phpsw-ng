@@ -27,6 +27,7 @@ class Container
         $this->containerBuilder = new ContainerBuilder($this->getParameters());
         $loader = new YamlFileLoader($this->containerBuilder, new FileLocator(__DIR__.'/../../config/'));
         $loader->load("config_$environment.yml");
+        $this->containerBuilder->addCompilerPass(new FormTypeCompilerClass());
         $this->containerBuilder->addCompilerPass(new ImporterCompilerClass());
         $this->containerBuilder->compile();
     }

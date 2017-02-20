@@ -2,28 +2,43 @@
 
 services:
 
-  app.container.formBuilder:
-    class: \Phpsw\Website\Importer\EntityImporter\Form\FormBuilder
-
-  app.importer.dataToEntityImporter:
-    class: \Phpsw\Website\Importer\EntityImporter\DataToEntityConverter
-    autowire: true
-
+  # Entry point to importer
   app.importer:
     class: \Phpsw\Website\Importer\Importer
     autowire: true
 
+  # Form Building classes
+  app.importer.formBuilder:
+    class: \Phpsw\Website\Importer\EntityImporter\Form\FormBuilder
+    autowire: true
 
-  # All entity importers should include the tag EntityImporter
+  app.importer.formBuilderDependencyInjectionExtension:
+    class: \Phpsw\Website\Importer\EntityImporter\Form\DependencyInjectionExtension
 
-  app.importer.personImporter:
-    class: \Phpsw\Website\Importer\EntityImporter\PersonImporter
+  # FormTypes - Each Entity requires on of these. These must be tagged FormType
+  app.importer.formType.Person:
+    class: \Phpsw\Website\Importer\EntityImporter\Form\PersonType
     autowire: true
     tags:
-      - { name: "EntityImporter", directory: "%importDataDirectory%/people", order: 1 }
-      
-  app.importer.locationImporter:
-    class: \Phpsw\Website\Importer\EntityImporter\LocationImporter
+      - {name: "FormType", entityFqcn: 'Phpsw\Website\Entity\Person'}
+
+  app.importer.formType.Location:
+    class: \Phpsw\Website\Importer\EntityImporter\Form\LocationType
     autowire: true
+    tags:
+      - {name: "FormType", entityFqcn: 'Phpsw\Website\Entity\Location'}
+
+
+
+  # Entity Importers - All entity importers must be tagged EntityImporter
+  app.importer.personImporter:
+    class: \Phpsw\Website\Importer\EntityImporter\EntityImporter
+    arguments: ['@app.importer.formBuilder', '@app.common.personRepository', 'Phpsw\Website\Entity\Person']
+    tags:
+      - { name: "EntityImporter", directory: "%importDataDirectory%/people", order: 1 }
+
+  app.importer.locationImporter:
+    class: \Phpsw\Website\Importer\EntityImporter\EntityImporter
+    arguments: ['@app.importer.formBuilder', '@app.common.locationRepository', 'Phpsw\Website\Entity\Location']
     tags:
       - { name: "EntityImporter", directory: "%importDataDirectory%/locations", order: 2 }

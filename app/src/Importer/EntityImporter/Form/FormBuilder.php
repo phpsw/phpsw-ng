@@ -20,12 +20,13 @@ class FormBuilder
      */
     private $formFactory;
 
-    public function __construct()
+    public function __construct(DependencyInjectionExtension $dependencyInjectionExtension)
     {
         // As suggested @see https://symfony.com/doc/2.8/components/validator/resources.html
         $validatorInterface = Validation::createValidatorBuilder()->enableAnnotationMapping()->getValidator();
 
         $builder = Forms::createFormFactoryBuilder();
+        $builder->addExtension($dependencyInjectionExtension);
         $builder->addExtension(new ValidatorExtension($validatorInterface));
         $this->formFactory = $builder->getFormFactory();
     }
