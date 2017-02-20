@@ -13,14 +13,14 @@ class LocationRepository implements LocationRepositoryInterface
     /**
      * @var array
      */
-    private $people = [];
+    private $locations = [];
 
     /**
      * {@inheritdoc}
      */
     public function persist(Location $location)
     {
-        $this->people[$location->getSlug()] = $location;
+        $this->locations[$location->getSlug()] = $location;
     }
 
     /**
@@ -28,9 +28,9 @@ class LocationRepository implements LocationRepositoryInterface
      */
     public function getAll()
     {
-        $people = $this->people;
-        ksort($people);
+        $locations = $this->locations;
+        ksort($locations);
 
-        return array_values($people);
+        return array_values($locations);
     }
 }

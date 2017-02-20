@@ -5,9 +5,11 @@ namespace Phpsw\Website\Tests\Importer;
 use Phpsw\Website\Container\Container;
 use Phpsw\Website\Entity\Location;
 use Phpsw\Website\Entity\Person;
+use Phpsw\Website\Entity\Sponsor;
 use Phpsw\Website\Importer\Importer;
 use Phpsw\Website\Repository\LocationRepositoryInterface;
 use Phpsw\Website\Repository\PersonRepositoryInterface;
+use Phpsw\Website\Repository\SponsorRepositoryInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -27,6 +29,8 @@ class ImporterTest extends TestCase
         $importer->import();
 
         $this->assertPeople($container);
+        $this->assertLocations($container);
+        $this->assertSponsors($container);
     }
 
     private function assertPeople(Container $container)
@@ -58,8 +62,22 @@ class ImporterTest extends TestCase
         $basekit->setSlug('basekit');
         $basekit->setName('Basekit');
         $basekit->setAddress('5th Floor One Castle Park, Tower Hill, Bristol');
-        $basekit->setPostcode('BS2 0JA"');
+        $basekit->setPostcode('BS2 0JA');
         $basekit->setMapsUrl('http://map.google.com/basekit');
         $this->assertEquals([$basekit], $locationRepository->getAll());
+    }
+
+    private function assertSponsors(Container $container)
+    {
+        /** @var SponsorRepositoryInterface $sponsorRepository */
+        $sponsorRepository = $container->get('app.common.sponsorRepository');
+
+        $acme = new Sponsor();
+        $acme->setSlug('acme');
+        $acme->setName('Acme');
+        $acme->setWebsiteUrl('http://acme.com');
+        $acme->setLogoUrl('http://acme.com/logo');
+
+        $this->assertEquals([$acme], $sponsorRepository->getAll());
     }
 }

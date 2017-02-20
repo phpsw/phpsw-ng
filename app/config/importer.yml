@@ -28,6 +28,12 @@ services:
     tags:
       - {name: "FormType", entityFqcn: 'Phpsw\Website\Entity\Location'}
 
+  app.importer.formType.Sponsor:
+    class: \Phpsw\Website\Importer\EntityImporter\Form\SponsorType
+    autowire: true
+    tags:
+      - {name: "FormType", entityFqcn: 'Phpsw\Website\Entity\Sponsor'}
+
 
 
   # Entity Importers - All entity importers must be tagged EntityImporter
@@ -42,3 +48,9 @@ services:
     arguments: ['@app.importer.formBuilder', '@app.common.locationRepository', 'Phpsw\Website\Entity\Location']
     tags:
       - { name: "EntityImporter", directory: "%importDataDirectory%/locations", order: 2 }
+
+  app.importer.sponsorImporter:
+    class: \Phpsw\Website\Importer\EntityImporter\EntityImporter
+    arguments: ['@app.importer.formBuilder', '@app.common.sponsorRepository', 'Phpsw\Website\Entity\Sponsor']
+    tags:
+      - { name: "EntityImporter", directory: "%importDataDirectory%/sponsors", order: 3 }

@@ -12,3 +12,6 @@ services:
 
   app.common.locationRepository:
     class: Phpsw\Website\Repository\InMemory\LocationRepository
+    
+  app.common.sponsorRepository:
+    class: Phpsw\Website\Repository\InMemory\SponsorRepository
