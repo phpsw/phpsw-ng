@@ -20,64 +20,101 @@ use PHPUnit\Framework\TestCase;
  */
 class ImporterTest extends TestCase
 {
-    public function testImport()
+    /**
+     * @var Container
+     */
+    private $container;
+
+    public function setup()
     {
-        $container = new Container('test');
+        $this->container = new Container('test');
 
         /** @var Importer $importer */
-        $importer = $container->get('app.importer');
+        $importer = $this->container->get('app.importer');
         $importer->import();
-
-        $this->assertPeople($container);
-        $this->assertLocations($container);
-        $this->assertSponsors($container);
     }
 
-    private function assertPeople(Container $container)
+    public function testImportPeople()
     {
         /** @var PersonRepositoryInterface $personRepository */
-        $personRepository = $container->get('app.common.personRepository');
+        $personRepository = $this->container->get('app.common.personRepository');
 
+        $fredBlogs = $this->getFredBlogs();
+        $johnSmith = $this->getJohnSmith();
+
+        $this->assertEquals([$fredBlogs, $johnSmith], $personRepository->getAll());
+    }
+
+    public function testImportLocations()
+    {
+        /** @var LocationRepositoryInterface $locationRepository */
+        $locationRepository = $this->container->get('app.common.locationRepository');
+        $basekit = $this->getLocationBasekit();
+        $this->assertEquals([$basekit], $locationRepository->getAll());
+    }
+
+    public function testImportSponsors()
+    {
+        /** @var SponsorRepositoryInterface $sponsorRepository */
+        $sponsorRepository = $this->container->get('app.common.sponsorRepository');
+        $acme = $this->getSponsorAcme();
+        $this->assertEquals([$acme], $sponsorRepository->getAll());
+    }
+
+    /**
+     * @return Person
+     */
+    private function getFredBlogs()
+    {
         $fredBlogs = new Person();
         $fredBlogs->setSlug('fred-blogs');
         $fredBlogs->setName('Fred Blogs');
         $fredBlogs->setDescription('Developer for Blogs Limited');
         $fredBlogs->setTwitterHandle('FredBlogs');
 
+        return $fredBlogs;
+    }
+
+    /**
+     * @return Person
+     */
+    private function getJohnSmith()
+    {
         $johnSmith = new Person();
         $johnSmith->setSlug('john-smith');
         $johnSmith->setName('John Smith');
         $johnSmith->setDescription('Developer for Smith Limited');
         $johnSmith->setGithubHandle('JSmith');
 
-        $this->assertEquals([$fredBlogs, $johnSmith], $personRepository->getAll());
+        return $johnSmith;
     }
 
-    private function assertLocations(Container $container)
+    /**
+     * @return Location
+     */
+    private function getLocationBasekit()
     {
-        /** @var LocationRepositoryInterface $locationRepository */
-        $locationRepository = $container->get('app.common.locationRepository');
-
         $basekit = new Location();
         $basekit->setSlug('basekit');
         $basekit->setName('Basekit');
         $basekit->setAddress('5th Floor One Castle Park, Tower Hill, Bristol');
         $basekit->setPostcode('BS2 0JA');
         $basekit->setMapsUrl('http://map.google.com/basekit');
-        $this->assertEquals([$basekit], $locationRepository->getAll());
+
+        return $basekit;
     }
 
-    private function assertSponsors(Container $container)
+    /**
+     * @return Sponsor
+     */
+    private function getSponsorAcme()
     {
-        /** @var SponsorRepositoryInterface $sponsorRepository */
-        $sponsorRepository = $container->get('app.common.sponsorRepository');
-
         $acme = new Sponsor();
         $acme->setSlug('acme');
         $acme->setName('Acme');
         $acme->setWebsiteUrl('http://acme.com');
         $acme->setLogoUrl('http://acme.com/logo');
 
-        $this->assertEquals([$acme], $sponsorRepository->getAll());
+        return $acme;
     }
 }
