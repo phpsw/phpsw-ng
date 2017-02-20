@@ -15,3 +15,6 @@ services:
     
   app.common.sponsorRepository:
     class: Phpsw\Website\Repository\InMemory\SponsorRepository
+    
+  app.common.websiteInfoRepository:
+    class: Phpsw\Website\Repository\InMemory\WebsiteInfoRepository

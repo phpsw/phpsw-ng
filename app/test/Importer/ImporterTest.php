@@ -6,10 +6,12 @@ use Phpsw\Website\Container\Container;
 use Phpsw\Website\Entity\Location;
 use Phpsw\Website\Entity\Person;
 use Phpsw\Website\Entity\Sponsor;
+use Phpsw\Website\Entity\WebsiteInfo;
 use Phpsw\Website\Importer\Importer;
 use Phpsw\Website\Repository\LocationRepositoryInterface;
 use Phpsw\Website\Repository\PersonRepositoryInterface;
 use Phpsw\Website\Repository\SponsorRepositoryInterface;
+use Phpsw\Website\Repository\WebsiteInfoRepositoryInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -59,6 +61,15 @@ class ImporterTest extends TestCase
         $sponsorRepository = $this->container->get('app.common.sponsorRepository');
         $acme = $this->getSponsorAcme();
         $this->assertEquals([$acme], $sponsorRepository->getAll());
+    }
+
+    public function testImportWebsite()
+    {
+        /** @var WebsiteInfoRepositoryInterface $websiteInfoRepository */
+        $websiteInfoRepository = $this->container->get('app.common.websiteInfoRepository');
+        $organisers = [$this->getFredBlogs(), $this->getJohnSmith()];
+        $websiteInfo = $this->getWebsiteInfo($organisers);
+        $this->assertEquals([$websiteInfo], $websiteInfoRepository->getAll());
     }
 
     /**
@@ -116,5 +127,21 @@ class ImporterTest extends TestCase
         $acme->setLogoUrl('http://acme.com/logo');
 
         return $acme;
+    }
+
+    /**
+     * @param Person[] $organisers
+     *
+     * @return WebsiteInfo
+     */
+    private function getWebsiteInfo($organisers)
+    {
+        $website = new WebsiteInfo();
+        $website->setSlug('website');
+        $website->setDescription('PHPSW is amazing');
+        $website->setPhotoUrl('http://phpsq.uk/logo');
+        $website->setOrganisers($organisers);
+
+        return $website;
     }
 }

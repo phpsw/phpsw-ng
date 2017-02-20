@@ -28,4 +28,16 @@ class AbstractRepository
 
         return array_values($entities);
     }
+
+    /**
+     * Returns entity object with the given slug of null if none exist.
+     *
+     * @param $slug
+     *
+     * @return mixed|null
+     */
+    public function findBySlug($slug)
+    {
+        return $this->entities[$slug] ?? null;
+    }
 }
