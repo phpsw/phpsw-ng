@@ -7,12 +7,14 @@ use Phpsw\Website\Entity\Event;
 use Phpsw\Website\Entity\Location;
 use Phpsw\Website\Entity\Person;
 use Phpsw\Website\Entity\Sponsor;
+use Phpsw\Website\Entity\Talk;
 use Phpsw\Website\Entity\WebsiteInfo;
 use Phpsw\Website\Importer\Importer;
 use Phpsw\Website\Repository\EventRepositoryInterface;
 use Phpsw\Website\Repository\LocationRepositoryInterface;
 use Phpsw\Website\Repository\PersonRepositoryInterface;
 use Phpsw\Website\Repository\SponsorRepositoryInterface;
+use Phpsw\Website\Repository\TalkRepositoryInterface;
 use Phpsw\Website\Repository\WebsiteInfoRepositoryInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -81,6 +83,14 @@ class ImporterTest extends TestCase
         $eventRepository = $this->container->get('app.common.eventRepository');
         $event = $this->getEvent();
         $this->assertEquals([$event], $eventRepository->getAll());
+    }
+
+    public function testImportTalk()
+    {
+        /** @var TalkRepositoryInterface $talkRepository */
+        $talkRepository = $this->container->get('app.common.talkRepository');
+        $talk = $this->getTalk();
+        $this->assertEquals([$talk], $talkRepository->getAll());
     }
 
     /**
@@ -188,5 +198,20 @@ class ImporterTest extends TestCase
         $event->setTitle('New skills');
 
         return $event;
+    }
+
+    private function getTalk()
+    {
+        $talk = new Talk();
+        $talk->setSlug('soft-skills');
+        $talk->setTitle('Soft skills');
+        $talk->setAbstract('Learn more soft skills');
+        $talk->setEvent($this->getEvent());
+        $talk->setSlidesUrl('http://talk.com/slides');
+        $talk->setVideoUrl('http://talk.com/video');
+        $talk->setJoindinUrl('http://joindin.com/talk');
+        $talk->setSpeakers([$this->getFredBlogs()]);
+
+        return $talk;
     }
 }

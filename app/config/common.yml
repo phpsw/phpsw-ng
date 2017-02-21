@@ -21,3 +21,6 @@ services:
 
   app.common.eventRepository:
     class: Phpsw\Website\Repository\InMemory\EventRepository
+    
+  app.common.talkRepository:
+    class: Phpsw\Website\Repository\InMemory\TalkRepository

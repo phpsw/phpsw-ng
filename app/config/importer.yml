@@ -46,6 +46,12 @@ services:
     tags:
       - {name: "FormType", entityFqcn: 'Phpsw\Website\Entity\Event'}
 
+  app.importer.formType.Talk:
+    class: \Phpsw\Website\Importer\EntityImporter\Form\TalkType
+    autowire: true
+    tags:
+      - {name: "FormType", entityFqcn: 'Phpsw\Website\Entity\Talk'}
+
 
 
   # Entity Importers - All entity importers must be tagged EntityImporter
@@ -78,4 +84,9 @@ services:
     arguments: ['@app.importer.formBuilder', '@app.common.eventRepository', 'Phpsw\Website\Entity\Event']
     tags:
       - { name: "EntityImporter", directory: "%importDataDirectory%/events", order: 5 }
-            
+      
+  app.importer.talkImporter:
+    class: \Phpsw\Website\Importer\EntityImporter\EntityImporter
+    arguments: ['@app.importer.formBuilder', '@app.common.talkRepository', 'Phpsw\Website\Entity\Talk']
+    tags:
+      - { name: "EntityImporter", directory: "%importDataDirectory%/talks", order: 6 }

@@ -1,0 +1,11 @@
+{
+  "title" : "Soft skills",
+  "abstract" : "Learn more soft skills",
+  "event" : "new-skills",
+  "slides-url" : "http://talk.com/slides",
+  "video-url" : "http://talk.com/video",
+  "joindin-url" : "http://joindin.com/talk",
+  "speakers" : [
+    "fred-blogs"
+  ]
+}
