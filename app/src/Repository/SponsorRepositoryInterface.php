@@ -19,4 +19,13 @@ interface SponsorRepositoryInterface
      * @return Sponsor[]
      */
     public function getAll();
+
+    /**
+     * Returns Sponsor object with the given slug of null if none exist.
+     *
+     * @param string $slug
+     *
+     * @return Sponsor|null
+     */
+    public function findBySlug(string $slug);
 }
