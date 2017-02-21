@@ -12,4 +12,11 @@ services:
     arguments: ["%websiteBaseDirectory%"]
 
 
+  # Website generator command
+  app.websiteGenerator.command:
+    class: \Phpsw\Website\WebsiteGenerator\GenerateWebsiteCommand
+    autowire: true
+    tags:
+      - {name: "ConsoleCommand" }
+
 
