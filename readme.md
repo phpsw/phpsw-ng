@@ -12,8 +12,15 @@
 1. Create a mapping in your hosts file from phpsw.dev to 192.168.42.10.
 2. ```vagrant up```
 
+## General Usage
+To run the commands use ```./runner.php```
+
+To validate data: ```./runner.php  data:validate```
+
+
 ## CI
 Execute ```ci/run.sh``` from within the VM to run the CI tests locally.
+
 
 ## Architecture
 See the architecture.md file in the app directory for details on architecture. 

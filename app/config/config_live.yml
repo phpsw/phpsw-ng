@@ -1,0 +1,11 @@
+#
+# Configuration for the live app
+#
+
+parameters:
+
+  importDataDirectory: "data"
+
+
+imports:
+  - { resource: services.yml }

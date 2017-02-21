@@ -29,6 +29,7 @@ class Container
         $loader->load("config_$environment.yml");
         $this->containerBuilder->addCompilerPass(new FormTypeCompilerClass());
         $this->containerBuilder->addCompilerPass(new ImporterCompilerClass());
+        $this->containerBuilder->addCompilerPass(new CommandCompilerClass());
         $this->containerBuilder->compile();
     }
 

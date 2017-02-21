@@ -2,11 +2,22 @@
 
 services:
 
+  # CLI inteface
+  app.cli:
+    class: Symfony\Component\Console\Application
+    autowire: true
+
+
+  #
+  # Config holder to root directory
+  #
   app.common.rootDirectory:
     class: \Phpsw\Website\Common\RootDirectory
     arguments: ['%rootDirectory%']
 
-
+  #
+  # Repositories
+  #
   app.common.personRepository:
     class: Phpsw\Website\Repository\InMemory\PersonRepository
 

@@ -7,6 +7,14 @@ services:
     class: \Phpsw\Website\Importer\Importer
     autowire: true
 
+
+  # Importer command
+  app.importer.command:
+    class: \Phpsw\Website\Importer\ImportCommand
+    autowire: true
+    tags:
+      - {name: "ConsoleCommand" }
+
   # Form Building classes
   app.importer.formBuilder:
     class: \Phpsw\Website\Importer\EntityImporter\Form\FormBuilder
