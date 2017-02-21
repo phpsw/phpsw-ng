@@ -7,7 +7,10 @@ use Phpsw\Website\Importer\EntityImporter\Form\LocationTransformer;
 use Phpsw\Website\Repository\InMemory\LocationRepository;
 use PHPUnit\Framework\TestCase;
 
-class LocationTransformerTest extends TestCase
+/**
+ * Tests AbstractEntityTransformer using LocationTransformer concrete implementation.
+ */
+class EntityTransformerTest extends TestCase
 {
     const LOCATION = 'location-1';
     const INVALID_SLUG = 'invalid-slug';
