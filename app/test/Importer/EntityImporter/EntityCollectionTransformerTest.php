@@ -8,7 +8,10 @@ use Phpsw\Website\Repository\InMemory\PersonRepository;
 use Phpsw\Website\Repository\PersonRepositoryInterface;
 use PHPUnit\Framework\TestCase;
 
-class PeopleTransformerTest extends TestCase
+/**
+ * Tests AbstractEntityCollectionTransformer using the PeopleTransformer concrete implementation.
+ */
+class EntityCollectionTransformerTest extends TestCase
 {
     const PERSON_1 = 'person-1';
     const PERSON_2 = 'person-2';
