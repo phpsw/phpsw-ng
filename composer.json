@@ -17,7 +17,8 @@
         "doctrine/cache": "^1.6",
         "symfony/dependency-injection": "^3.2",
         "symfony/yaml": "^3.2",
-        "symfony/config": "^3.2"
+        "symfony/config": "^3.2",
+        "symfony/console": "^3.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "~2.0.0",
