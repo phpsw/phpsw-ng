@@ -4,7 +4,7 @@ namespace Phpsw\Website\Repository\InMemory;
 
 class AbstractRepository
 {
-    private $entities;
+    private $entities = [];
 
     /**
      * Persist the entity.
