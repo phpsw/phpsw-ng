@@ -32,8 +32,7 @@ use PHPUnit\Framework\TestCase;
  * An example related entity is Talk to Person (via Talk's speakers property). When setting a Talk's speakers the
  * Talk::setSpeakers method calls the Person::addTalk method to give the 2 way connection (e.g. emulating a many to
  * many relationship). By making sure only one instance of a Person (e.g. John Smith) is created per test case, by
- * using a cache mechanism, pervents test code from going into infinite loops.
- *
+ * using a cache mechanism, prevents test code from going into infinite loops.
  */
 class ImporterTest extends TestCase
 {
@@ -46,7 +45,6 @@ class ImporterTest extends TestCase
      * @var array
      */
     private $cache;
-
 
     public function setup()
     {
@@ -126,6 +124,7 @@ class ImporterTest extends TestCase
             $fredBlogs->setName('Fred Blogs');
             $fredBlogs->setDescription('Developer for Blogs Limited');
             $fredBlogs->setTwitterHandle('FredBlogs');
+
             return $fredBlogs;
         });
     }
@@ -141,6 +140,7 @@ class ImporterTest extends TestCase
             $johnSmith->setName('John Smith');
             $johnSmith->setDescription('Developer for Smith Limited');
             $johnSmith->setGithubHandle('JSmith');
+
             return $johnSmith;
         });
     }
@@ -157,6 +157,7 @@ class ImporterTest extends TestCase
             $basekit->setAddress('5th Floor One Castle Park, Tower Hill, Bristol');
             $basekit->setPostcode('BS2 0JA');
             $basekit->setMapsUrl('http://map.google.com/basekit');
+
             return $basekit;
         });
     }
@@ -173,6 +174,7 @@ class ImporterTest extends TestCase
             $pub->setAddress('1 road');
             $pub->setPostcode('BS1 2AB');
             $pub->setMapsUrl('http://map.google.com/pub');
+
             return $pub;
         });
     }
@@ -188,8 +190,8 @@ class ImporterTest extends TestCase
             $acme->setName('Acme');
             $acme->setWebsiteUrl('http://acme.com');
             $acme->setLogoUrl('http://acme.com/logo');
-            return $acme;
 
+            return $acme;
         });
     }
 
@@ -205,6 +207,7 @@ class ImporterTest extends TestCase
             $website->setDescription('PHPSW is amazing');
             $website->setPhotoUrl('http://phpsq.uk/logo');
             $website->setOrganisers($organisers);
+
             return $website;
         });
     }
@@ -225,6 +228,7 @@ class ImporterTest extends TestCase
             $event->setVenue($this->getLocationBasekit());
             $event->setSponsors([$this->getSponsorAcme()]);
             $event->setTitle('New skills');
+
             return $event;
         });
     }
@@ -241,10 +245,10 @@ class ImporterTest extends TestCase
             $talk->setVideoUrl('http://talk.com/video');
             $talk->setJoindinUrl('http://joindin.com/talk');
             $talk->setSpeakers([$this->getFredBlogs()]);
+
             return $talk;
         });
     }
-
 
     private function getValue(string $key, callable $func)
     {
@@ -254,5 +258,4 @@ class ImporterTest extends TestCase
 
         return $this->cache[$key];
     }
-
 }

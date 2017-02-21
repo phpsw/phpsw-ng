@@ -76,6 +76,11 @@ class Event
     private $joindInUrl;
 
     /**
+     * @var Talk[]
+     */
+    private $talks;
+
+    /**
      * @return string
      */
     public function getSlug()
@@ -233,5 +238,25 @@ class Event
     public function setJoindInUrl($joindInUrl)
     {
         $this->joindInUrl = $joindInUrl;
+    }
+
+    /**
+     * Adds talk to Event.
+     *
+     * Note: It is the Talk object that controls the relationship between Talk and Event
+     *
+     * @param Talk $talk
+     */
+    public function addTalk(Talk $talk)
+    {
+        $this->talks[] = $talk;
+    }
+
+    /**
+     * @return Talk[]
+     */
+    public function getTalks()
+    {
+        return $this->talks;
     }
 }

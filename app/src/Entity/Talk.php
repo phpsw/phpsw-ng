@@ -130,6 +130,7 @@ class Talk
     public function setEvent($event)
     {
         $this->event = $event;
+        $event->addTalk($this);
     }
 
     /**
