@@ -48,7 +48,7 @@ class PeopleTransformer implements DataTransformerInterface
     }
 
     /**
-     * Tranforms collection of strings representing Person slugs to a collection of Person objects.
+     * Transforms collection of strings representing Person slugs to a collection of Person objects.
      *
      * {@inheritdoc}
      */
