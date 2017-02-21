@@ -23,6 +23,17 @@ use PHPUnit\Framework\TestCase;
  *
  * The importer is run with entity data in the app/test/data directory.
  * Checks using the repositories are used to make sure the correct data has been imported.
+ *
+ * Due to circular references between Talk and other objects we need to be careful about how we create the expected
+ * objects (the ones created by the get*() methods). These should only be called once per test case, the values are
+ * cached and subsequent calls mean that cached versions are returned.
+ * If we didn't do this then we'd either get caught in an infinite loop or have missing related entities.
+ *
+ * An example related entity is Talk to Person (via Talk's speakers property). When setting a Talk's speakers the
+ * Talk::setSpeakers method calls the Person::addTalk method to give the 2 way connection (e.g. emulating a many to
+ * many relationship). By making sure only one instance of a Person (e.g. John Smith) is created per test case, by
+ * using a cache mechanism, pervents test code from going into infinite loops.
+ *
  */
 class ImporterTest extends TestCase
 {
@@ -31,6 +42,12 @@ class ImporterTest extends TestCase
      */
     private $container;
 
+    /**
+     * @var array
+     */
+    private $cache;
+
+
     public function setup()
     {
         $this->container = new Container('test');
@@ -38,6 +55,12 @@ class ImporterTest extends TestCase
         /** @var Importer $importer */
         $importer = $this->container->get('app.importer');
         $importer->import();
+
+        // Empty cache for test case
+        $this->cache = [];
+
+        // This needs to be called to update all relationships between Talk and Person objects.
+        $this->getTalk();
     }
 
     public function testImportPeople()
@@ -72,8 +95,7 @@ class ImporterTest extends TestCase
     {
         /** @var WebsiteInfoRepositoryInterface $websiteInfoRepository */
         $websiteInfoRepository = $this->container->get('app.common.websiteInfoRepository');
-        $organisers = [$this->getFredBlogs(), $this->getJohnSmith()];
-        $websiteInfo = $this->getWebsiteInfo($organisers);
+        $websiteInfo = $this->getWebsiteInfo();
         $this->assertEquals([$websiteInfo], $websiteInfoRepository->getAll());
     }
 
@@ -98,13 +120,14 @@ class ImporterTest extends TestCase
      */
     private function getFredBlogs()
     {
-        $fredBlogs = new Person();
-        $fredBlogs->setSlug('fred-blogs');
-        $fredBlogs->setName('Fred Blogs');
-        $fredBlogs->setDescription('Developer for Blogs Limited');
-        $fredBlogs->setTwitterHandle('FredBlogs');
-
-        return $fredBlogs;
+        return $this->getValue('fredBlogs', function () {
+            $fredBlogs = new Person();
+            $fredBlogs->setSlug('fred-blogs');
+            $fredBlogs->setName('Fred Blogs');
+            $fredBlogs->setDescription('Developer for Blogs Limited');
+            $fredBlogs->setTwitterHandle('FredBlogs');
+            return $fredBlogs;
+        });
     }
 
     /**
@@ -112,13 +135,14 @@ class ImporterTest extends TestCase
      */
     private function getJohnSmith()
     {
-        $johnSmith = new Person();
-        $johnSmith->setSlug('john-smith');
-        $johnSmith->setName('John Smith');
-        $johnSmith->setDescription('Developer for Smith Limited');
-        $johnSmith->setGithubHandle('JSmith');
-
-        return $johnSmith;
+        return $this->getValue('johnSmith', function () {
+            $johnSmith = new Person();
+            $johnSmith->setSlug('john-smith');
+            $johnSmith->setName('John Smith');
+            $johnSmith->setDescription('Developer for Smith Limited');
+            $johnSmith->setGithubHandle('JSmith');
+            return $johnSmith;
+        });
     }
 
     /**
@@ -126,14 +150,15 @@ class ImporterTest extends TestCase
      */
     private function getLocationBasekit()
     {
-        $basekit = new Location();
-        $basekit->setSlug('basekit');
-        $basekit->setName('Basekit');
-        $basekit->setAddress('5th Floor One Castle Park, Tower Hill, Bristol');
-        $basekit->setPostcode('BS2 0JA');
-        $basekit->setMapsUrl('http://map.google.com/basekit');
-
-        return $basekit;
+        return $this->getValue('basekit', function () {
+            $basekit = new Location();
+            $basekit->setSlug('basekit');
+            $basekit->setName('Basekit');
+            $basekit->setAddress('5th Floor One Castle Park, Tower Hill, Bristol');
+            $basekit->setPostcode('BS2 0JA');
+            $basekit->setMapsUrl('http://map.google.com/basekit');
+            return $basekit;
+        });
     }
 
     /**
@@ -141,14 +166,15 @@ class ImporterTest extends TestCase
      */
     private function getLocationPub()
     {
-        $pub = new Location();
-        $pub->setSlug('pub');
-        $pub->setName('Pub');
-        $pub->setAddress('1 road');
-        $pub->setPostcode('BS1 2AB');
-        $pub->setMapsUrl('http://map.google.com/pub');
-
-        return $pub;
+        return $this->getValue('pub', function () {
+            $pub = new Location();
+            $pub->setSlug('pub');
+            $pub->setName('Pub');
+            $pub->setAddress('1 road');
+            $pub->setPostcode('BS1 2AB');
+            $pub->setMapsUrl('http://map.google.com/pub');
+            return $pub;
+        });
     }
 
     /**
@@ -156,29 +182,31 @@ class ImporterTest extends TestCase
      */
     private function getSponsorAcme()
     {
-        $acme = new Sponsor();
-        $acme->setSlug('acme');
-        $acme->setName('Acme');
-        $acme->setWebsiteUrl('http://acme.com');
-        $acme->setLogoUrl('http://acme.com/logo');
+        return $this->getValue('acme', function () {
+            $acme = new Sponsor();
+            $acme->setSlug('acme');
+            $acme->setName('Acme');
+            $acme->setWebsiteUrl('http://acme.com');
+            $acme->setLogoUrl('http://acme.com/logo');
+            return $acme;
 
-        return $acme;
+        });
     }
 
     /**
-     * @param Person[] $organisers
-     *
      * @return WebsiteInfo
      */
-    private function getWebsiteInfo($organisers)
+    private function getWebsiteInfo()
     {
-        $website = new WebsiteInfo();
-        $website->setSlug('website');
-        $website->setDescription('PHPSW is amazing');
-        $website->setPhotoUrl('http://phpsq.uk/logo');
-        $website->setOrganisers($organisers);
-
-        return $website;
+        return $this->getValue('website', function () {
+            $organisers = [$this->getFredBlogs(), $this->getJohnSmith()];
+            $website = new WebsiteInfo();
+            $website->setSlug('website');
+            $website->setDescription('PHPSW is amazing');
+            $website->setPhotoUrl('http://phpsq.uk/logo');
+            $website->setOrganisers($organisers);
+            return $website;
+        });
     }
 
     /**
@@ -186,32 +214,45 @@ class ImporterTest extends TestCase
      */
     private function getEvent()
     {
-        $event = new Event();
-        $event->setSlug('new-skills');
-        $event->setDescription('learn something new');
-        $event->setDate('November 2016');
-        $event->setMeetupId('123');
-        $event->setOrganisers([$this->getJohnSmith()]);
-        $event->setPub($this->getLocationPub());
-        $event->setVenue($this->getLocationBasekit());
-        $event->setSponsors([$this->getSponsorAcme()]);
-        $event->setTitle('New skills');
-
-        return $event;
+        return $this->getValue('event', function () {
+            $event = new Event();
+            $event->setSlug('new-skills');
+            $event->setDescription('learn something new');
+            $event->setDate('November 2016');
+            $event->setMeetupId('123');
+            $event->setOrganisers([$this->getJohnSmith()]);
+            $event->setPub($this->getLocationPub());
+            $event->setVenue($this->getLocationBasekit());
+            $event->setSponsors([$this->getSponsorAcme()]);
+            $event->setTitle('New skills');
+            return $event;
+        });
     }
 
     private function getTalk()
     {
-        $talk = new Talk();
-        $talk->setSlug('soft-skills');
-        $talk->setTitle('Soft skills');
-        $talk->setAbstract('Learn more soft skills');
-        $talk->setEvent($this->getEvent());
-        $talk->setSlidesUrl('http://talk.com/slides');
-        $talk->setVideoUrl('http://talk.com/video');
-        $talk->setJoindinUrl('http://joindin.com/talk');
-        $talk->setSpeakers([$this->getFredBlogs()]);
-
-        return $talk;
+        return $this->getValue('talk', function () {
+            $talk = new Talk();
+            $talk->setSlug('soft-skills');
+            $talk->setTitle('Soft skills');
+            $talk->setAbstract('Learn more soft skills');
+            $talk->setEvent($this->getEvent());
+            $talk->setSlidesUrl('http://talk.com/slides');
+            $talk->setVideoUrl('http://talk.com/video');
+            $talk->setJoindinUrl('http://joindin.com/talk');
+            $talk->setSpeakers([$this->getFredBlogs()]);
+            return $talk;
+        });
     }
+
+
+    private function getValue(string $key, callable $func)
+    {
+        if (!array_key_exists($key, $this->cache)) {
+            $this->cache[$key] = $func();
+        }
+
+        return $this->cache[$key];
+    }
+
 }

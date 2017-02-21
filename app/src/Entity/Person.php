@@ -72,6 +72,11 @@ class Person
     private $meetupId;
 
     /**
+     * @var Talk[]
+     */
+    private $talks = [];
+
+    /**
      * @return string
      */
     public function getSlug()
@@ -197,5 +202,25 @@ class Person
     public function setMeetupId($meetupId)
     {
         $this->meetupId = $meetupId;
+    }
+
+    /**
+     * Adds talk to speaker.
+     *
+     * Note: It is the Talk object that controls the relationship between Person and Talk.
+     *
+     * @param Talk $talk
+     */
+    public function addTalk(Talk $talk)
+    {
+        $this->talks[] = $talk;
+    }
+
+    /**
+     * @return Talk[]
+     */
+    public function getTalks()
+    {
+        return $this->talks;
     }
 }

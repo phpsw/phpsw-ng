@@ -194,5 +194,8 @@ class Talk
     public function setSpeakers($speakers)
     {
         $this->speakers = $speakers;
+        foreach ($speakers as $speaker) {
+            $speaker->addTalk($this);
+        }
     }
 }
