@@ -32,11 +32,11 @@ class AbstractRepository
     /**
      * Returns entity object with the given slug of null if none exist.
      *
-     * @param $slug
+     * @param string $slug
      *
      * @return mixed|null
      */
-    public function findBySlug($slug)
+    public function findBySlug(string $slug)
     {
         return $this->entities[$slug] ?? null;
     }

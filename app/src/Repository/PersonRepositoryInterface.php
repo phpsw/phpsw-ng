@@ -23,9 +23,9 @@ interface PersonRepositoryInterface
     /**
      * Returns Person object with the given slug of null if none exist.
      *
-     * @param $slug
+     * @param string $slug
      *
      * @return Person|null
      */
-    public function findBySlug($slug);
+    public function findBySlug(string $slug);
 }
