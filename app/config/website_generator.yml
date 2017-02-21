@@ -1,0 +1,15 @@
+# DI for website generator related setup
+
+services:
+
+  # Entry point to website generator
+  app.websiteGenerator:
+    class: \Phpsw\Website\WebsiteGenerator\WebsiteGenerator
+    autowire: true
+
+  app.websiteGenerator.baseDirectory:
+    class: \Phpsw\Website\WebsiteGenerator\WebsiteBaseDirectory
+    arguments: ["%websiteBaseDirectory%"]
+
+
+

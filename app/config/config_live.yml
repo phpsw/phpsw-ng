@@ -4,7 +4,12 @@
 
 parameters:
 
+  # Location of base directory holding JSON data.
   importDataDirectory: "data"
+
+
+  # Location of base directory holding web site output
+  websiteBaseDirectory: "web"
 
 
 imports:

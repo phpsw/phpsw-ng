@@ -6,6 +6,8 @@ parameters:
 
   importDataDirectory: "app/test/data"
 
+  # Location of base directory holding web site output
+  websiteBaseDirectory: "app/test/web"
 
 imports:
   - { resource: services.yml }
