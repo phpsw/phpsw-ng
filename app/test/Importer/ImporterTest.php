@@ -3,11 +3,13 @@
 namespace Phpsw\Website\Tests\Importer;
 
 use Phpsw\Website\Container\Container;
+use Phpsw\Website\Entity\Event;
 use Phpsw\Website\Entity\Location;
 use Phpsw\Website\Entity\Person;
 use Phpsw\Website\Entity\Sponsor;
 use Phpsw\Website\Entity\WebsiteInfo;
 use Phpsw\Website\Importer\Importer;
+use Phpsw\Website\Repository\EventRepositoryInterface;
 use Phpsw\Website\Repository\LocationRepositoryInterface;
 use Phpsw\Website\Repository\PersonRepositoryInterface;
 use Phpsw\Website\Repository\SponsorRepositoryInterface;
@@ -52,7 +54,8 @@ class ImporterTest extends TestCase
         /** @var LocationRepositoryInterface $locationRepository */
         $locationRepository = $this->container->get('app.common.locationRepository');
         $basekit = $this->getLocationBasekit();
-        $this->assertEquals([$basekit], $locationRepository->getAll());
+        $pub = $this->getLocationPub();
+        $this->assertEquals([$basekit, $pub], $locationRepository->getAll());
     }
 
     public function testImportSponsors()
@@ -70,6 +73,14 @@ class ImporterTest extends TestCase
         $organisers = [$this->getFredBlogs(), $this->getJohnSmith()];
         $websiteInfo = $this->getWebsiteInfo($organisers);
         $this->assertEquals([$websiteInfo], $websiteInfoRepository->getAll());
+    }
+
+    public function testImportEvent()
+    {
+        /** @var EventRepositoryInterface $eventRepository */
+        $eventRepository = $this->container->get('app.common.eventRepository');
+        $event = $this->getEvent();
+        $this->assertEquals([$event], $eventRepository->getAll());
     }
 
     /**
@@ -116,6 +127,21 @@ class ImporterTest extends TestCase
     }
 
     /**
+     * @return Location
+     */
+    private function getLocationPub()
+    {
+        $pub = new Location();
+        $pub->setSlug('pub');
+        $pub->setName('Pub');
+        $pub->setAddress('1 road');
+        $pub->setPostcode('BS1 2AB');
+        $pub->setMapsUrl('http://map.google.com/pub');
+
+        return $pub;
+    }
+
+    /**
      * @return Sponsor
      */
     private function getSponsorAcme()
@@ -143,5 +169,24 @@ class ImporterTest extends TestCase
         $website->setOrganisers($organisers);
 
         return $website;
+    }
+
+    /**
+     * @return Event
+     */
+    private function getEvent()
+    {
+        $event = new Event();
+        $event->setSlug('new-skills');
+        $event->setDescription('learn something new');
+        $event->setDate('November 2016');
+        $event->setMeetupId('123');
+        $event->setOrganisers([$this->getJohnSmith()]);
+        $event->setPub($this->getLocationPub());
+        $event->setVenue($this->getLocationBasekit());
+        $event->setSponsors([$this->getSponsorAcme()]);
+        $event->setTitle('New skills');
+
+        return $event;
     }
 }

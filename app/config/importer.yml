@@ -40,6 +40,13 @@ services:
     tags:
       - {name: "FormType", entityFqcn: 'Phpsw\Website\Entity\WebsiteInfo'}
 
+  app.importer.formType.Event:
+    class: \Phpsw\Website\Importer\EntityImporter\Form\EventType
+    autowire: true
+    tags:
+      - {name: "FormType", entityFqcn: 'Phpsw\Website\Entity\Event'}
+
+
 
   # Entity Importers - All entity importers must be tagged EntityImporter
   app.importer.personImporter:
@@ -65,4 +72,10 @@ services:
     arguments: ['@app.importer.formBuilder', '@app.common.websiteInfoRepository', 'Phpsw\Website\Entity\WebsiteInfo']
     tags:
       - { name: "EntityImporter", directory: "%importDataDirectory%/website", order: 4 }
+      
+  app.importer.eventImporter:
+    class: \Phpsw\Website\Importer\EntityImporter\EntityImporter
+    arguments: ['@app.importer.formBuilder', '@app.common.eventRepository', 'Phpsw\Website\Entity\Event']
+    tags:
+      - { name: "EntityImporter", directory: "%importDataDirectory%/events", order: 5 }
             

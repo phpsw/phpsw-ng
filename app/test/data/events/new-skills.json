@@ -1,0 +1,14 @@
+{
+  "description" : "learn something new",
+  "date" : "November 2016",
+  "meetup-id" : "123",
+  "organisers" : [
+    "john-smith"
+  ],
+  "pub" : "pub",
+  "venue" : "basekit",
+  "sponsors" : [
+    "acme"
+  ],
+  "title" : "New skills"
+}
