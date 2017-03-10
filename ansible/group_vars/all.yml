@@ -22,6 +22,7 @@ default_users:
 php_packages:
 - php7.0-opcache
 - php7.0-dom
+- php7.0-mbstring
 
 php_xdebug: false
 
