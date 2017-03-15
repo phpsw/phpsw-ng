@@ -6,7 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ImportCommand extends Command
+class ValidateDataCommand extends Command
 {
     /**
      * @var Importer
@@ -14,7 +14,7 @@ class ImportCommand extends Command
     private $importer;
 
     /**
-     * ImportCommand constructor.
+     * ValidateDataCommand constructor.
      *
      * @param Importer $importer
      */
@@ -26,18 +26,18 @@ class ImportCommand extends Command
 
     protected function configure()
     {
-        $this->setName('data:validate');
-        $this->setDescription('Imports and validates data and reports any problems it finds.');
+        $this->setName('phpsw:validate-data');
+        $this->setDescription('Validates data and reports any problems it finds.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         try {
-            $output->writeln('Importing data in directory...');
+            $output->writeln('Validating data...');
             $this->importer->import();
-            $output->writeln('All data imported successfully.');
+            $output->writeln('All data is valid.');
         } catch (ValidationException $e) {
-            $output->writeln('Failed to import data:');
+            $output->writeln('Validation failed:');
             $output->writeln($e->getMessage());
         }
     }

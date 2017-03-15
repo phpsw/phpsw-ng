@@ -10,7 +10,7 @@ services:
 
   # Importer command
   app.importer.command:
-    class: \Phpsw\Website\Importer\ImportCommand
+    class: \Phpsw\Website\Importer\ValidateDataCommand
     autowire: true
     tags:
       - {name: "ConsoleCommand" }
