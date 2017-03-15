@@ -2,6 +2,7 @@
 
 namespace Phpsw\Website\WebsiteGenerator;
 
+use Exception;
 use Phpsw\Website\Importer\Importer;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -20,7 +21,7 @@ class GenerateWebsiteCommand extends Command
     private $importer;
 
     /**
-     * ImportCommand constructor.
+     * GenerateWebsiteCommand constructor.
      *
      * @param WebsiteGenerator $websiteGenerator
      * @param Importer $importer
@@ -34,19 +35,19 @@ class GenerateWebsiteCommand extends Command
 
     protected function configure()
     {
-        $this->setName('website:generate');
+        $this->setName('phpsw:generate-website');
         $this->setDescription('Imports data and generates website.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         try {
-            $output->writeln('Importing data in directory...');
+            $output->writeln('Importing data...');
             $this->importer->import();
             $output->writeln('Generating website....');
             $this->websiteGenerator->generateWebsite();
             $output->writeln('Done');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $output->writeln('Failed to generate website:');
             $output->writeln($e->getMessage());
         }
