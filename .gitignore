@@ -1,5 +1,8 @@
 !.gitkeep
 
+# Web directory (this gets generated)
+web
+
 # project files
 /.idea
 
