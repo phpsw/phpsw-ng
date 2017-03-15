@@ -11,6 +11,10 @@ services:
     class: \Phpsw\Website\WebsiteGenerator\WebsiteBaseDirectory
     arguments: ["%websiteBaseDirectory%"]
 
+  app.websiteGenerator.templateRenderer:
+    class: \Phpsw\Website\WebsiteGenerator\TemplateRenderer\TemplateRenderer
+    autowire: true
+
 
   # Website generator command
   app.websiteGenerator.command:
