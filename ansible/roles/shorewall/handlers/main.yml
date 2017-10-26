@@ -1,0 +1,11 @@
+---
+-   name: restart shorewall
+    command: shorewall restart
+    when: shorewall_enable
+
+-   name: restart shorewall6
+    command: shorewall6 restart
+    when: shorewall_enable
+
+-   name: restart fail2ban
+    service: name=fail2ban.service enabled=yes state=restarted

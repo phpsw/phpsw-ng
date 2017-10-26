@@ -22,5 +22,40 @@ default_users:
 php_packages:
 - php7.0-opcache
 - php7.0-dom
+- php7.0-mbstring
 
 php_xdebug: false
+
+shorewall_enable: true
+shorewall_interfaces:
+- name: eth0
+  zone: net
+  options: dhcp,tcpflags,logmartians,nosmurfs,sourceroute=0
+shorewall6_interfaces:
+- name: eth0
+  zone: net
+  options: dhcp,tcpflags,nosmurfs,sourceroute=0
+shorewall_rules:
+- name: ESTABLISHED
+  rules:
+  - { action: Ping(ACCEPT), source: net, dest: $FW, rate_limit: "d:1/sec:5" }
+  - { action: Ping(DROP), source: net, dest: $FW }
+- name: NEW
+  rules:
+  - { action: SSH(ACCEPT), source: net, dest: $FW }
+  - { action: Ping(ACCEPT), source: net, dest: $FW }
+  - { action: HTTP(ACCEPT), source: net, dest: $FW }
+  - { action: HTTPS(ACCEPT), source: net, dest: $FW }
+  - { action: ACCEPT, source: $FW, dest: net, proto: icmp }
+shorewall6_rules:
+- name: ESTABLISHED
+  rules:
+  - { action: Ping(ACCEPT), source: net, dest: $FW, rate_limit: "d:1/sec:5" }
+  - { action: Ping(DROP), source: net, dest: $FW }
+- name: NEW
+  rules:
+  - { action: SSH(ACCEPT), source: net, dest: $FW }
+  - { action: Ping(ACCEPT), source: net, dest: $FW }
+  - { action: HTTP(ACCEPT), source: net, dest: $FW }
+  - { action: HTTPS(ACCEPT), source: net, dest: $FW }
+  - { action: ACCEPT, source: $FW, dest: net, proto: ipv6-icmp }
