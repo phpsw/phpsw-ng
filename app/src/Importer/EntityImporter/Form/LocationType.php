@@ -18,6 +18,7 @@ class LocationType extends AbstractType
         $builder->add('slug', TextType::class);
         $builder->add('name', TextType::class);
         $builder->add('maps-url', TextType::class, ['property_path' => 'mapsUrl']);
+        $builder->add('website-url', TextType::class, ['property_path' => 'website']);
         $builder->add('address', TextType::class);
         $builder->add('postcode', TextType::class);
     }
