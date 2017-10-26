@@ -2,11 +2,9 @@
 
 namespace Phpsw\Website\WebsiteGenerator\TemplateRenderer;
 
-use Phpsw\Website\Common\RootDirectory;
 use Phpsw\Website\WebsiteGenerator\WebsiteBaseDirectory;
 use Symfony\Component\Filesystem\Filesystem;
 use Twig_Environment;
-use Twig_Loader_Filesystem;
 
 /**
  * Uses Twig to render templates.
@@ -31,15 +29,14 @@ class TemplateRenderer
     /**
      * TemplateRenderer constructor.
      *
-     * @param RootDirectory $rootDirectory
+     * @param TwigWrapper $twigWrapper
      * @param WebsiteBaseDirectory $websiteBaseDirectory
      */
-    public function __construct(RootDirectory $rootDirectory, WebsiteBaseDirectory $websiteBaseDirectory)
+    public function __construct(TwigWrapper $twigWrapper, WebsiteBaseDirectory $websiteBaseDirectory)
     {
         $this->websiteBaseDirectory = $websiteBaseDirectory;
         $this->filesystem = new Filesystem();
-        $twigLoader = new Twig_Loader_Filesystem($rootDirectory->getRootDirectory().'/app/resources/views');
-        $this->twig = new Twig_Environment($twigLoader);
+        $this->twig = $twigWrapper->getTwigEnvironment();
     }
 
     /**
