@@ -49,6 +49,15 @@ class Location
      */
     private $mapsUrl;
 
+
+    /**
+     * @var string;
+     *
+     * @Assert\Type("string")
+     * @Assert\Url()
+     */
+    private $website;
+
     /**
      * @return string
      */
@@ -128,4 +137,21 @@ class Location
     {
         $this->mapsUrl = $mapsUrl;
     }
+
+    /**
+     * @return string
+     */
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+
+    /**
+     * @param string $website
+     */
+    public function setWebsite($website)
+    {
+        $this->website = $website;
+    }
+
 }
