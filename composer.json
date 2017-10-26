@@ -20,7 +20,8 @@
         "symfony/config": "^3.2",
         "symfony/console": "^3.2",
         "twig/twig": "^2.2",
-        "symfony/filesystem": "^3.2"
+        "symfony/filesystem": "^3.2",
+        "symfony/routing": "3.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "~2.0.0",
