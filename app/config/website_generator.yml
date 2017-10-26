@@ -16,6 +16,14 @@ services:
     class: \Phpsw\Website\WebsiteGenerator\TemplateRenderer\TwigWrapper
     autowire: true
 
+  # Register twig extensions
+  app.websiteGenerator.twigExtension.url:
+    class: \Phpsw\Website\WebsiteGenerator\TemplateRenderer\TwigExtension\UrlTwigExtension
+    autowire: true
+    tags:
+      - {name: "TwigExtension"}
+
+
 
   # Website generator command
   app.websiteGenerator.command:
