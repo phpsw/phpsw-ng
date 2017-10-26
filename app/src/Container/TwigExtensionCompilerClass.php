@@ -21,7 +21,7 @@ class TwigExtensionCompilerClass implements CompilerPassInterface
         $taggedServices = $container->findTaggedServiceIds('TwigExtension');
 
         foreach ($taggedServices as $id => $tags) {
-            $definition->addMethodCall('add', [new Reference($id)]);
+            $definition->addMethodCall('addExtension', [new Reference($id)]);
         }
     }
 }

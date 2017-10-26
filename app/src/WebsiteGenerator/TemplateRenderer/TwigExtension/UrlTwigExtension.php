@@ -13,6 +13,10 @@ use Twig_SimpleFunction;
 /**
  * Provides functions to get URLs of routes.
  *
+ * The following twig functions are added:
+ *
+ * url(string routeName, array parameters = []) Returns URL for route name and optional parameters
+ * personUrl(Person $person)  Returns URL for person
  *
  */
 class UrlTwigExtension extends Twig_Extension
@@ -39,7 +43,7 @@ class UrlTwigExtension extends Twig_Extension
     {
         return [
             new Twig_SimpleFunction('url', [$this, 'getUrl']),
-            new Twig_SimpleFunction('psersonUrl', [$this, 'getPersonUrl']),
+            new Twig_SimpleFunction('personUrl', [$this, 'getPersonUrl']),
         ];
     }
 

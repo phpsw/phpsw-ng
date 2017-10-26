@@ -24,6 +24,13 @@ services:
       - {name: "TwigExtension"}
 
 
+  # Register content type generators
+  app.websiteGenerator.contentTypeGenerator.speakers:
+    class: \Phpsw\Website\WebsiteGenerator\ContentTypeGenerator\SpeakerPagesGenerator
+    autowire: true
+    tags:
+      - {name: "ContentTypeGenerator"}
+
 
   # Website generator command
   app.websiteGenerator.command:

@@ -50,13 +50,13 @@ class TemplateRenderer
      */
     public function render(string $filename, string $templateName, array $data)
     {
-        $fullPath = "{$this->websiteBaseDirectory}/$filename}";
+        $fullPath = "{$this->websiteBaseDirectory->getWebsiteBaseDirectory()}/$filename";
         $dir = dirname($fullPath);
         if (!$this->filesystem->exists($dir)) {
             $this->filesystem->mkdir($fullPath, 0755);
         }
 
-        $contents = $this->twig->render($templateName, $data);
-        $this->filesystem->dumpFile($filename, $contents);
+        $contents = $this->twig->render("{$templateName}.twig.html", $data);
+        $this->filesystem->dumpFile($fullPath, $contents);
     }
 }
