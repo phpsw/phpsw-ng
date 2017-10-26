@@ -1,0 +1,25 @@
+# Routes for the generated website
+
+home:
+  path: /
+
+speakers:
+  path: /speakers
+
+speaker:
+  path: /speakers/{speakerSlug}
+
+events:
+  path: /events
+
+event:
+  path: /events/{year}/{month}/{eventSlug}
+
+sponsors:
+  path: /sponsors
+
+talks:
+  path: /talks
+
+talk:
+  path: /events/{year}/{month}/{eventSlug}/{talkSlug}
