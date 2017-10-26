@@ -7,12 +7,13 @@ services:
     class: \Phpsw\Website\WebsiteGenerator\WebsiteGenerator
     autowire: true
 
+  # Value object that holds the base directory for
   app.websiteGenerator.baseDirectory:
     class: \Phpsw\Website\WebsiteGenerator\WebsiteBaseDirectory
     arguments: ["%websiteBaseDirectory%"]
 
-  app.websiteGenerator.templateRenderer:
-    class: \Phpsw\Website\WebsiteGenerator\TemplateRenderer\TemplateRenderer
+  app.websiteGenerator.twigWrapper:
+    class: \Phpsw\Website\WebsiteGenerator\TemplateRenderer\TwigWrapper
     autowire: true
 
 

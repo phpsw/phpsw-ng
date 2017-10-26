@@ -30,6 +30,7 @@ class Container
         $this->containerBuilder->addCompilerPass(new FormTypeCompilerClass());
         $this->containerBuilder->addCompilerPass(new ImporterCompilerClass());
         $this->containerBuilder->addCompilerPass(new CommandCompilerClass());
+        $this->containerBuilder->addCompilerPass(new TwigExtensionCompilerClass());
         $this->containerBuilder->addCompilerPass(new ContentTypeGeneratorCompilerClass());
         $this->containerBuilder->compile();
     }
