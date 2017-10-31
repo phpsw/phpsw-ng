@@ -14,9 +14,9 @@ interface WebsiteInfoRepositoryInterface
     public function persist(WebsiteInfo $websiteInfo);
 
     /**
-     * Returns all websiteInfos ordered by websiteInfo slug (in alphabetical order).
+     * Returns WebsiteInfo (there shoud only be one)
      *
-     * @return WebsiteInfo[]
+     * @return WebsiteInfo
      */
-    public function getAll();
+    public function getWebsiteInfo(): WebsiteInfo;
 }
