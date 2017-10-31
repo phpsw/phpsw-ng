@@ -202,10 +202,10 @@ class ImporterTest extends TestCase
     {
         return $this->getValue('website', function () {
             $organisers = [$this->getFredBlogs(), $this->getJohnSmith()];
+            $sponsors = [$this->getSponsorAcme()];
             $website = new WebsiteInfo();
             $website->setSlug('website');
-            $website->setDescription('PHPSW is amazing');
-            $website->setPhotoUrl('http://phpsq.uk/logo');
+            $website->setSponsors($sponsors);
             $website->setOrganisers($organisers);
 
             return $website;

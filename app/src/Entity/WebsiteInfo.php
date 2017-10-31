@@ -18,21 +18,12 @@ class WebsiteInfo
     private $slug;
 
     /**
-     * @var string
-     * @Assert\NotBlank()
-     * @Assert\Length(min="3")
-     * @Assert\Type("string")
-     */
-    private $description;
-
-    /**
-     * @var string
+     * @var Sponsor[]
      *
-     * @Assert\NotBlank()
-     * @Assert\Url()
-     * @Assert\Type("string")
+     * @Assert\Collection()
+     * @Assert\Count(min="1")
      */
-    private $photoUrl;
+    private $sponsors;
 
     /**
      * @var Person[]
@@ -59,38 +50,6 @@ class WebsiteInfo
     }
 
     /**
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @param string $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPhotoUrl()
-    {
-        return $this->photoUrl;
-    }
-
-    /**
-     * @param string $photoUrl
-     */
-    public function setPhotoUrl($photoUrl)
-    {
-        $this->photoUrl = $photoUrl;
-    }
-
-    /**
      * @return Person[]
      */
     public function getOrganisers()
@@ -105,4 +64,21 @@ class WebsiteInfo
     {
         $this->organisers = $organisers;
     }
+
+    /**
+     * @return Sponsor[]
+     */
+    public function getSponsors()
+    {
+        return $this->sponsors;
+    }
+
+    /**
+     * @param Sponsor[] $sponsors
+     */
+    public function setSponsors($sponsors)
+    {
+        $this->sponsors = $sponsors;
+    }
+
 }

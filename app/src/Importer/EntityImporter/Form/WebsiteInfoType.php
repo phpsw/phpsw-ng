@@ -17,14 +17,21 @@ class WebsiteInfoType extends AbstractType
     private $peopleTransformer;
 
     /**
-     * WebsiteInfoType constructor.
-     *
-     * @param PeopleTransformer $peopleTransformer
+     * @var SponsorsTransformer
      */
-    public function __construct(PeopleTransformer $peopleTransformer)
+    private $sponsorTransformer;
+
+    /**
+     * WebsiteInfoType constructor.
+     * @param PeopleTransformer $peopleTransformer
+     * @param SponsorsTransformer $sponsorTransformer
+     */
+    public function __construct(PeopleTransformer $peopleTransformer, SponsorsTransformer $sponsorTransformer)
     {
         $this->peopleTransformer = $peopleTransformer;
+        $this->sponsorTransformer = $sponsorTransformer;
     }
+
 
     /**
      * {@inheritdoc}
@@ -32,13 +39,17 @@ class WebsiteInfoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('slug', TextType::class);
-        $builder->add('description', TextType::class);
-        $builder->add('photo-url', TextType::class, ['property_path' => 'photoUrl']);
         $builder->add('organisers', CollectionType::class, [
             'entry_type' => TextType::class,
             'allow_add' => true,
         ]);
+        $builder->add('sponsors', CollectionType::class, [
+            'entry_type' => TextType::class,
+            'allow_add' => true,
+        ]);
+
         $builder->get('organisers')->addModelTransformer($this->peopleTransformer);
+        $builder->get('sponsors')->addModelTransformer($this->sponsorTransformer);
     }
 
     /**
