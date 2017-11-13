@@ -1,7 +1,11 @@
-<h1>PHP-SW speakers</h1>
+{% extends "base.html.twig" %}
 
-<ul>
-    {% for speaker in speakers %}
-    <li><img src="{{ speaker.photoUrl }}" /><a href="{{ personUrl(speaker) }}" >{{ speaker.name }}</a></li>
-    {% endfor %}
-</ul>
+{% block body %}
+    <h1>PHP-SW speakers</h1>
+
+    <ul>
+        {% for speaker in speakers %}
+        <li><img src="{{ speaker.photoUrl }}" /><a href="{{ personUrl(speaker) }}" >{{ speaker.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
