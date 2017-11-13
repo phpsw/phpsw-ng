@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-    {% include "_nav.html.twig" %}
+    {% include "_header.html.twig" %}
 
-    {% block body %}{% endblock %}
+    <div class="container mx-auto">
+        {% block body %}{% endblock %}
+    </div>
 </body>
 </html>

@@ -1,0 +1,17 @@
+<div class="container mx-auto px-2">
+    <div class="header flex">
+        <div class="w-1/6">
+            <a href="/" class="block">
+                {% include "svg/_logo.html.twig" %}
+            </a>
+        </div>
+
+        <div class="flex flex-auto flex-row-reverse mt-4">
+            {% include "svg/_balloon.html.twig" with { class: "balloon balloon-medium balloon--up text-blue-lighter" } %}
+            {% include "svg/_balloon.html.twig" with { class: "balloon balloon-large balloon--down text-blue-light" } %}
+            {% include "svg/_balloon.html.twig" with { class: "balloon balloon-small balloon--up text-blue-lightest" } %}
+        </div>
+    </div>
+</div>
+
+{% include "_nav.html.twig" %}
