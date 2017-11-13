@@ -49,7 +49,6 @@ class Location
      */
     private $mapsUrl;
 
-
     /**
      * @var string;
      *
@@ -153,5 +152,4 @@ class Location
     {
         $this->website = $website;
     }
-
 }

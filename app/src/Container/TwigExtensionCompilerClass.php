@@ -8,7 +8,6 @@ use Symfony\Component\DependencyInjection\Reference;
 
 /**
  * Registers TwigExtensions with the template renderer.
- *
  */
 class TwigExtensionCompilerClass implements CompilerPassInterface
 {

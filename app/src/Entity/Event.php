@@ -129,7 +129,7 @@ class Event
     }
 
     /**
-     * String representation of the year e.g. 2017
+     * String representation of the year e.g. 2017.
      *
      * @return string
      */
@@ -139,7 +139,7 @@ class Event
     }
 
     /**
-     * String representation of the month e.g. 03 for March
+     * String representation of the month e.g. 03 for March.
      *
      * @return string
      */
@@ -147,7 +147,6 @@ class Event
     {
         return $this->date->format('m');
     }
-
 
     /**
      * @return string

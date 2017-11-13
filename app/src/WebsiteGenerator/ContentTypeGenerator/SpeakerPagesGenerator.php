@@ -6,9 +6,8 @@ use Phpsw\Website\Entity\Person;
 use Phpsw\Website\Repository\PersonRepositoryInterface;
 use Phpsw\Website\WebsiteGenerator\TemplateRenderer\TemplateRenderer;
 
-
 /**
- * Generates:
+ * Generates:.
  *
  * - speakers page: lists all speakers
  * - speaker page: One per person, this lists all the talks the speaker has given

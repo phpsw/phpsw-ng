@@ -13,7 +13,7 @@ use Symfony\Component\Form\Exception\TransformationFailedException;
 class DateTransformer implements DataTransformerInterface
 {
     /**
-     * Transforms a date object to a string representation
+     * Transforms a date object to a string representation.
      *
      * {@inheritdoc}
      */
@@ -27,7 +27,7 @@ class DateTransformer implements DataTransformerInterface
     }
 
     /**
-     * Transforms a string representation to a date object
+     * Transforms a string representation to a date object.
      *
      * {@inheritdoc}
      */
@@ -40,6 +40,7 @@ class DateTransformer implements DataTransformerInterface
 
         $dateTime = new \DateTime();
         $dateTime->setTimestamp($timestamp);
+
         return $dateTime;
     }
 }

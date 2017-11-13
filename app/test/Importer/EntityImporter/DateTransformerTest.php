@@ -3,14 +3,12 @@
 namespace Phpsw\Website\Tests\Importer\EntityImporter;
 
 use DateTime;
-use Phpsw\Website\Entity\Location;
 use Phpsw\Website\Importer\EntityImporter\Form\DateTransformer;
-use Phpsw\Website\Repository\InMemory\LocationRepository;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Constraints\Date;
 
 /**
- * Tests Date transformer
+ * Tests Date transformer.
  */
 class DateTransformerTest extends TestCase
 {
@@ -32,7 +30,6 @@ class DateTransformerTest extends TestCase
         ];
     }
 
-
     /**
      * @dataProvider validDateDataProvider
      *
@@ -53,5 +50,4 @@ class DateTransformerTest extends TestCase
         $actual = $this->dateTransformer->transform(null);
         $this->assertNull($actual);
     }
-
 }

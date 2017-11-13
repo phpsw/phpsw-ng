@@ -23,6 +23,7 @@ class WebsiteInfoType extends AbstractType
 
     /**
      * WebsiteInfoType constructor.
+     *
      * @param PeopleTransformer $peopleTransformer
      * @param SponsorsTransformer $sponsorTransformer
      */
@@ -31,7 +32,6 @@ class WebsiteInfoType extends AbstractType
         $this->peopleTransformer = $peopleTransformer;
         $this->sponsorTransformer = $sponsorTransformer;
     }
-
 
     /**
      * {@inheritdoc}

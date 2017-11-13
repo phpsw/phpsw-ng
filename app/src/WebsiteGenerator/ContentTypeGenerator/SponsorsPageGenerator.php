@@ -2,14 +2,11 @@
 
 namespace Phpsw\Website\WebsiteGenerator\ContentTypeGenerator;
 
-use Phpsw\Website\Entity\Person;
-use Phpsw\Website\Repository\PersonRepositoryInterface;
 use Phpsw\Website\Repository\WebsiteInfoRepositoryInterface;
 use Phpsw\Website\WebsiteGenerator\TemplateRenderer\TemplateRenderer;
 
-
 /**
- * Generates:
+ * Generates:.
  *
  * - sponsors page (this shows only the current sponsors)
  */
@@ -22,13 +19,13 @@ class SponsorsPageGenerator implements ContentTypeGeneratorsInterface
 
     /**
      * SponsorsPageGenerator constructor.
+     *
      * @param WebsiteInfoRepositoryInterface $websiteInfoRepository
      */
     public function __construct(WebsiteInfoRepositoryInterface $websiteInfoRepository)
     {
         $this->websiteInfoRepository = $websiteInfoRepository;
     }
-
 
     /**
      * Generate pages for content type.
@@ -46,5 +43,4 @@ class SponsorsPageGenerator implements ContentTypeGeneratorsInterface
             'sponsors' => $websiteInfo->getSponsors(),
         ]);
     }
-
 }

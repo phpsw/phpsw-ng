@@ -5,15 +5,13 @@ namespace Phpsw\Website\WebsiteGenerator\ContentTypeGenerator;
 use Phpsw\Website\Repository\WebsiteInfoRepositoryInterface;
 use Phpsw\Website\WebsiteGenerator\TemplateRenderer\TemplateRenderer;
 
-
 /**
- * Generates:
+ * Generates:.
  *
  * - index.html
  */
 class HomePageGenerator implements ContentTypeGeneratorsInterface
 {
-
     /**
      * @var WebsiteInfoRepositoryInterface
      */
@@ -21,13 +19,13 @@ class HomePageGenerator implements ContentTypeGeneratorsInterface
 
     /**
      * HomePageGenerator constructor.
+     *
      * @param WebsiteInfoRepositoryInterface $websiteInfoRepository
      */
     public function __construct(WebsiteInfoRepositoryInterface $websiteInfoRepository)
     {
         $this->websiteInfoRepository = $websiteInfoRepository;
     }
-
 
     /**
      * Generate home page.
@@ -42,5 +40,4 @@ class HomePageGenerator implements ContentTypeGeneratorsInterface
             'info' => $websiteInfo,
         ]);
     }
-
 }

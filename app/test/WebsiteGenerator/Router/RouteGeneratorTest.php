@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Phpsw\Website\Tests\WebsiteGenerator\Router;
-
 
 use Phpsw\Website\Common\RootDirectory;
 use Phpsw\Website\WebsiteGenerator\Router\RouteGenerator;
@@ -10,19 +8,16 @@ use PHPUnit\Framework\TestCase;
 
 class RouteGeneratorTest extends TestCase
 {
-
     /**
      * @var RouteGenerator
      */
     private $routeGenerator;
 
-
     protected function setUp()
     {
-        $rootDirectory = new RootDirectory(__DIR__ . '/../../../../');
+        $rootDirectory = new RootDirectory(__DIR__.'/../../../../');
         $this->routeGenerator = new RouteGenerator($rootDirectory);
     }
-
 
     public function validRoutesDataProvider()
     {

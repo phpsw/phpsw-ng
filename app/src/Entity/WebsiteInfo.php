@@ -80,5 +80,4 @@ class WebsiteInfo
     {
         $this->sponsors = $sponsors;
     }
-
 }

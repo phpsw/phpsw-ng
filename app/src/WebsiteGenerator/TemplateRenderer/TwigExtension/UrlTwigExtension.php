@@ -1,14 +1,11 @@
 <?php
 
-
 namespace Phpsw\Website\WebsiteGenerator\TemplateRenderer\TwigExtension;
-
 
 use Phpsw\Website\Entity\Person;
 use Phpsw\Website\WebsiteGenerator\Router\RouteGenerator;
 use Twig_Extension;
 use Twig_SimpleFunction;
-
 
 /**
  * Provides functions to get URLs of routes.
@@ -17,7 +14,6 @@ use Twig_SimpleFunction;
  *
  * url(string routeName, array parameters = []) Returns URL for route name and optional parameters
  * personUrl(Person $person)  Returns URL for person
- *
  */
 class UrlTwigExtension extends Twig_Extension
 {
@@ -28,13 +24,13 @@ class UrlTwigExtension extends Twig_Extension
 
     /**
      * UrlTwigExtension constructor.
+     *
      * @param RouteGenerator $routeGenerator
      */
     public function __construct(RouteGenerator $routeGenerator)
     {
         $this->routeGenerator = $routeGenerator;
     }
-
 
     /**
      * {@inheritdoc}
@@ -47,12 +43,10 @@ class UrlTwigExtension extends Twig_Extension
         ];
     }
 
-
     public function getUrl(string $routeName, array $parameters = []): string
     {
         return $this->routeGenerator->getPath($routeName, $parameters);
     }
-
 
     public function getPersonUrl(Person $person): string
     {

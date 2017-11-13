@@ -1,14 +1,11 @@
 <?php
 
-
 namespace Phpsw\Website\WebsiteGenerator\TemplateRenderer;
-
 
 use Phpsw\Website\Common\RootDirectory;
 use Twig_Environment;
 use Twig_ExtensionInterface;
 use Twig_Loader_Filesystem;
-
 
 /**
  * Wraps up twig environment.
@@ -17,7 +14,6 @@ use Twig_Loader_Filesystem;
  */
 class TwigWrapper
 {
-
     /**
      * @var Twig_Environment
      */
@@ -35,7 +31,7 @@ class TwigWrapper
     }
 
     /**
-     * Add twig extension
+     * Add twig extension.
      *
      * @param Twig_ExtensionInterface $twigExtension
      */
@@ -51,5 +47,4 @@ class TwigWrapper
     {
         return $this->twig;
     }
-
 }
