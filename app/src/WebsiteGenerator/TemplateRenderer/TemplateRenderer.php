@@ -52,8 +52,9 @@ class TemplateRenderer
     {
         $fullPath = "{$this->websiteBaseDirectory->getWebsiteBaseDirectory()}/$filename";
         $dir = dirname($fullPath);
+
         if (!$this->filesystem->exists($dir)) {
-            $this->filesystem->mkdir($fullPath, 0755);
+            $this->filesystem->mkdir($dir, 0755);
         }
 
         $contents = $this->twig->render("{$templateName}.twig.html", $data);
