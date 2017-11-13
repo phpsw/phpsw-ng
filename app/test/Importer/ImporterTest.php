@@ -2,6 +2,7 @@
 
 namespace Phpsw\Website\Tests\Importer;
 
+use DateTime;
 use Phpsw\Website\Container\Container;
 use Phpsw\Website\Entity\Event;
 use Phpsw\Website\Entity\Location;
@@ -217,11 +218,15 @@ class ImporterTest extends TestCase
      */
     private function getEvent()
     {
-        return $this->getValue('event', function () {
+        $timestamp = strtotime('November 2016');
+        $dateTime = new DateTime();
+        $dateTime->setTimestamp($timestamp);
+
+        return $this->getValue('event', function () use ($dateTime) {
             $event = new Event();
             $event->setSlug('new-skills');
             $event->setDescription('learn something new');
-            $event->setDate('November 2016');
+            $event->setDate($dateTime);
             $event->setMeetupId('123');
             $event->setOrganisers([$this->getJohnSmith()]);
             $event->setPub($this->getLocationPub());

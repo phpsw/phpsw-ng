@@ -2,6 +2,7 @@
 
 namespace Phpsw\Website\Entity;
 
+use DateTime;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Event
@@ -22,9 +23,8 @@ class Event
     private $meetupId;
 
     /**
-     * @var string
+     * @var DateTime
      *
-     * @Assert\Type("string")
      * @Assert\NotBlank()
      */
     private $date;
@@ -113,7 +113,7 @@ class Event
     }
 
     /**
-     * @return string
+     * @return DateTime
      */
     public function getDate()
     {
@@ -121,12 +121,33 @@ class Event
     }
 
     /**
-     * @param string $date
+     * @param DateTime $date
      */
     public function setDate($date)
     {
         $this->date = $date;
     }
+
+    /**
+     * String representation of the year e.g. 2017
+     *
+     * @return string
+     */
+    public function getYear(): string
+    {
+        return $this->date->format('Y');
+    }
+
+    /**
+     * String representation of the month e.g. 03 for March
+     *
+     * @return string
+     */
+    public function getMonth(): string
+    {
+        return $this->date->format('m');
+    }
+
 
     /**
      * @return string
