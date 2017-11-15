@@ -1,5 +1,6 @@
 @import (less) "~normalize.css/normalize.css";
 @import (less) "~suitcss-base/lib/base.css";
+@import (less) "~font-awesome/less/font-awesome.less";
 
 @tailwind preflight;
 
@@ -10,6 +11,10 @@ svg {
 a {
     @apply .text-blue;
     text-decoration: none;
+}
+
+.content p {
+    @apply .mb-4;
 }
 
 @import 'components/balloons';

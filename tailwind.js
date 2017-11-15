@@ -49,8 +49,8 @@ var colors = {
   'black': '#222b2f',
   'grey-darkest': '#364349',
   'grey-darker': '#777',
-  'grey-dark': '#777',
-  'grey': '#555',
+  'grey-dark': '#555',
+  'grey': '#333',
   'grey-light': '#555',
   'grey-lighter': '#e7e7e7',
   'grey-lightest': '#F8F8F8',
@@ -625,6 +625,8 @@ module.exports = {
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
+    '16': '4rem',
+    '32': '8rem',
   },
 
 
@@ -652,6 +654,8 @@ module.exports = {
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
+    '16': '4rem',
+    '32': '8rem',
   },
 
 
@@ -679,6 +683,8 @@ module.exports = {
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
+    '16': '4rem',
+    '32': '8rem',
   },
 
 
