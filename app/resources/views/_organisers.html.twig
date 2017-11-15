@@ -1,0 +1,9 @@
+<div>
+    <h2 class="mb-2">Organisers</h2>
+
+    <ul class="flex flex-wrap">
+        {% for organiser in info.organisers %}
+            {% include '_organiser.html.twig' %}
+        {% endfor %}
+    </ul>
+</div>

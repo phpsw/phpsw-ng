@@ -1,0 +1,37 @@
+<li class="w-1/2 mb-4 pr-4 relative flex-none flex items-center" style="min-height: 50px">
+    <div class="pl-16">
+        <div class="mb-1 text-sm">
+            {% if organiser.getWebsiteUrl %}
+                <a href="{{ organiser.getWebsiteUrl }}">{{ organiser.name }}</a>
+            {% else %}
+                {{ organiser.name }}
+            {% endif %}
+        </div>
+
+        <div class="flex">
+            {% if organiser.getTwitterHandle %}
+                <a href="{{ organiser.getTwitterHandle }}" class="text-sm mr-1">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            {% endif %}
+
+            {% if organiser.getGithubHandle %}
+                <a href="{{ organiser.getGithubHandle }}" class="text-sm mr-1">
+                    <i class="fa fa-github"></i>
+                </a>
+            {% endif %}
+
+            {% if organiser.getWebsiteUrl %}
+                <a href="{{ organiser.getWebsiteUrl }}" class="text-sm mr-1">
+                    <i class="fa fa-globe"></i>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <img src="{{ organiser.getPhotoUrl }}"
+         alt="{{ organiser.name }}"
+         height="50"
+         width="50"
+         class="bg-white rounded-full absolute pin-t pin-l border border-grey-lighter">
+</li>

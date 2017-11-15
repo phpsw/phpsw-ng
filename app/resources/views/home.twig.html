@@ -9,10 +9,9 @@
             <p>Find out more at <a href="http://www.meetup.com/php-sw">meetup.com/php-sw</a> and note our <a href="#0">code of conduct</a>.</p>
         </div>
 
-    <p>Sponsors:</p>
-    <ul>
-        {% for sponsor in info.sponsors %}
-        <li><a href="{{ sponsor.websiteUrl }}" >{{ sponsor.name }}</a></li>
-        {% endfor %}
-    </ul>
+        <div class="w-1/3 px-4">
+            {% include "_sponsors.html.twig" %}
+            {% include "_organisers.html.twig" %}
+        </div>
+    </div>
 {% endblock %}

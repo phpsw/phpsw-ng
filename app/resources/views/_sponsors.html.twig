@@ -1,0 +1,9 @@
+<div class="mb-4">
+    <h2 class="mb-2">Sponsors</h2>
+
+    <ul class="flex flex-wrap">
+        {% for sponsor in info.sponsors %}
+            {% include "_sponsor.html.twig" %}
+        {% endfor %}
+    </ul>
+</div>
