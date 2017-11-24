@@ -1,11 +1,13 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1>{{ speaker.name }}</h1>
+    <div class="content">
+        <h1>{{ speaker.name }}</h1>
 
-    <p class="text-grey-light">{{ speaker.description }}</p><br><br>
+        <p class="text-grey-light">{{ speaker.description }}</p><br><br>
 
-    {{ speaker.websiteUrl }}<br><br>
+        {{ speaker.websiteUrl }}<br><br>
 
-    {% include "partials/speaker/talks.html.twig" %}
+        {% include "partials/speaker/talks.html.twig" %}
+    </div>
 {% endblock %}

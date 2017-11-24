@@ -2,11 +2,24 @@
 
 {% block body %}
     <div class="mx-4">
-        <h1>PHP-SW speakers</h1>
+        <div class="content">
+            <h1>PHP-SW speakers</h1>
 
-        <ul class="flex flex-wrap">
-            {% for speaker in speakers %}
-                <li class="border border-green text-center relative mb-2 pb-4" style="width: 10%">
+            <ul class="flex flex-wrap list-reset">
+                {% for speaker in speakers %}
+                    <li class="border border-green text-center relative mb-2 pb-4" style="width: 10%">
+                        <a href="{{ personUrl(speaker) }}" class="block">
+                            <div class="block text-sm absolute pin-b pin-x">{{ speaker.name }}</div>
+
+                            <img src="{{ speaker.photoUrl }}"
+                                class="rounded-full border border-grey-lighter bg-white"
+                                height="85"
+                                width="85">
+                        </a>
+                    </li>
+                {% endfor %}
+                {% for speaker in speakers %}
+                <li class="border border-green text-center mb-2 relative pb-4" style="width: 10%">
                     <a href="{{ personUrl(speaker) }}" class="block">
                         <div class="block text-sm absolute pin-b pin-x">{{ speaker.name }}</div>
 
