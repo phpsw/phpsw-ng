@@ -57,6 +57,8 @@ class TemplateRenderer
             $this->filesystem->mkdir($dir, 0755);
         }
 
+        $data['page']['template'] = $templateName;
+
         $contents = $this->twig->render("{$templateName}.twig.html", $data);
         $this->filesystem->dumpFile($fullPath, $contents);
     }

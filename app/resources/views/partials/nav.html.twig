@@ -2,9 +2,9 @@
     <div class="container mx-auto px-2">
         <div class="flex">
             <div class="flex-auto">
-                <a class="nav-item nav-item--active" href="/">Home</a>
-                <a class="nav-item" href="{{ url('speakers') }}">Speakers</a>
-                <a class="nav-item" href="{{ url('sponsors') }}">Sponsors</a>
+                <a class="nav-item {{ page.template == 'home' ? 'nav-item--active' }}" href="/">Home</a>
+                <a class="nav-item {{ page.template matches '/speakers?/' ? 'nav-item--active' }}" href="{{ url('speakers') }}">Speakers</a>
+                <a class="nav-item {{ page.template == 'sponsors' ? 'nav-item--active' }}" href="{{ url('sponsors') }}">Sponsors</a>
             </div>
 
             <div class="flex items-center">
