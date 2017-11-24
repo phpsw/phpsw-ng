@@ -199,4 +199,9 @@ class Talk
             $speaker->addTalk($this);
         }
     }
+
+    public function getPath()
+    {
+        return "talks/{$this->getSlug()}";
+    }
 }

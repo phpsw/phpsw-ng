@@ -279,4 +279,9 @@ class Event
     {
         return $this->talks;
     }
+
+    public function getPath()
+    {
+        return "events/{$this->getSlug()}";
+    }
 }
