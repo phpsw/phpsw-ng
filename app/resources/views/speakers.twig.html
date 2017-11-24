@@ -3,9 +3,15 @@
 {% block body %}
     <h1>PHP-SW speakers</h1>
 
-    <ul>
+    <ul class="flex">
         {% for speaker in speakers %}
-        <li><img src="{{ speaker.photoUrl }}" /><a href="{{ personUrl(speaker) }}" >{{ speaker.name }}</a></li>
+            <li class="w-1/6 bg-right-lightest mr-4 mb-4">
+                <img src="{{ speaker.photoUrl }}"
+                     class="rounded-full border border-grey-lighter"
+                     height="100"
+                     width="100">
+                <a href="{{ personUrl(speaker) }}" >{{ speaker.name }}</a>
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}
