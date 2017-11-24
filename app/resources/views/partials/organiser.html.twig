@@ -10,13 +10,13 @@
 
         <div class="flex">
             {% if organiser.twitterHandle %}
-                <a href="{{ organiser.twitterHandle }}" class="text-sm mr-1">
+                <a href="https://twitter.com/{{ organiser.twitterHandle }}" class="text-sm mr-1">
                     <i class="fa fa-twitter"></i>
                 </a>
             {% endif %}
 
             {% if organiser.githubHandle %}
-                <a href="{{ organiser.githubHandle }}" class="text-sm mr-1">
+                <a href="https://github.com/{{ organiser.githubHandle }}" class="text-sm mr-1">
                     <i class="fa fa-github"></i>
                 </a>
             {% endif %}
