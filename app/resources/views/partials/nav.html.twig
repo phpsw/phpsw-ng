@@ -2,8 +2,10 @@
     <div class="flex">
         <div class="flex-auto">
             <a class="nav-item {{ page.template == 'home' ? 'nav-item--active' }}" href="/">Home</a>
+            <a href="#0" class="nav-item">Events</a>
             <a class="nav-item {{ page.template matches '/speakers?/' ? 'nav-item--active' }}" href="{{ url('speakers') }}">Speakers</a>
-            <a class="nav-item {{ page.template == 'sponsors' ? 'nav-item--active' }}" href="{{ url('sponsors') }}">Sponsors</a>
+            <a class="nav-item {{ page.template == 'sponsors' ? 'nav-item--active' }}" href="#0">Sponsors</a>
+            <a href="#0" class="nav-item">Talks</a>
         </div>
 
         <div class="flex items-center">
