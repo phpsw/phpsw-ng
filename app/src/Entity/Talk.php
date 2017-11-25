@@ -202,6 +202,6 @@ class Talk
 
     public function getPath()
     {
-        return "talks/{$this->getSlug()}";
+        return "/talks/{$this->getSlug()}";
     }
 }

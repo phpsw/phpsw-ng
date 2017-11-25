@@ -282,6 +282,6 @@ class Event
 
     public function getPath()
     {
-        return "events/{$this->getSlug()}";
+        return "/events/{$this->getSlug()}";
     }
 }
