@@ -1,6 +1,12 @@
 {% extends "base.html.twig" %}
 
-{% block body %}
+{% block content_top %}
+    {% include "partials/hero.html.twig" with {
+        image_url: '/images/hero/home.jpg',
+    } %}
+{% endblock %}
+
+{% block content %}
     <div class="flex">
         <div class="w-2/3 px-4 content leading-normal text-sm">
             <h1 class="mb-4">PHP meetups in the south west, UK</h1>
