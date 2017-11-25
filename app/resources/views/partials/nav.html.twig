@@ -1,38 +1,36 @@
-<div class="bg-grey-lightest mb-4">
-    <div class="container mx-auto px-2">
-        <div class="flex">
-            <div class="flex-auto">
-                <a class="nav-item {{ page.template == 'home' ? 'nav-item--active' }}" href="/">Home</a>
-                <a class="nav-item {{ page.template matches '/speakers?/' ? 'nav-item--active' }}" href="{{ url('speakers') }}">Speakers</a>
-                <a class="nav-item {{ page.template == 'sponsors' ? 'nav-item--active' }}" href="{{ url('sponsors') }}">Sponsors</a>
+<div class="container mx-auto px-2">
+    <div class="flex">
+        <div class="flex-auto">
+            <a class="nav-item {{ page.template == 'home' ? 'nav-item--active' }}" href="/">Home</a>
+            <a class="nav-item {{ page.template matches '/speakers?/' ? 'nav-item--active' }}" href="{{ url('speakers') }}">Speakers</a>
+            <a class="nav-item {{ page.template == 'sponsors' ? 'nav-item--active' }}" href="{{ url('sponsors') }}">Sponsors</a>
+        </div>
+
+        <div class="flex items-center">
+            <div class="ml-4">
+                <a href="http://www.meetup.com/php-sw/members"
+                   class="text-sm text-grey-light hover:text-black">
+                    <i class="fa fa-group"></i>
+                    579 members
+                </a>
             </div>
 
-            <div class="flex items-center">
-                <div class="ml-4">
-                    <a href="http://www.meetup.com/php-sw/members"
-                       class="text-sm text-grey-light hover:text-black">
-                        <i class="fa fa-group"></i>
-                        579 members
-                    </a>
-                </div>
+            <div class="ml-4">
+                <a href="http://www.meetup.com/php-sw/about/comments/?op=all"
+                   class="text-sm text-grey-light hover:text-black">
+                    <i class="fa fa-thumbs-o-up"></i>
+                    4.7/5 from 139 ratings
+                </a>
+            </div>
 
-                <div class="ml-4">
-                    <a href="http://www.meetup.com/php-sw/about/comments/?op=all"
-                       class="text-sm text-grey-light hover:text-black">
-                        <i class="fa fa-thumbs-o-up"></i>
-                        4.7/5 from 139 ratings
-                    </a>
-                </div>
+            <div class="ml-4">
+                <a href="https://twitter.com/phpsw" class="text-grey-light hover:text-black">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </div>
 
-                <div class="ml-4">
-                    <a href="https://twitter.com/phpsw" class="text-grey-light hover:text-black">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                </div>
-
-                <div class="ml-4">
-                    <a href="#" class="inline-block bg-red text-white py-2 px-3 rounded text-sm">Join group</a>
-                </div>
+            <div class="ml-4">
+                <a href="#" class="inline-block bg-red text-white py-2 px-3 rounded text-sm">Join group</a>
             </div>
         </div>
     </div>

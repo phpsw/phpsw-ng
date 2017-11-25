@@ -5,12 +5,16 @@
     <title>PHPSW</title>
     <link rel="stylesheet" href="/css/site.css">
 </head>
-<body>
+<body class="bg-grey-lightest">
     {% include "partials/header.html.twig" %}
 
-    <div class="container mx-auto px-2">
-        <div class="-mx-4">
-            {% block body %}{% endblock %}
+    {% block content_top %}{% endblock %}
+
+    <div class="bg-white py-8">
+        <div class="container mx-auto px-2">
+            <div class="-mx-4">
+                {% block content %}{% endblock %}
+            </div>
         </div>
     </div>
 

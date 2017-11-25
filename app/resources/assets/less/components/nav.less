@@ -1,12 +1,15 @@
 .nav-item {
-    @apply .inline-block;
+    @apply .float-left;
     @apply .px-3;
     @apply .py-4;
     @apply .text-sm;
     @apply .text-grey-light;
+    transition: .2s;
 
+    &:active,
+    &:focus,
     &:hover {
-        @apply .text-grey-dark;
+        @apply .text-grey;
     }
 }
 
