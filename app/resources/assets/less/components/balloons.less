@@ -6,7 +6,7 @@
     transition: 1s ease-in-out;
 }
 
-.hedaer .balloon {
+.header .balloon {
     animation: launch 2s ease-in-out;
 }
 
@@ -21,5 +21,15 @@
 
     .balloon--down {
         transform: translateY(.5em);
+    }
+}
+
+@keyframes launch {
+    0% {
+        transform: translate(-200%, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
     }
 }
