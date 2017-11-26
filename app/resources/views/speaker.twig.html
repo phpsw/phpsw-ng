@@ -1,6 +1,11 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
+    <div class="title">
+        <h1 class="text-2xl mb-2">{{ speaker.name }}</h1>
+        <p class="text-xl text-grey-light">{{ speaker.description }}</p>
+    </div>
+
     <div class="flex">
         <div class="content w-2/3">
             <h1>{{ speaker.name }}</h1>
