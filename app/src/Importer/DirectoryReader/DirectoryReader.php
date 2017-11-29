@@ -43,17 +43,29 @@ class DirectoryReader
      */
     public function getFileNameMappings(string $directory)
     {
-        $fullDirector = $this->rootDirectory->getRootDirectory()."/$directory";
-        $files = scandir($fullDirector);
+        return $this->getDirectoryContentsRecursively($this->rootDirectory->getRootDirectory()."/$directory");
+    }
+
+
+
+    private function getDirectoryContentsRecursively(string $directory): array
+    {
+        $files = scandir($directory);
 
         $return = [];
         foreach ($files as $file) {
-            if (substr($file, -5) === '.json') {
+
+            $fullPath = "$directory/$file";
+
+            if (is_dir("$directory/$file") && (!in_array($file, ['.', '..']))) {
+                $return = array_merge($return, $this->getDirectoryContentsRecursively($fullPath));
+            } elseif (substr($file, -5) === '.json') {
                 $entityName = substr($file, 0, -5);
-                $return[$entityName] = "$fullDirector/$file";
+                $return[$entityName] = $fullPath;
             }
         }
 
         return $return;
+
     }
 }
