@@ -6,7 +6,7 @@
     "properties": {
         "meetup-id": {
             "description": "The meetup ID",
-            "type": "integer"
+            "type": "string"
         },
         "date": {
             "description": "Date of the event",
