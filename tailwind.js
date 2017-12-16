@@ -53,8 +53,8 @@ let colors = {
   'grey-darker': '#333',
   'grey-dark': '#777',
   'grey': '#555',
-  'grey-light': '#e7e7e7',
-  'grey-lighter': '#eee',
+  'grey-light': '#999',
+  'grey-lighter': '#e7e7e7',
   'grey-lightest': '#f8f8f8',
 
   'teal-darker': '#4e707f',
@@ -134,15 +134,6 @@ module.exports = {
 
   fonts: {
     'sans': [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      'Segoe UI',
-      'Roboto',
-      'Oxygen',
-      'Ubuntu',
-      'Cantarell',
-      'Fira Sans',
-      'Droid Sans',
       'Helvetica Neue',
       'sans-serif',
     ],
