@@ -1,6 +1,6 @@
  <footer class="pt-4 pb-8 mt-4">
     <div class="container mx-auto text-sm px-4">
-        <div class="w-3/4 flex flex-wrap">
+        <div class="lg:w-3/4 flex flex-wrap">
             <div class="w-full md:w-1/4 mb-4 md:mb-0">
                 {% include "svg/logo.html.twig" with {
                     class: 'h-12 fill-current',
@@ -9,7 +9,7 @@
                 } %}
             </div>
 
-            <div class="w-1/2 lg:w-1/4">
+            <div class="w-1/2 md:w-1/4 mb-6 md:mb-0">
                 <h2 class="text-teal-darker text-lg mb-3">Meetup</h2>
 
                 <ul class="list-reset">
@@ -40,7 +40,38 @@
                 </ul>
             </div>
 
-            <div class="w-1/2 lg:w-1/4">
+            <div class="w-1/2 md:w-1/4 mb-6 md:mb-0">
+                <h2 class="text-teal-darker text-lg font-medium mb-3">Support us</h2>
+
+                <ul class="list-reset">
+                    <li>
+                        <a class="text-teal-dark mb-2 flex items-center" href="#0">
+                            {% include "svg/calendar.html.twig" with { class: 'fill-current w-4 mr-1' } %}
+                            Code of conduct
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-teal-dark mb-2 flex items-center" href="#0">
+                            {% include "svg/mail.html.twig" with { class: 'fill-current w-4 mr-1' } %}
+                            Get in touch
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-teal-dark mb-2 flex items-center" href="#0">
+                            {% include "svg/modern-mic.html.twig" with { class: 'fill-current w-4 mr-1' } %}
+                            Submit a talk
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-teal-dark mb-2 flex items-center" href="#0">
+                            {% include "svg/credit.html.twig" with { class: 'fill-current w-4 mr-1' } %}
+                            Sponsor us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w-1/2 md:w-1/4 mb-6 md:mb-0">
                 <h2 class="text-teal-darker text-lg font-medium mb-3">Stay connected</h2>
 
                 <ul class="list-reset">
