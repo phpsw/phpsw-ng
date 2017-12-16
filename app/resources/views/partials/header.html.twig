@@ -3,7 +3,11 @@
         <div class="header flex items-center py-2">
             <div class="w-1/4 md:w-1/6">
                 <a href="/" class="block">
-                    {% include "svg/logo.html.twig" with { class: 'h-16' } %}
+                    {% include "svg/logo.html.twig" with {
+                        class: 'h-16 fill-current',
+                        class1: 'text-grey-darkest',
+                        class2: 'text-blue',
+                    } %}
                 </a>
             </div>
 
