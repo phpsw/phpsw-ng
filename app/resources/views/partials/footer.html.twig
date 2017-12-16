@@ -1,6 +1,70 @@
  <footer class="pt-4 pb-8 mt-4">
     <div class="container mx-auto text-sm px-4">
-        footer
+        <div class="w-3/4 flex flex-wrap">
+            <div class="w-full md:w-1/4 mb-4 md:mb-0">
+                {% include "svg/logo-alt.html.twig" with {
+                    class: 'h-12 fill-current',
+                    class1: 'text-blue-light',
+                    class2: 'text-blue-light'
+                } %}
+            </div>
+
+            <div class="w-1/2 lg:w-1/4">
+                <h2 class="text-teal-darker mb-2">Meetup</h2>
+
+                <ul class="list-reset">
+                    <li>
+                        <a class="text-teal-dark mb-2 flex items-center" href="#0">
+                            {% include "svg/home.html.twig" with { class: 'fill-current w-4 mr-1' } %}
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-teal-dark mb-2 flex items-center" href="#0">
+                            {% include "svg/calendar.html.twig" with { class: 'fill-current w-4 mr-1' } %}
+                            Events
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-teal-dark mb-2 flex items-center" href="#0">
+                            {% include "svg/modern-mic.html.twig" with { class: 'fill-current w-4 mr-1' } %}
+                            Speakers
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-teal-dark mb-1 flex items-center" href="#0">
+                            {% include "svg/briefcase.html.twig" with { class: 'fill-current w-4 mr-1' } %}
+                            Sponsors
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w-1/2 lg:w-1/4">
+                <h2 class="text-teal-darker mb-2">Stay Connected</h2>
+
+                <ul class="list-reset">
+                    <li>
+                        <a class="text-teal-dark mb-2 flex items-center" href="#0">
+                            {% include "svg/calendar.html.twig" with { class: 'fill-current w-4 mr-1' } %}
+                            Find us on Meetup
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-teal-dark mb-2 flex items-center" href="#0">
+                            {% include "svg/twitter.html.twig" with { class: 'fill-current w-4 mr-1' } %}
+                            Follow us on Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text-teal-dark mb-2 flex items-center" href="#0">
+                            {% include "svg/github.html.twig" with { class: 'fill-current w-4 mr-1' } %}
+                            Fork this on GitHub
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
         {% include "partials/balloons.html.twig" %}
     </div>
