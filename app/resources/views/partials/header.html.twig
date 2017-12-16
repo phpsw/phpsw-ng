@@ -1,13 +1,17 @@
 <div class="bg-white">
-    <div class="container mx-auto">
-        <div class="header flex">
-            <div class="w-1/6">
+    <div class="container mx-auto px-4">
+        <div class="header flex items-center py-2">
+            <div class="w-1/4 md:w-1/6">
                 <a href="/" class="block">
-                    {% include "svg/logo.html.twig" %}
+                    {% include "svg/logo.html.twig" with { class: 'h-16' } %}
                 </a>
             </div>
 
             {% include "partials/balloons.html.twig" %}
+
+            <div class="absolute pin-r mr-4 sm:hidden">
+                {% include "svg/menu.html.twig" with { class: 'h-12 w-12 fill-current text-grey-darkest' } %}
+            </div>
         </div>
     </div>
 </div>

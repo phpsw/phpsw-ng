@@ -1,4 +1,4 @@
-<li class="w-1/2 mb-4 relative flex-none flex items-center" style="min-height: 50px">
+<li class="w-1/2 md:w-full lg:w-1/2 mb-4 relative flex-none flex items-center" style="min-height: 50px">
     <div class="pl-16">
         <div class="mb-1 text-sm">
             {% if organiser.websiteUrl %}
@@ -29,9 +29,13 @@
         </div>
     </div>
 
-    <img src="{{ organiser.photoUrl }}"
-         alt="{{ organiser.name }}"
-         height="50"
-         width="50"
-         class="bg-white rounded-full absolute pin-t pin-l border border-grey-lighter">
+    <div class="rounded-full absolute pin-t pin-l overflow-hidden border border-solid border-grey-lighter transition">
+        <div class="flex items-center">
+            <img src="{{ organiser.photoUrl }}"
+                 alt="{{ organiser.name }}"
+                 height="50"
+                 width="50"
+                 class="bg-white rounded-full transition">
+        </div>
+     </div>
 </li>

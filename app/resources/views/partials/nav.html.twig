@@ -1,37 +1,37 @@
-<div class="container mx-auto">
-    <div class="flex">
+<div class="container mx-auto sm:px-4">
+    <div class="sm:flex">
         <div class="flex-auto">
-            <a class="nav-item {{ page.template == 'home' ? 'nav-item--active' }}" href="/">Home</a>
-            <a href="#0" class="nav-item">Events</a>
-            <a class="nav-item {{ page.template matches '/speakers?/' ? 'nav-item--active' }}" href="{{ url('speakers') }}">Speakers</a>
-            <a class="nav-item {{ page.template == 'sponsors' ? 'nav-item--active' }}" href="#0">Sponsors</a>
-            <a href="#0" class="nav-item">Talks</a>
+            <a class="nav-item block sm:float-left py-3 px-4 text-sm text-grey-light sm:py-4 {{ page.template == 'home' ? 'bg-grey-lighter' }}" href="/">Home</a>
+            <a class="nav-item block sm:float-left py-3 px-4 text-sm text-grey-light sm:py-4" href="#0">Events</a>
+            <a class="nav-item block sm:float-left py-3 px-4 text-sm text-grey-light sm:py-4 {{ page.template matches '/speakers?/' ? 'bg-grey-lighter' }}" href="{{ url('speakers') }}">Speakers</a>
+            <a class="nav-item block sm:float-left py-3 px-4 text-sm text-grey-light sm:py-4 {{ page.template == 'sponsors' ? 'bg-grey-lighter' }}" href="#0">Sponsors</a>
+            <a class="nav-item block sm:float-left py-3 px-4 text-sm text-grey-light sm:py-4" href="#0">Talks</a>
         </div>
 
-        <div class="flex items-center">
-            <div class="ml-4">
+        <div class="sm:flex items-center">
+            <div>
                 <a href="http://www.meetup.com/php-sw/members"
-                   class="text-sm text-grey-light hover:text-black">
+                   class="text-sm text-grey-light hover:text-grey-darkest py-3 px-3 hidden lg:block">
                     <i class="fa fa-group"></i>
                     579 members
                 </a>
             </div>
 
-            <div class="ml-4">
+            <div>
                 <a href="http://www.meetup.com/php-sw/about/comments/?op=all"
-                   class="text-sm text-grey-light hover:text-black">
+                   class="text-sm text-grey-light hover:text-grey-darkest py-3 ml-2 hidden lg:block">
                     <i class="fa fa-thumbs-o-up"></i>
                     4.7/5 from 139 ratings
                 </a>
             </div>
 
-            <div class="ml-4">
-                <a href="https://twitter.com/phpsw" class="text-grey-light hover:text-black">
+            <div>
+                <a href="https://twitter.com/phpsw" class="text-grey-light hover:text-grey-darkest py-3 px-3 block sm:ml-4 sm:px-0">
                     <i class="fa fa-twitter"></i>
                 </a>
             </div>
 
-            <div class="ml-4">
+            <div class="block py-2 ml-4">
                 <a href="#" class="inline-block bg-red text-white py-2 px-3 rounded text-sm">Join group</a>
             </div>
         </div>

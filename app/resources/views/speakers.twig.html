@@ -9,30 +9,30 @@
 {% block content %}
     <h1 class="title">Speakers</h1>
 
-    <div class="flex -mx-4">
-        <div class="content w-2/3 px-4">
+    <div class="-mx-4 md:flex">
+        <div class="content px-4 pb-6 md:w-2/3 md:pb-0">
             <h2 class="mb-4">Alumni</h2>
 
             <ul class="flex flex-wrap list-reset speakers">
                 {% for speaker in speakers %}
                     <li class="text-center relative mb-4 pb-6 w-32">
-                        <a href="{{ personUrl(speaker) }}" class="block hover:underline">
+                        <a href="{{ personUrl(speaker) }}" class="block relative pb-6 hover:underline">
                             <div class="block text-sm absolute pin-b pin-x">
                                 {{ speaker.name }}
                             </div>
 
-                            <img src="{{ speaker.photoUrl }}"
-                                 class="rounded-full border border-grey-lighter bg-white"
-                                 height="85"
-                                 width="85"
-                                 style="height: 85px">
+                            <div class="w-3/5 mx-auto">
+                                <div class="rounded-full bg-white hover:shadow-center flex items-center p-1 transition">
+                                    <img src="{{ speaker.photoUrl }}" class="rounded-full transition hover:w-4 hover:max-w-sm">
+                                </div>
+                            </div>
                         </a>
                     </li>
                 {% endfor %}
             </ul>
         </div>
 
-        <div class="w-1/3 px-4">
+        <div class="px-4 md:w-1/3">
             {% include "partials/interested-speaking.html.twig" %}
         </div>
     </div>
