@@ -66,6 +66,7 @@ let colors = {
 
   'blue': '#2a8ebd',
 
+  'red-dark': '#cc1f1a',
   'red': '#e3342f',
 }
 
@@ -562,6 +563,7 @@ module.exports = {
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
+    '12': '3rem',
     '16': '4rem',
     '32': '8rem',
   },
