@@ -11,19 +11,19 @@
         <div class="flex">
             {% if organiser.twitterHandle %}
                 <a href="https://twitter.com/{{ organiser.twitterHandle }}" class="text-sm mr-1">
-                    <i class="fa fa-twitter"></i>
+                    {% include 'svg/twitter.html.twig' with { class: 'fill-current w-4 h-4' } %}
                 </a>
             {% endif %}
 
             {% if organiser.githubHandle %}
                 <a href="https://github.com/{{ organiser.githubHandle }}" class="text-sm mr-1">
-                    <i class="fa fa-github"></i>
+                    {% include 'svg/github.html.twig' with { class: 'fill-current w-4 h-4' } %}
                 </a>
             {% endif %}
 
             {% if organiser.websiteUrl %}
                 <a href="{{ organiser.websiteUrl }}" class="text-sm mr-1">
-                    <i class="fa fa-globe"></i>
+                    {% include 'svg/globe.html.twig' with { class: 'fill-current w-4 h-4' } %}
                 </a>
             {% endif %}
         </div>
