@@ -59,7 +59,7 @@ class TemplateRenderer
 
         $data['page']['template'] = $templateName;
 
-        $contents = $this->twig->render("{$templateName}.twig.html", $data);
+        $contents = $this->twig->render("{$templateName}.html.twig", $data);
         $this->filesystem->dumpFile($fullPath, $contents);
     }
 }
