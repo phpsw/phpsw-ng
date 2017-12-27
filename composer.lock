@@ -644,7 +644,7 @@
         },
         {
             "name": "symfony/form",
-            "version": "v3.2.3",
+            "version": "v3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
@@ -776,16 +776,16 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v3.2.3",
+            "version": "v3.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
-                "reference": "601cdab0b1db7ee34f26582cdd5b8e5beba8d291"
+                "reference": "a310b29a794578f544305f4f48e3f6c7981b606c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/601cdab0b1db7ee34f26582cdd5b8e5beba8d291",
-                "reference": "601cdab0b1db7ee34f26582cdd5b8e5beba8d291",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/a310b29a794578f544305f4f48e3f6c7981b606c",
+                "reference": "a310b29a794578f544305f4f48e3f6c7981b606c",
                 "shasum": ""
             },
             "require": {
@@ -801,7 +801,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -847,7 +847,7 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2017-01-28 02:37:08"
+            "time": "2017-06-01 21:01:25"
         },
         {
             "name": "symfony/options-resolver",
