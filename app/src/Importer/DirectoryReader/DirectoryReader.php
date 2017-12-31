@@ -46,15 +46,12 @@ class DirectoryReader
         return $this->getDirectoryContentsRecursively($this->rootDirectory->getRootDirectory()."/$directory");
     }
 
-
-
     private function getDirectoryContentsRecursively(string $directory): array
     {
         $files = scandir($directory);
 
         $return = [];
         foreach ($files as $file) {
-
             $fullPath = "$directory/$file";
 
             if (is_dir("$directory/$file") && (!in_array($file, ['.', '..']))) {
@@ -66,6 +63,5 @@ class DirectoryReader
         }
 
         return $return;
-
     }
 }
