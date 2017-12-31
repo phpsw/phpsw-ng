@@ -6,44 +6,6 @@
         <p class="text-xl text-grey-light font-normal">{{ speaker.description }}</p>
     </div>
 
-    <ul class="list-reset leading-normal">
-        {% if speaker.meetupId %}
-            <li>
-                <a class="text-sm flex items-center" href="#0">
-                    {% include 'svg/calendar.html.twig' with { class: 'fill-current w-4 mr-2' } %}
-                    Meetup profile
-                </a>
-            </li>
-        {% endif %}
-
-        {% if speaker.websiteUrl %}
-            <li>
-                <a class="text-sm flex items-center" href="{{ speaker.websiteUrl }}">
-                    {% include 'svg/globe.html.twig' with { class: 'fill-current w-4 mr-2' } %}
-                    Website
-                </a>
-            </li>
-        {% endif %}
-
-        {% if speaker.twitterHandle %}
-            <li>
-                <a class="text-sm flex items-center" href="#0">
-                    {% include 'svg/twitter.html.twig' with { class: 'fill-current w-4 mr-2' } %}
-                    Twitter: @{{ speaker.twitterHandle }}
-                </a>
-            </li>
-        {% endif %}
-
-        {% if speaker.githubHandle %}
-            <li>
-                <a class="text-sm flex items-center" href="#0">
-                    {% include 'svg/github.html.twig' with { class: 'fill-current w-4 mr-2' } %}
-                    GitHub: {{ speaker.githubHandle }}
-                </a>
-            </li>
-        {% endif %}
-    </ul>
-
     <div class="md:flex">
         <div class="content mb-8 md:w-2/3 md:mb-0">
             {% include 'partials/speaker/links.html.twig' %}
