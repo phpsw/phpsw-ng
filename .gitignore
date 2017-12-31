@@ -22,3 +22,7 @@ web
 
 /app/resources/assets/css/
 /node_modules/
+
+# Docker scripts
+generate.sh
+serve.sh
