@@ -7,10 +7,13 @@
 - Ansible 2.x (http://docs.ansible.com/ansible/intro_installation.html)
 - Vagrant (https://www.vagrantup.com/docs/installation/)
 - NFS
+- npm
+- Yarn
 
 ## Getting started
 1. Create a mapping in your hosts file from phpsw.dev to 192.168.42.10.
-2. ```vagrant up```
+1. Run `yarn install && npm run build` to generate the front-end assets.
+1. ```vagrant up```
 
 ## General Usage
 To run the commands use ```./runner.php```
