@@ -3,7 +3,14 @@
 
 
 
-
+<h2>Talks</h2>
+<ul>
+    {% for talk in event.talks %}
+    <li>
+        <a href="{{ talkUrl(talk) }}">{{ talk.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
 
 
 
