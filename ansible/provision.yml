@@ -8,7 +8,7 @@
   roles:
   - base
   - dotdeb
-  - shorewall
+  #- shorewall
   - ssl
   - nginx
   - git

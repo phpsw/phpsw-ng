@@ -9,7 +9,7 @@
 - NFS
 
 ## Getting started
-1. Create a mapping in your hosts file from phpsw.dev to 192.168.42.10.
+1. Create a mapping in your hosts file from phpsw.local to 192.168.42.10.
 2. ```vagrant up```
 
 ## General Usage
