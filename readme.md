@@ -21,7 +21,7 @@ To generate website: ```./runner.php  phpsw:generate-website```
 ## Viewing generated content
 Once you've generated the website point your broswer to (http://phpsw.local)
 
-This assmes:
+This assumes:
 
 - VM is running
 - local hosts is setup (see getting started)
