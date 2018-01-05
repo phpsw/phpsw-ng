@@ -15,7 +15,16 @@
 ## General Usage
 To run the commands use ```./runner.php```
 
-To validate data: ```./runner.php  data:validate```
+To validate data: ```./runner.php  phpsw:validate-data```
+To generate website: ```./runner.php  phpsw:generate-website```
+
+## Viewing generated content
+Once you've generated the website point your broswer to (http://phpsw.local)
+
+This assmes:
+
+- VM is running
+- local hosts is setup (see getting started)
 
 
 ## CI
