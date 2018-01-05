@@ -2,6 +2,7 @@
 
 namespace Phpsw\Website\WebsiteGenerator\TemplateRenderer\TwigExtension;
 
+use Phpsw\Website\Entity\Event;
 use Phpsw\Website\Entity\Person;
 use Phpsw\Website\WebsiteGenerator\Router\RouteGenerator;
 use Twig_Extension;
@@ -40,6 +41,7 @@ class UrlTwigExtension extends Twig_Extension
         return [
             new Twig_SimpleFunction('url', [$this, 'getUrl']),
             new Twig_SimpleFunction('personUrl', [$this, 'getPersonUrl']),
+            new Twig_SimpleFunction('eventUrl', [$this, 'getEventUrl']),
         ];
     }
 
@@ -52,4 +54,14 @@ class UrlTwigExtension extends Twig_Extension
     {
         return $this->getUrl('speaker', ['speakerSlug' => $person->getSlug()]);
     }
+
+    public function getEventUrl(Event $event): string
+    {
+        return $this->getUrl('event', [
+            'year' => $event->getYear(),
+            'month' => $event->getMonth(),
+            'eventSlug' => $event->getSlug(),
+        ]);
+    }
+
 }

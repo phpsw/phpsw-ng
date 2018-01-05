@@ -1,0 +1,7 @@
+<h1>PHP-SW events</h1>
+
+<ul>
+    {% for event in events %}
+    <li><a href="{{ eventUrl(event) }}" >{{ event.description }}</a></li>
+    {% endfor %}
+</ul>

@@ -25,6 +25,12 @@ services:
 
 
   # Register content type generators
+  app.websiteGenerator.contentTypeGenerator.events:
+    class: \Phpsw\Website\WebsiteGenerator\ContentTypeGenerator\EventPagesGenerator
+    autowire: true
+    tags:
+      - {name: "ContentTypeGenerator"}
+
   app.websiteGenerator.contentTypeGenerator.home:
     class: \Phpsw\Website\WebsiteGenerator\ContentTypeGenerator\HomePageGenerator
     autowire: true
