@@ -33,8 +33,8 @@ class EventPagesGenerator implements ContentTypeGeneratorsInterface
      * Generate pages for content type.
      *
      * This includes:
-     * - a page that lists all speakers
-     * - a page for each speaker
+     * - a page that lists all events
+     * - a page for each event
      *
      * {@inheritdoc}
      */
