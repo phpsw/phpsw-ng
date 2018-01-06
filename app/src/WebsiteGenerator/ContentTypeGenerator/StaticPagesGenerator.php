@@ -2,8 +2,6 @@
 
 namespace Phpsw\Website\WebsiteGenerator\ContentTypeGenerator;
 
-use Phpsw\Website\Entity\Talk;
-use Phpsw\Website\Repository\TalkRepositoryInterface;
 use Phpsw\Website\WebsiteGenerator\Router\RouteGenerator;
 use Phpsw\Website\WebsiteGenerator\TemplateRenderer\TemplateRenderer;
 use Symfony\Component\Routing\Route;
@@ -24,13 +22,13 @@ class StaticPagesGenerator implements ContentTypeGeneratorsInterface
 
     /**
      * StaticPagesGenerator constructor.
+     *
      * @param RouteGenerator $routeGenerator
      */
     public function __construct(RouteGenerator $routeGenerator)
     {
         $this->routeGenerator = $routeGenerator;
     }
-
 
     /**
      * Generate static pages.
@@ -56,15 +54,15 @@ class StaticPagesGenerator implements ContentTypeGeneratorsInterface
 
     private function generateStaticPage(TemplateRenderer $templateRenderer, Route $route, string $template)
     {
-        $filename = $route->getPath() . '.html';
+        $filename = $route->getPath().'.html';
         $templateRenderer->render($filename, $template, []);
     }
 
-
     /**
-     * Iterate through route options to see if a template name exists
+     * Iterate through route options to see if a template name exists.
      *
      * @param Route $route
+     *
      * @return string|null
      */
     private function getTemplateNameIfExists(Route $route)
@@ -74,8 +72,7 @@ class StaticPagesGenerator implements ContentTypeGeneratorsInterface
 
     private function findTemplateName(array $array)
     {
-        foreach($array as $key => $value) {
-
+        foreach ($array as $key => $value) {
             if ($key === self::TEMPLATE_OPTION) {
                 return $value;
             }
@@ -87,7 +84,6 @@ class StaticPagesGenerator implements ContentTypeGeneratorsInterface
                     return $templateName;
                 }
             }
-
         }
 
         return null;

@@ -55,7 +55,6 @@ class RouteGenerator
         return $this->urlGenerator->generate($routeName, $parameters);
     }
 
-
     /**
      * @return array|Route[]
      */
