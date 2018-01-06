@@ -1,27 +1,14 @@
 {
-  "config": {
-    "less_path": "app/resources/assets/less",
-    "output_css": "web/css",
-    "output_fonts": "web/fonts"
-  },
-  "scripts": {
-    "build": "npm-run-all -p init build:css copy:fonts",
-    "build:css": "npm run less -- && npm run postcss",
-    "copy:fonts": "cp -R node_modules/font-awesome/fonts/* $npm_package_config_output_fonts",
-    "init": "mkdir -p $npm_package_config_output_css $npm_package_config_output_fonts",
-    "less": "lessc --npm-import='prefix=~' $npm_package_config_less_path/main.less $npm_package_config_output_css/site.css",
-    "postcss": "postcss -c postcss.config.js -r $npm_package_config_output_css/*.css",
-    "watch": "npm-run-all -p watch:css",
-    "watch:css": "npm run build:css && onchange $npm_package_config_less_path -v -- npm-run-all -p build:css"
-  },
-  "dependencies": {
-    "autoprefixer": "^7.1.6",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.17.1",
+    "autoprefixer": "^7.2.4",
     "font-awesome": "^4.7.0",
+    "highlightjs": "^9.10.0",
     "less": "^2.7.3",
+    "less-loader": "^4.0.5",
     "less-plugin-npm-import": "^2.1.0",
-    "npm-run-all": "^4.1.2",
-    "onchange": "^3.2.1",
-    "postcss-cli": "^4.1.1",
-    "tailwindcss": "^0.4.0"
+    "postcss-loader": "^2.0.10",
+    "tailwindcss": "^0.4.0",
+    "webpack-notifier": "^1.5.0"
   }
 }

@@ -20,7 +20,7 @@ web
 /ci/cache
 /.php_cs
 
-/app/resources/assets/css/
+/app/resources/assets/build/
 /node_modules/
 
 # Docker scripts
