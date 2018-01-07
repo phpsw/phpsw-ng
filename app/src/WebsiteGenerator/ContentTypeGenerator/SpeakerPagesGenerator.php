@@ -46,14 +46,14 @@ class SpeakerPagesGenerator implements ContentTypeGeneratorsInterface
             $this->generateSpeakerPage($templateRenderer, $person);
         }
 
-        $templateRenderer->render('speakers.html', 'speakers', [
+        $templateRenderer->render('speakers/index.html', 'speakers', [
             'speakers' => $people,
         ]);
     }
 
     private function generateSpeakerPage(TemplateRenderer $templateRenderer, Person $person)
     {
-        $filename = "speakers/{$person->getSlug()}.html";
+        $filename = "speakers/{$person->getSlug()}/index.html";
         $templateRenderer->render($filename, 'speaker', ['speaker' => $person]);
     }
 }

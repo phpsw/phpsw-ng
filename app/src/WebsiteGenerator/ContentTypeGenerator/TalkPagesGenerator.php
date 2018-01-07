@@ -48,7 +48,7 @@ class TalkPagesGenerator implements ContentTypeGeneratorsInterface
     private function generateTalkPage(TemplateRenderer $templateRenderer, Talk $talk)
     {
         $event = $talk->getEvent();
-        $filename = "events/{$event->getYear()}/{$event->getMonth()}/{$event->getSlug()}/{$talk->getSlug()}.html";
+        $filename = "events/{$event->getYear()}/{$event->getMonth()}/{$event->getSlug()}/{$talk->getSlug()}/index.html";
         $templateRenderer->render($filename, 'talk', ['talk' => $talk]);
     }
 }
