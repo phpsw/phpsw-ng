@@ -95,7 +95,7 @@ class ImporterTest extends TestCase
         /** @var WebsiteInfoRepositoryInterface $websiteInfoRepository */
         $websiteInfoRepository = $this->container->get('app.common.websiteInfoRepository');
         $websiteInfo = $this->getWebsiteInfo();
-        $this->assertEquals([$websiteInfo], $websiteInfoRepository->getAll());
+        $this->assertEquals($websiteInfo, $websiteInfoRepository->getWebsiteInfo());
     }
 
     public function testImportEvent()

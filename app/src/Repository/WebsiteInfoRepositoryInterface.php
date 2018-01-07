@@ -14,7 +14,7 @@ interface WebsiteInfoRepositoryInterface
     public function persist(WebsiteInfo $websiteInfo);
 
     /**
-     * Returns WebsiteInfo (there shoud only be one).
+     * Returns WebsiteInfo (there should only be one).
      *
      * @return WebsiteInfo
      */

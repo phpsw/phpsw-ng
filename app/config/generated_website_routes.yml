@@ -23,3 +23,9 @@ talks:
 
 talk:
   path: /events/{year}/{month}/{eventSlug}/{talkSlug}
+
+
+codeOfConduct:
+  path: /code-of-conduct
+  options:
+    - template: codeOfConduct
