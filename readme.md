@@ -9,13 +9,22 @@
 - NFS
 
 ## Getting started
-1. Create a mapping in your hosts file from phpsw.dev to 192.168.42.10.
+1. Create a mapping in your hosts file from phpsw.local to 192.168.42.10.
 2. ```vagrant up```
 
 ## General Usage
 To run the commands use ```./runner.php```
 
-To validate data: ```./runner.php  data:validate```
+To validate data: ```./runner.php  phpsw:validate-data```
+To generate website: ```./runner.php  phpsw:generate-website```
+
+## Viewing generated content
+Once you've generated the website point your broswer to (http://phpsw.local)
+
+This assumes:
+
+- VM is running
+- local hosts is setup (see getting started)
 
 
 ## CI

@@ -1,0 +1,25 @@
+<h1> {{ event.description}}</h1>
+
+
+
+
+<h2>Talks</h2>
+<ul>
+    {% for talk in event.talks %}
+    <li>
+        <a href="{{ talkUrl(talk) }}">{{ talk.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+
+
+<h2>Sponsors</h2>
+<ul>
+    {% for sponsor in event.sponsors %}
+    <li>
+        <a href="{{ sponsor.websiteUrl }}">{{ sponsor.name }}</a>
+    </li>
+    {% endfor %}
+</ul>
+

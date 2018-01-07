@@ -27,7 +27,9 @@ class TwigWrapper
     public function __construct(RootDirectory $rootDirectory)
     {
         $twigLoader = new Twig_Loader_Filesystem($rootDirectory->getRootDirectory().'/app/resources/views');
-        $this->twig = new Twig_Environment($twigLoader);
+        $this->twig = new Twig_Environment($twigLoader, [
+            'strict_variables' => true,
+        ]);
     }
 
     /**

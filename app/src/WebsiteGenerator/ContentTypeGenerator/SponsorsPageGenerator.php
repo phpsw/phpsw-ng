@@ -39,7 +39,7 @@ class SponsorsPageGenerator implements ContentTypeGeneratorsInterface
     {
         $websiteInfo = $this->websiteInfoRepository->getWebsiteInfo();
 
-        $templateRenderer->render('sponsors.html', 'sponsors', [
+        $templateRenderer->render('sponsors/index.html', 'sponsors', [
             'sponsors' => $websiteInfo->getSponsors(),
         ]);
     }

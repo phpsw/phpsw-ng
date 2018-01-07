@@ -25,6 +25,12 @@ services:
 
 
   # Register content type generators
+  app.websiteGenerator.contentTypeGenerator.events:
+    class: \Phpsw\Website\WebsiteGenerator\ContentTypeGenerator\EventPagesGenerator
+    autowire: true
+    tags:
+      - {name: "ContentTypeGenerator"}
+
   app.websiteGenerator.contentTypeGenerator.home:
     class: \Phpsw\Website\WebsiteGenerator\ContentTypeGenerator\HomePageGenerator
     autowire: true
@@ -39,6 +45,18 @@ services:
 
   app.websiteGenerator.contentTypeGenerator.sponsors:
     class: \Phpsw\Website\WebsiteGenerator\ContentTypeGenerator\SponsorsPageGenerator
+    autowire: true
+    tags:
+      - {name: "ContentTypeGenerator"}
+
+  app.websiteGenerator.contentTypeGenerator.staticPages:
+    class: \Phpsw\Website\WebsiteGenerator\ContentTypeGenerator\StaticPagesGenerator
+    autowire: true
+    tags:
+      - {name: "ContentTypeGenerator"}
+
+  app.websiteGenerator.contentTypeGenerator.talks:
+    class: \Phpsw\Website\WebsiteGenerator\ContentTypeGenerator\TalkPagesGenerator
     autowire: true
     tags:
       - {name: "ContentTypeGenerator"}

@@ -1,0 +1,13 @@
+<h1> {{ talk.title}} </h1>
+
+
+<p>Event: <a href="{{ eventUrl(talk.event) }}">{{ talk.event.title }}</a></p>
+
+<p>
+    {% for speaker in talk.speakers %}
+    <a href="{{ personUrl(speaker) }}">{{ speaker.name }}</a>
+    {% endfor %}
+</p>
+
+<p>{{ talk.abstract}} </p>
+
