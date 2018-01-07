@@ -54,7 +54,7 @@ class StaticPagesGenerator implements ContentTypeGeneratorsInterface
 
     private function generateStaticPage(TemplateRenderer $templateRenderer, Route $route, string $template)
     {
-        $filename = $route->getPath().'.html';
+        $filename = $route->getPath().'/index.html';
         $templateRenderer->render($filename, $template, []);
     }
 
