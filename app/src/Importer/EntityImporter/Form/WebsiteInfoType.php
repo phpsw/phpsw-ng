@@ -47,6 +47,7 @@ class WebsiteInfoType extends AbstractType
             'entry_type' => TextType::class,
             'allow_add' => true,
         ]);
+        $builder->add('emailAddress', TextType::class);
 
         $builder->get('organisers')->addModelTransformer($this->peopleTransformer);
         $builder->get('sponsors')->addModelTransformer($this->sponsorTransformer);

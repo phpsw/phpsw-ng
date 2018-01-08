@@ -9,6 +9,15 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class WebsiteInfo
 {
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
+     */
+    private $emailAddress;
+
     /**
      * @var string;
      *
@@ -79,5 +88,21 @@ class WebsiteInfo
     public function setSponsors($sponsors)
     {
         $this->sponsors = $sponsors;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmailAddress()
+    {
+        return $this->emailAddress;
+    }
+
+    /**
+     * @param string $emailAddress
+     */
+    public function setEmailAddress($emailAddress)
+    {
+        $this->emailAddress = $emailAddress;
     }
 }

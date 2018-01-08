@@ -206,6 +206,7 @@ class ImporterTest extends TestCase
             $sponsors = [$this->getSponsorAcme()];
             $website = new WebsiteInfo();
             $website->setSlug('website');
+            $website->setEmailAddress('test@example.com');
             $website->setSponsors($sponsors);
             $website->setOrganisers($organisers);
 
