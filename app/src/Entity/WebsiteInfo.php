@@ -9,7 +9,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class WebsiteInfo
 {
-
     /**
      * @var string
      *
