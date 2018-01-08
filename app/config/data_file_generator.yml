@@ -1,0 +1,15 @@
+# DI for JSON data files generator related setup
+
+services:
+
+  # Person JSON data file generator command
+  app.fileGenerator.person.command:
+    class: \Phpsw\Website\DataFileGenerator\GeneratePersonFileCommand
+    autowire: true
+    tags:
+      - {name: "ConsoleCommand" }
+
+  # Person JSON data file generator
+  app.fileGenerator.person:
+    class: \Phpsw\Website\DataFileGenerator\PersonFileGenerator
+    autowire: true
