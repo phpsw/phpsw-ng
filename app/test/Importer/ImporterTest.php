@@ -207,6 +207,7 @@ class ImporterTest extends TestCase
             $website = new WebsiteInfo();
             $website->setSlug('website');
             $website->setEmailAddress('test@example.com');
+            $website->setMeetupUrl('http://example.com');
             $website->setSponsors($sponsors);
             $website->setOrganisers($organisers);
 
