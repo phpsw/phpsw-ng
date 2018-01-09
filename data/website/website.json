@@ -1,4 +1,6 @@
 {
+  "emailAddress": "info@phpsw.uk",
+  "meetupUrl": "https://www.meetup.com/php-sw",
   "sponsors" : [
       "brightpearl",
       "deep-blue-sky",

@@ -19,3 +19,6 @@ web
 # CI
 /ci/cache
 /.php_cs
+
+# secrets file
+/app/config/secrets.yml
