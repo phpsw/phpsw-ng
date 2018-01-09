@@ -2,6 +2,10 @@
 # Configuration for the live app
 #
 
+imports:
+  - { resource: secrets.yml }
+  - { resource: services.yml }
+
 parameters:
 
   # Location of base directory holding JSON data.
@@ -12,5 +16,3 @@ parameters:
   websiteBaseDirectory: "web"
 
 
-imports:
-  - { resource: services.yml }

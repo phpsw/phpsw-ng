@@ -1,7 +1,5 @@
 # DI for JSON data files generator related setup
 
-imports:
-    - { resource: secrets.yml }
 
 services:
 
