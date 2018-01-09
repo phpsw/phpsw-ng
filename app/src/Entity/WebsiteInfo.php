@@ -10,6 +10,20 @@ use Symfony\Component\Validator\Constraints as Assert;
 class WebsiteInfo
 {
     /**
+     * @var string
+     *
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
+     */
+    private $emailAddress;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Type("string")
+     */
+    private $meetupUrl;
+
+    /**
      * @var string;
      *
      * @Assert\NotBlank()
@@ -79,5 +93,37 @@ class WebsiteInfo
     public function setSponsors($sponsors)
     {
         $this->sponsors = $sponsors;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmailAddress()
+    {
+        return $this->emailAddress;
+    }
+
+    /**
+     * @param string $emailAddress
+     */
+    public function setEmailAddress($emailAddress)
+    {
+        $this->emailAddress = $emailAddress;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMeetupUrl()
+    {
+        return $this->meetupUrl;
+    }
+
+    /**
+     * @param string $meetupUrl
+     */
+    public function setMeetupUrl($meetupUrl)
+    {
+        $this->meetupUrl = $meetupUrl;
     }
 }
