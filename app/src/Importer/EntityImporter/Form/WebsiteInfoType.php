@@ -49,6 +49,10 @@ class WebsiteInfoType extends AbstractType
         ]);
         $builder->add('emailAddress', TextType::class);
         $builder->add('meetupUrl', TextType::class);
+        $builder->add('friends', CollectionType::class, [
+            'entry_type' => TextType::class,
+            'allow_add' => true,
+        ]);
 
         $builder->get('organisers')->addModelTransformer($this->peopleTransformer);
         $builder->get('sponsors')->addModelTransformer($this->sponsorTransformer);
