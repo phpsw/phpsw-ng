@@ -27,7 +27,7 @@ class PersonFileGenerator
      */
     public function getPersonFromMeetup(int $meetupId)
     {
-        $result = $this->meetupAPIClient->getProfiles(['member_id' => $meetupId, 'group_urlname' => 'php-sw']);
+        $result = $this->meetupAPIClient->getMembers(['member_id' => $meetupId]);
         if (count($result->results) !== 1) {
             throw new \Exception("more than one member profile returned for id {$meetupId}");
         }
@@ -47,22 +47,21 @@ class PersonFileGenerator
 
         if (!empty($member->bio)) {
             $person->setDescription($member->bio);
+        } else {
+            // /members seems to not be returning the bio, so try the /profiles endpoint
+            // (this will only work if this person is a member of the php-sw meetup group)
+            $r = $this->meetupAPIClient->getProfiles(['member_id' => $meetupId, 'group_urlname' => 'php-sw']);
+            if (count($r->results) === 1) {
+                $m = $r->results[0];
+
+                if (!empty($m->other_services->twitter->identifier)) {
+                    $person->setTwitterHandle(str_replace('@', '', $m->other_services->twitter->identifier));
+                }
+            }
         }
 
         if (!empty($member->other_services->twitter->identifier)) {
             $person->setTwitterHandle(str_replace('@', '', $member->other_services->twitter->identifier));
-        } else {
-            // /profiles seems to not be returning the social networks info for anyone, so try the /members endpoint
-            $r = $this->meetupAPIClient->getMembers(['member_id' => $meetupId]);
-            if (count($r->results) !== 1) {
-                throw new \Exception("more than one member returned for id {$meetupId}");
-            }
-
-            $m = $r->results[0];
-
-            if (!empty($m->other_services->twitter->identifier)) {
-                $person->setTwitterHandle(str_replace('@', '', $m->other_services->twitter->identifier));
-            }
         }
 
         if (!empty($member->site_url)) {
