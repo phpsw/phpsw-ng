@@ -22,6 +22,8 @@ To run the commands use ```./runner.php```
 To validate data: ```./runner.php  phpsw:validate-data```
 To generate website: ```./runner.php  phpsw:generate-website```
 
+To generate a 'person' JSON file: ```./runner.php  phpsw:generate-file-person <meetup-id>``` (meetup ID is optional, used to pull down as much data from Meetup as is available)
+
 ## Viewing generated content
 Once you've generated the website point your broswer to (http://phpsw.local)
 

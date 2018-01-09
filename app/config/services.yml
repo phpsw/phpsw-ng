@@ -2,4 +2,5 @@ imports:
     - { resource: common.yml }
     - { resource: importer.yml }
     - { resource: website_generator.yml }
+    - { resource: data_file_generator.yml }
 

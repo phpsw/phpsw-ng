@@ -1,13 +1,16 @@
 #
 # Configure for testing purposes
 #
+imports:
+  - { resource: secrets_test.yml }
+  - { resource: services.yml }
+
 
 parameters:
 
+  # Location of base directory holding test JSON data.
   importDataDirectory: "app/test/data"
 
   # Location of base directory holding web site output
   websiteBaseDirectory: "app/test/web"
 
-imports:
-  - { resource: services.yml }

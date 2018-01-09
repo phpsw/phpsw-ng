@@ -1,0 +1,11 @@
+{
+  "title": "Command and (e)mission Control",
+  "abstract": "Using event dispatchers and command buses in applications is becoming common place, but are we using them in a way that aids understanding? With the rise in popularity of Domain-Driven Design to drive meaning in applications, and our applications becoming increasingly small and \"hexagonal\", the concept of defining the difference between an Event and a Command is becoming more important. \n\nThis talk explores using command buses and event dispatchers in combination to clearly segregate the structure, and uses an example of how to use these to create clean CQRS-based applications.",
+  "event": "new-year-new-topics",
+  "speakers": [
+    "barney-hanlon"
+  ],
+  "video-url": null,
+  "slide-url": null,
+  "joindin-url": "https://joind.in/event/phpsw-new-year-new-topics-january-2018/command-and-emission-control"
+}
