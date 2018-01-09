@@ -272,7 +272,7 @@ class ImporterTest extends TestCase
         return [
             [
                 'name' => 'A friend',
-                'logoUrl' => 'logo.png',
+                'logo' => 'logo.png',
                 'websiteUrl' => 'http://example.com',
             ],
         ];

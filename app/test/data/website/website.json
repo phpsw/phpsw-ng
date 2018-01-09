@@ -11,7 +11,7 @@
   "friends": [
     {
       "name": "A friend",
-      "logoUrl": "logo.png",
+      "logo": "logo.png",
       "websiteUrl": "http://example.com"
     }
   ]
