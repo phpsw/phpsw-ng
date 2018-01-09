@@ -1,5 +1,8 @@
 # DI for JSON data files generator related setup
 
+imports:
+    - { resource: secrets.yml }
+
 services:
 
   # Person JSON data file generator command
@@ -13,3 +16,9 @@ services:
   app.fileGenerator.person:
     class: \Phpsw\Website\DataFileGenerator\PersonFileGenerator
     autowire: true
+
+  # The Meetup API client
+  app.meetupApiClient:
+    class: \Phpsw\Website\DataFileGenerator\MeetupApiClient
+    autowire: true
+    arguments: ["%meetupApiKey%"]
