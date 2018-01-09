@@ -16,6 +16,7 @@ class GeneratePersonFileCommand extends Command
 
     /**
      * GeneratePersonFileCommand constructor.
+     *
      * @param PersonFileGenerator $personFileGenerator
      */
     public function __construct(PersonFileGenerator $personFileGenerator)
@@ -43,6 +44,7 @@ class GeneratePersonFileCommand extends Command
                 } catch (\Exception $e) {
                     $output->writeln('Failed to retrieve the member from Meetup:');
                     $output->writeln($e->getMessage());
+
                     return;
                 }
             } else {
@@ -54,7 +56,6 @@ class GeneratePersonFileCommand extends Command
             $filePath = $this->personFileGenerator->generateFile($person);
 
             $output->writeln("<info>File saved in {$filePath}</info>");
-
         } catch (\Exception $e) {
             $output->writeln('<error>Failed to generate a person file:</error>');
             $output->writeln($e->getMessage());
@@ -63,9 +64,11 @@ class GeneratePersonFileCommand extends Command
 
     /**
      * Checks if any of the data is missing and prompts the user to enter at least the required info.
+     *
      * @param Person $person
      * @param InputInterface $input
      * @param OutputInterface $output
+     *
      * @throws \Exception
      */
     private function checkMissingData(Person $person, InputInterface $input, OutputInterface $output)
@@ -74,7 +77,7 @@ class GeneratePersonFileCommand extends Command
 
         if (empty($person->getName())) {
             $missing = true;
-            $output->writeln("<error>Missing name (required)</error>");
+            $output->writeln('<error>Missing name (required)</error>');
 
             $name = $this->askUserQuestion('Enter the full name of this person: ', $input, $output);
             if (empty($name)) {
@@ -85,7 +88,7 @@ class GeneratePersonFileCommand extends Command
 
         if (empty($person->getDescription())) {
             $missing = true;
-            $output->writeln("<error>Missing description (required)</error>");
+            $output->writeln('<error>Missing description (required)</error>');
 
             $description = $this->askUserQuestion('Enter this person\'s description: ', $input, $output);
             if (empty($description)) {
@@ -96,7 +99,7 @@ class GeneratePersonFileCommand extends Command
 
         if (empty($person->getPhotoUrl())) {
             $missing = true;
-            $output->writeln("<comment>Missing photo URL</comment>");
+            $output->writeln('<comment>Missing photo URL</comment>');
             $photoUrl = $this->askUserQuestion('Enter photo URL or leave blank to skip: ', $input, $output);
             if (!empty($photoUrl)) {
                 $person->setPhotoUrl($photoUrl);
@@ -105,7 +108,7 @@ class GeneratePersonFileCommand extends Command
 
         if (empty($person->getWebsiteUrl())) {
             $missing = true;
-            $output->writeln("<comment>Missing website URL</comment>");
+            $output->writeln('<comment>Missing website URL</comment>');
             $websiteUrl = $this->askUserQuestion('Enter website URL or leave blank to skip: ', $input, $output);
             if (!empty($websiteUrl)) {
                 $person->setWebsiteUrl($websiteUrl);
@@ -114,7 +117,7 @@ class GeneratePersonFileCommand extends Command
 
         if (empty($person->getTwitterHandle())) {
             $missing = true;
-            $output->writeln("<comment>Missing twitter handle</comment>");
+            $output->writeln('<comment>Missing twitter handle</comment>');
             $twitter = $this->askUserQuestion('Enter twitter handle or leave blank to skip: ', $input, $output);
             if (!empty($twitter)) {
                 $person->setTwitterHandle($twitter);
@@ -123,7 +126,7 @@ class GeneratePersonFileCommand extends Command
 
         if (empty($person->getGithubHandle())) {
             $missing = true;
-            $output->writeln("<comment>Missing github handle</comment>");
+            $output->writeln('<comment>Missing github handle</comment>');
             $github = $this->askUserQuestion('Enter github handle or leave blank to skip: ', $input, $output);
             if (!empty($github)) {
                 $person->setGithubHandle($github);
@@ -132,7 +135,7 @@ class GeneratePersonFileCommand extends Command
 
         if (empty($person->getMeetupId())) {
             $missing = true;
-            $output->writeln("<comment>Missing meetup ID</comment>");
+            $output->writeln('<comment>Missing meetup ID</comment>');
             $meetupId = $this->askUserQuestion('Enter meetup ID or leave blank to skip: ', $input, $output);
             if (!empty($meetupId)) {
                 $person->setMeetupId($meetupId);
@@ -140,7 +143,7 @@ class GeneratePersonFileCommand extends Command
         }
 
         if (!$missing) {
-            $output->writeln("<info>All data available</info>");
+            $output->writeln('<info>All data available</info>');
         }
     }
 

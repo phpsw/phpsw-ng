@@ -13,6 +13,7 @@ class PersonFileGenerator
 
     /**
      * PersonFileGenerator constructor.
+     *
      * @param MeetupApiClient $meetupAPIClient
      */
     public function __construct(MeetupApiClient $meetupAPIClient)
@@ -22,8 +23,10 @@ class PersonFileGenerator
 
     /**
      * @param int $meetupId
-     * @return Person
+     *
      * @throws \Exception
+     *
+     * @return Person
      */
     public function getPersonFromMeetup(int $meetupId)
     {
@@ -76,20 +79,22 @@ class PersonFileGenerator
     /**
      * Tries the twitter handle and the slug as the github ID,
      * if either works the full URL is returned. Otherwise returns null.
+     *
      * @param Person $person
+     *
      * @return string|null
      */
     private function guessGithub(Person $person)
     {
         if (!empty($person->getTwitterHandle())) {
-            if ($fp = curl_init(self::GITHUB_BASE_URL . $person->getTwitterHandle())) {
-                return self::GITHUB_BASE_URL . $person->getTwitterHandle();
+            if ($fp = curl_init(self::GITHUB_BASE_URL.$person->getTwitterHandle())) {
+                return self::GITHUB_BASE_URL.$person->getTwitterHandle();
             }
         }
 
         if (!empty($person->getSlug())) {
-            if ($fp = curl_init(self::GITHUB_BASE_URL . $person->getSlug())) {
-                return self::GITHUB_BASE_URL . $person->getSlug();
+            if ($fp = curl_init(self::GITHUB_BASE_URL.$person->getSlug())) {
+                return self::GITHUB_BASE_URL.$person->getSlug();
             }
         }
 
@@ -98,29 +103,31 @@ class PersonFileGenerator
 
     /**
      * @param Person $person
-     * @return string
+     *
      * @throws \Exception
+     *
+     * @return string
      */
     public function generateFile(Person $person)
     {
-        $fileName = strtolower(str_replace(' ', '-', $person->getName())) . '.json';
+        $fileName = strtolower(str_replace(' ', '-', $person->getName())).'.json';
 
         if ($fileName === '.json') {
-            throw new \Exception("no filename available for this file - does this person have a name?");
+            throw new \Exception('no filename available for this file - does this person have a name?');
         }
-        $filePath = './data/people/' . $fileName;
+        $filePath = './data/people/'.$fileName;
 
         $data = [
-            "name"           => $person->getName(),
-            "photo-url"      => $person->getPhotoUrl(),
-            "description"    => $person->getDescription(),
-            "twitter-handle" => $person->getTwitterHandle(),
-            "github-handle"  => $person->getGithubHandle(),
-            "website-url"    => $person->getWebsiteUrl(),
-            "meetup-id"      => $person->getMeetupId(),
+            'name' => $person->getName(),
+            'photo-url' => $person->getPhotoUrl(),
+            'description' => $person->getDescription(),
+            'twitter-handle' => $person->getTwitterHandle(),
+            'github-handle' => $person->getGithubHandle(),
+            'website-url' => $person->getWebsiteUrl(),
+            'meetup-id' => $person->getMeetupId(),
         ];
 
-        $handle = fopen($filePath, 'w') or die('Cannot open file:  ' . $filePath);
+        $handle = fopen($filePath, 'w') or die('Cannot open file:  '.$filePath);
         fwrite($handle, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
         fclose($handle);
 
