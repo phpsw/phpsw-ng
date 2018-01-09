@@ -1,31 +1,11 @@
 <div>
     <h2>Friends</h2>
 
-    {% set friends = [
-        { name: 'Bristol Web Folk',         logoUrl: 'bristol-web-folk.png',  websiteUrl: 'http://bristolwebfolk.github.io' },
-        { name: 'Bristol Drupal',           logoUrl: 'drupal-bristol.png',    websiteUrl: 'https://groups.drupal.org/bristol-and-west-uk' },
-        { name: 'Bristol WordPress People', logoUrl: 'bristol-wordpress.png', websiteUrl: 'http://www.meetup.com/Bristol-WordPress-People' },
-        { name: 'PHP South Coast',          logoUrl: 'php-south-coast.png',   websiteUrl: 'http://phpsouthcoast.co.uk' },
-        { name: 'BrightonPHP',              logoUrl: 'brighton-php.png',      websiteUrl: 'http://brightonphp.org' },
-        { name: 'edPUG',                    logoUrl: 'edpug.png',             websiteUrl: 'http://www.edpug.co.uk' },
-        { name: 'PHP Dorset',               logoUrl: 'php-dorset.png',        websiteUrl: 'http://www.phpdorset.co.uk' },
-        { name: 'PHP London',               logoUrl: 'php-london.png',        websiteUrl: 'http://phplondon.org' },
-        { name: 'PHP Hampshire',            logoUrl: 'php-hampshire.png',     websiteUrl: 'http://phphants.co.uk' },
-        { name: 'PHP Women',                logoUrl: 'php-women.png',         websiteUrl: 'http://phpwomen.org' },
-        { name: 'PHP Cambridge',            logoUrl: 'php-cambridge.png',     websiteUrl: 'http://www.meetup.com/phpcambridge' },
-        { name: 'Leeds PHP',                logoUrl: 'leed-php.png',          websiteUrl: 'http://leedsphp.org' },
-        { name: 'PHP East Midlands',        logoUrl: 'phpem.svg',             websiteUrl: 'http://phpem.uk' },
-        { name: 'PHP North East',           logoUrl: 'phpne.png',             websiteUrl: 'http://phpne.org.uk' },
-        { name: 'PHP North West',           logoUrl: 'phpnw.png',             websiteUrl: 'http://conference.phpnw.org.uk' },
-        { name: 'PHP West Midlands',        logoUrl: 'phpwm.png',             websiteUrl: 'http://phpwm.org.uk' },
-        { name: 'PHP UK',                   logoUrl: 'php-uk.png',            websiteUrl: 'http://phpconference.co.uk' },
-    ] %}
-
     <ul class="list-reset flex flex-wrap">
-        {% for friend in friends %}
+        {% for friend in info.friends %}
             <li class="flex items-center w-1/6 md:w-1/5 lg:w-1/8">
                 <a href="{{ friend.websiteUrl }}" title="{{ friend.name }}" class="mr-2 mb-2">
-                    <img src="/images/community/{{ friend.logoUrl }}" alt="{{ friend.name }} logo">
+                    <img src="/images/community/{{ friend.logo }}" alt="{{ friend.name }} logo">
                 </a>
             </li>
         {% endfor %}
