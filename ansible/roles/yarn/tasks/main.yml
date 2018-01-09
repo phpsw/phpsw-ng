@@ -1,0 +1,20 @@
+---
+- name: Install Yarn APT key
+  apt_key:
+    data: "{{ lookup('file', 'pubkey.gpg') }}"
+    state: present
+
+- name: Add yarn repository
+  apt_repository:
+    repo: 'deb https://dl.yarnpkg.com/debian/ stable main'
+
+- name: Install packages
+  package:
+    name: '{{ item }}'
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - nodejs
+    - yarn
+  become: true
