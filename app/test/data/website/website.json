@@ -1,4 +1,6 @@
 {
+  "emailAddress": "test@example.com",
+  "meetupUrl": "http://example.com",
   "organisers" : [
     "fred-blogs",
     "john-smith"
