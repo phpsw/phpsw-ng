@@ -1,8 +1,8 @@
-# DI for importer related setup
+# DI for common code
 
 services:
 
-  # CLI inteface
+  # CLI interface
   app.cli:
     class: Symfony\Component\Console\Application
     autowire: true
