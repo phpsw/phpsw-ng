@@ -1,4 +1,14 @@
 ---
+# Node
+- name: Register NodeJS
+  shell: 'curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -'
+  changed_when: false
+
+- name: Remove cmdtest
+  apt:
+    name: cmdtest
+    state: absent
+
 - name: Install Yarn APT key
   apt_key:
     data: "{{ lookup('file', 'pubkey.gpg') }}"
@@ -7,9 +17,10 @@
 - name: Add yarn repository
   apt_repository:
     repo: 'deb https://dl.yarnpkg.com/debian/ stable main'
+    update_cache: yes
 
 - name: Install packages
-  package:
+  apt:
     name: '{{ item }}'
     state: latest
     update_cache: yes
