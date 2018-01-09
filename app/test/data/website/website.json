@@ -1,9 +1,18 @@
 {
+  "emailAddress": "test@example.com",
+  "meetupUrl": "http://example.com",
   "organisers" : [
     "fred-blogs",
     "john-smith"
   ],
   "sponsors" : [
     "acme"
+  ],
+  "friends": [
+    {
+      "name": "A friend",
+      "logoUrl": "logo.png",
+      "websiteUrl": "http://example.com"
+    }
   ]
 }
