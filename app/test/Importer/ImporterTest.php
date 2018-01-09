@@ -267,13 +267,14 @@ class ImporterTest extends TestCase
         return $this->cache[$key];
     }
 
-    private function getFriends() {
+    private function getFriends()
+    {
         return [
             [
                 'name' => 'A friend',
                 'logoUrl' => 'logo.png',
                 'websiteUrl' => 'http://example.com',
-            ]
+            ],
         ];
     }
 }
