@@ -1,9 +1,4 @@
 ---
-# Node
-- name: Register NodeJS
-  shell: 'curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -'
-  changed_when: false
-
 - name: Remove cmdtest
   apt:
     name: cmdtest
@@ -18,11 +13,11 @@
   apt_repository:
     repo: 'deb https://dl.yarnpkg.com/debian/ stable main'
     update_cache: yes
+    cache_valid_time: 3600
 
 - name: Install packages
   apt:
     name: '{{ item }}'
-    state: latest
     update_cache: yes
     cache_valid_time: 3600
   with_items:

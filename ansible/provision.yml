@@ -14,6 +14,7 @@
   - git
   - php7.0-cli
   - composer
+  - node
   - yarn
   tasks:
   - include: tasks/provision/app.yml

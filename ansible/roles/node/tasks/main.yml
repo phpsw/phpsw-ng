@@ -1,0 +1,4 @@
+---
+- name: Register NodeJS
+  shell: 'curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -'
+  changed_when: false
