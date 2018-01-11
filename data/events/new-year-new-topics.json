@@ -3,12 +3,6 @@
   "description": "In January we present 'New Year, New Topics', a collection of talks on topics we haven't featured much (if at all) at PHPSW.",
   "date": "10 January 2018",
   "meetup-id": "246355497",
-  "start-time": "19:00",
-  "end-time": "21:00",
-  "talks": [
-    "command-and-emission-control",
-    "http-caching-improving-performance--saving-the-ice-caps"
-  ],
   "venue": "basekit",
   "pub": "volunteer-tavern",
   "organisers": [
