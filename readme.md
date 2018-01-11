@@ -13,16 +13,32 @@
 1. `vagrant up`
 1. `vagrant ssh`
 1. `cd /vagrant`
-1. Run `yarn install` to install NPM dependencies.
-1. Run `yarn run encore dev` to generate the front-end assets, or `yarn run encore dev --watch` to generate and watch.
+1. `yarn install` (to install NPM dependencies).
+1. `cp app/config/secrets_template.yml app/config/secrets.yml`
+1. Update `app/config/secrets.yml` with your Meetup API key (not this is only needed if you want to use the entity generation scripts with meetup)
 
 ## General Usage
-To run the commands use ```./runner.php```
+To run the commands use ```/vagrant/runner.php```
+
+### Validate data
 
 To validate data: ```./runner.php  phpsw:validate-data```
-To generate website: ```./runner.php  phpsw:generate-website```
 
-To generate a 'person' JSON file: ```./runner.php  phpsw:generate-file-person <meetup-id>``` (meetup ID is optional, used to pull down as much data from Meetup as is available)
+
+### Generate data
+There are a number of scripts to help generate the JSON data files. You can supply a meetup id and it will pull the data from meetup.
+
+- **Generate person:** ```./runner.php  phpsw:generate-file-person <meetup-id>``` (meetup ID is optional, used to pull down as much data from Meetup as is available)
+
+### Build website
+
+To generate website run the following steps on the VM
+
+1. `cd /vagrant`
+1. ```./runner.php  phpsw:generate-website```
+1. `yarn run encore dev` or `yarn run encore dev --watch` to generate and watch. 
+
+
 
 ## Viewing generated content
 Once you've generated the website point your broswer to (http://phpsw.local)
