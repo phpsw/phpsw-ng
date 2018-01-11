@@ -12,15 +12,10 @@
 - name: Add yarn repository
   apt_repository:
     repo: 'deb https://dl.yarnpkg.com/debian/ stable main'
-    update_cache: yes
-    cache_valid_time: 3600
 
-- name: Install packages
+- name: Install yarn package
   apt:
-    name: '{{ item }}'
+    name: yarn
     update_cache: yes
     cache_valid_time: 3600
-  with_items:
-    - nodejs
-    - yarn
   become: true
