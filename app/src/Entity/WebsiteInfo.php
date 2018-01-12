@@ -48,6 +48,13 @@ class WebsiteInfo
     private $organisers;
 
     /**
+     * @var array
+     *
+     * @Assert\Collection()
+     */
+    private $friends;
+
+    /**
      * @return string
      */
     public function getSlug()
@@ -125,5 +132,21 @@ class WebsiteInfo
     public function setMeetupUrl($meetupUrl)
     {
         $this->meetupUrl = $meetupUrl;
+    }
+
+    /**
+     * @return array
+     */
+    public function getFriends()
+    {
+        return $this->friends;
+    }
+
+    /**
+     * @param array $friends
+     */
+    public function setFriends($friends)
+    {
+        $this->friends = $friends;
     }
 }

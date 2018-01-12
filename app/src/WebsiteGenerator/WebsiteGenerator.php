@@ -80,6 +80,7 @@ class WebsiteGenerator
         $fileSystem = new Filesystem();
         $sourceWebDirectory = "{$this->rootDirectory->getRootDirectory()}/app/resources/assets";
         $fileSystem->mirror($sourceWebDirectory, $this->websiteBaseDirectory->getWebsiteBaseDirectory());
+        $fileSystem->remove("{$this->websiteBaseDirectory->getWebsiteBaseDirectory()}/less");
     }
 
     /**

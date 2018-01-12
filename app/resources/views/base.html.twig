@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>PHPSW</title>
+        <link rel="stylesheet" href="/build/css/site.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="bg-grey-lightest text-grey-darker font-sans">
+        {% include "partials/header.html.twig" %}
+
+        {% block content_top %}{% endblock %}
+
+        <div class="bg-white pt-8 pb-12">
+            <div class="container mx-auto px-4">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+
+        {% include "partials/footer.html.twig" %}
+
+        <script>
+            document.querySelector('.nav-toggle').onclick = function() {
+                document.querySelector('.nav').classList.toggle('hidden').toggle('block');
+                return false;
+            };
+        </script>
+    </body>
+</html>

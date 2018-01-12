@@ -13,5 +13,92 @@
     "kat-zien",
     "dave-liddament",
     "oliver-davies"
+  ],
+  "friends": [
+    {
+      "name": "Bristol Web Folk",
+      "logo": "bristol-web-folk.png",
+      "websiteUrl": "http://bristolwebfolk.github.io"
+    },
+    {
+      "name": "Bristol Drupal",
+      "logo": "drupal-bristol.png",
+      "websiteUrl": "https://groups.drupal.org/bristol-and-west-uk"
+    },
+    {
+      "name": "Bristol WordPress Peop",
+      "logo": "bristol-wordpress.png",
+      "websiteUrl": "http://www.meetup.com/Bristol-WordPress-People"
+    },
+    {
+      "name": "PHP South Coast",
+      "logo": "php-south-coast.png",
+      "websiteUrl": "http://phpsouthcoast.co.uk"
+    },
+    {
+      "name": "BrightonPHP",
+      "logo": "brighton-php.png",
+      "websiteUrl": "http://brightonphp.org"
+    },
+    {
+      "name": "edPUG",
+      "logo": "edpug.png",
+      "websiteUrl": "http://www.edpug.co.uk"
+    },
+    {
+      "name": "PHP Dorset",
+      "logo": "php-dorset.png",
+      "websiteUrl": "http://www.phpdorset.co.uk"
+    },
+    {
+      "name": "PHP London",
+      "logo": "php-london.png",
+      "websiteUrl": "http://phplondon.org"
+    },
+    {
+      "name": "PHP Hampshire",
+      "logo": "php-hampshire.png",
+      "websiteUrl": "http://phphants.co.uk"
+    },
+    {
+      "name": "PHP Women",
+      "logo": "php-women.png",
+      "websiteUrl": "http://phpwomen.org"
+    },
+    {
+      "name": "PHP Cambridge",
+      "logo": "php-cambridge.png",
+      "websiteUrl": "http://www.meetup.com/phpcambridge"
+    },
+    {
+      "name": "Leeds PHP",
+      "logo": "leed-php.png",
+      "websiteUrl": "http://leedsphp.org"
+    },
+    {
+      "name": "PHP East Midlands",
+      "logo": "phpem.svg",
+      "websiteUrl": "http://phpem.uk"
+    },
+    {
+      "name": "PHP North East",
+      "logo": "phpne.png",
+      "websiteUrl": "http://phpne.org.uk"
+    },
+    {
+      "name": "PHP North West",
+      "logo": "phpnw.png",
+      "websiteUrl": "http://conference.phpnw.org.uk"
+    },
+    {
+      "name": "PHP West Midlands",
+      "logo": "phpwm.png",
+      "websiteUrl": "http://phpwm.org.uk"
+    },
+    {
+      "name": "PHP UK",
+      "logo": "php-uk.png",
+      "websiteUrl": "http://phpconference.co.uk"
+    }
   ]
 }

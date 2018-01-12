@@ -20,5 +20,12 @@ web
 /ci/cache
 /.php_cs
 
+/app/resources/assets/build/
+/node_modules/
+
+# Docker scripts
+generate.sh
+serve.sh
+
 # secrets file
 /app/config/secrets.yml

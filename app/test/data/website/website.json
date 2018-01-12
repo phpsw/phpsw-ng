@@ -7,5 +7,12 @@
   ],
   "sponsors" : [
     "acme"
+  ],
+  "friends": [
+    {
+      "name": "A friend",
+      "logo": "logo.png",
+      "websiteUrl": "http://example.com"
+    }
   ]
 }

@@ -1,0 +1,22 @@
+@import (less) "~font-awesome/less/font-awesome.less";
+
+@tailwind preflight;
+
+@import "base/base.less";
+
+@import 'components/balloons';
+@import 'components/hero';
+
+h1, h2, h3 {
+    @apply .font-medium;
+}
+
+.title {
+    @apply .border-b .border-grey-lighter .pb-4 .mb-8 .font-medium;
+}
+
+.transition {
+    transition: all .25s ease-in-out;
+}
+
+@tailwind utilities;

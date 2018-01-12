@@ -210,6 +210,7 @@ class ImporterTest extends TestCase
             $website->setMeetupUrl('http://example.com');
             $website->setSponsors($sponsors);
             $website->setOrganisers($organisers);
+            $website->setFriends($this->getFriends());
 
             return $website;
         });
@@ -264,5 +265,16 @@ class ImporterTest extends TestCase
         }
 
         return $this->cache[$key];
+    }
+
+    private function getFriends()
+    {
+        return [
+            [
+                'name' => 'A friend',
+                'logo' => 'logo.png',
+                'websiteUrl' => 'http://example.com',
+            ],
+        ];
     }
 }

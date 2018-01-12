@@ -1,0 +1,13 @@
+<div class="mb-12">
+    <h2 class="mb-2">Sponsors</h2>
+
+    <ul class="flex flex-wrap list-reset mb-4">
+        {% for sponsor in info.sponsors %}
+            {% include "partials/sponsor.html.twig" %}
+        {% endfor %}
+    </ul>
+
+    <div>
+        <a href="#0" class="button bg-red-light hover:bg-red-dark">Find out more</a>
+    </div>
+</div>
