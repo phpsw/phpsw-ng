@@ -8,7 +8,7 @@
 
 {% block content %}
     <h1 class="title">Code of conduct</h1>
-    
+
     <div class="content text-sm leading-normal">
         <p>All attendees, speakers, sponsors and volunteers at our meetup are required to agree with the following code of conduct. Organisers will enforce this code throughout each event. We are expecting cooperation from all participants to help ensuring a safe environment for everybody.</p>
 
@@ -16,15 +16,21 @@
 
         <h2>Need help?</h2>
 
-        <p>You can contact the organisers at info@phpsw.org.uk, send a direct message to @phpsw on Twitter or speak to an organiser, in person, at an event.</p>
+        <p>You can contact the organisers at {{ info.emailAddress }}, send a direct message to @phpsw on Twitter or speak to an organiser, in person, at an event.</p>
 
         <p>The current organisers are:</p>
 
         <ul>
-            <li>Lee Stone (@leesto)</li>
-            <li>Kat Zien (@kasiazien)</li>
-            <li>Oliver Davies (@opdavies)</li>
-            <li>Tom Adam (@)</li>
+            {% for organiser in info.organisers %}
+                <li>
+                    {{ organiser.name }}
+                    {% if organiser.twitterHandle %}
+                        (<a href="https://twitter.com/{{ organiser.twitterHandle }}">{% spaceless %}
+                            @{{ organiser.twitterHandle }}
+                        {% endspaceless %}</a>)
+                    {% endif %}
+                </li>
+            {% endfor %}
         </ul>
 
         <p>If you have a complaint that involves an organiser, you can contact one of the others in confidence. The group is the priority and steps will be taken to ensure the group is successful.</p>
