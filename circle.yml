@@ -13,7 +13,7 @@ dependencies:
 test:
   pre:
   - mkdir -p $CIRCLE_TEST_REPORTS/phpcs
-  - cp app/config/secrets_tests.yml app/config/secrets.yml
+  - cp phpsw-ng/app/config/secrets_test.yml phpsw-ng/app/config/secrets.yml
   override:
   - vendor/bin/php-cs-fixer fix --dry-run --format=junit > $CIRCLE_TEST_REPORTS/phpcs/junit.xml
   - vendor/bin/security-checker security:check
