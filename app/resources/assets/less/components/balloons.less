@@ -1,0 +1,35 @@
+.balloon {
+    @apply .ml-4;
+    height: 100px;
+    transform: translateY(0);
+    transform-origin: 50% 50%;
+    transition: 1s ease-in-out;
+}
+
+.header .balloon {
+    animation: launch 2s ease-in-out;
+}
+
+.balloon-large { height: 70px; }
+.balloon-medium { height: 50px; }
+.balloon-small { height: 25px; }
+
+.header:hover {
+    .balloon--up {
+        transform: translateY(-0.5em);
+    }
+
+    .balloon--down {
+        transform: translateY(.5em);
+    }
+}
+
+@keyframes launch {
+    0% {
+        transform: translate(-200%, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}

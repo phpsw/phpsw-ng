@@ -1,0 +1,10 @@
+---
+- name: Register NodeJS
+  shell: 'curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -'
+  creates: '/etc/apt/sources.list.d/nodesource.list'
+
+- name: Install nodejs
+  apt:
+    name: nodejs
+    update_cache: yes
+    cache_valid_time: 3600

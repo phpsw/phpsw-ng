@@ -1,0 +1,30 @@
+{% for talk in speaker.talks %}
+    {% if loop.first %}
+        <h2 class="mb-2">Talks</h2>
+        <ul class="list-reset">
+    {% endif %}
+
+    <li class="mb-4">
+        <h3 class="mb-1">
+            <a href="{{ talkUrl(talk) }}">
+                {{ talk.title }}
+            </a>
+        </h3>
+
+        
+        <div class="text-xs mb-2">
+            <a href="{{ eventUrl(talk.event) }}">
+                {{- talk.event.title -}}
+            </a>,
+            <span class="text-grey-light">
+                {{ talk.event.date|date('jS F Y') }}
+            </span>
+        </div>
+ 
+        <p class="text-sm">{{ talk.abstract }}</p>
+    </li>
+
+    {% if loop.last %}
+        </ul>
+    {% endif %}
+{% endfor %}
