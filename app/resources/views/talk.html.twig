@@ -1,13 +1,47 @@
-<h1> {{ talk.title}} </h1>
+{% extends 'base.html.twig' %}
 
+{% block content %}
+    <div class="-mx-4 md:flex">
+        <div class="px-4 pb-6 md:w-2/3 md:pb-0">
+            <h1 class="title">
+                {{ talk.title }}
 
-<p>Event: <a href="{{ eventUrl(talk.event) }}">{{ talk.event.title }}</a></p>
+                <span class="inline-block text-xl lg:text-2xl text-grey-light font-normal">
+                    {% set date = '01-' ~ talk.event.month ~ '-' ~ talk.event.year %}
+                    {{ talk.event.title }} - {{ date|date('F Y') }}
+                </span>
+            </h1>
 
-<p>
-    {% for speaker in talk.speakers %}
-    <a href="{{ personUrl(speaker) }}">{{ speaker.name }}</a>
-    {% endfor %}
-</p>
+            <div class="mb-6">
+                <p class="text-sm leading-normal">{{ talk.abstract }}</p>
+            </div>
 
-<p>{{ talk.abstract}} </p>
+            <div>
+                <h2 class="mb-4">Speakers</h2>
 
+                <ul class="list-reset">
+                    {% for speaker in talk.speakers %}
+                        <li class="text-sm flex items-center mb-2">
+                            <div class="mr-2 leading-none">
+                                <img src="{{ speaker.photoUrl }}" alt="{{ speaker.name }}" class="w-12 h-12 rounded-full">
+                            </div>
+                            <div class="flex-grow">
+                                <a href="{{ personUrl(speaker) }}" class="block mb-1">
+                                    {{ speaker.name }}
+                                </a>
+
+                                <p class="text-grey-light">
+                                    {{ speaker.description }}
+                                </p>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="px-4 md:w-1/3">
+            {% include 'partials/interested-speaking.html.twig' %}
+        </div>
+    </div>
+{% endblock %}
