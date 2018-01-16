@@ -36,9 +36,13 @@ class ValidateDataCommand extends Command
             $output->writeln('Validating data...');
             $this->importer->import();
             $output->writeln('All data is valid.');
+
+            return 0;
         } catch (ValidationException $e) {
             $output->writeln('Validation failed:');
             $output->writeln($e->getMessage());
+
+            return 1;
         }
     }
 }
