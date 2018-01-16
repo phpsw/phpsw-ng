@@ -1,5 +1,7 @@
 {% extends "base.html.twig" %}
 
+{% block title %}{{ speaker.name }} &middot; {{ parent() }}{% endblock %}
+
 {% block content %}
     <div class="title">
         <h1 class="text-2xl mb-2">{{ speaker.name }}</h1>

@@ -1,5 +1,7 @@
 {% extends "base.html.twig" %}
 
+{% block title %}Speakers &middot; {{ parent() }}{% endblock %}
+
 {% block content_top %}
     {% include "partials/hero.html.twig" with {
         image_url: '/images/hero/speakers.jpg',
