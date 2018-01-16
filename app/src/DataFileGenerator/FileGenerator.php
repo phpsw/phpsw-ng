@@ -12,6 +12,7 @@ abstract class FileGenerator
      * replaces spaces with hyphens and lowercases the whole thing.
      *
      * @param string $value
+     *
      * @return string
      */
     public function slugify(string $value): string

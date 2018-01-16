@@ -55,7 +55,7 @@ class PersonFileGenerator extends FileGenerator
             if (!empty($m->bio)) {
                 $person->setDescription($m->bio);
             }
-        } else if (!empty($member->bio)) {
+        } elseif (!empty($member->bio)) {
             $person->setDescription($member->bio);
         }
 
@@ -83,17 +83,17 @@ class PersonFileGenerator extends FileGenerator
     private function guessGithub(Person $person)
     {
         if (!empty($person->getTwitterHandle())) {
-            $headers = get_headers(self::GITHUB_BASE_URL . $person->getTwitterHandle());
+            $headers = get_headers(self::GITHUB_BASE_URL.$person->getTwitterHandle());
             if (strpos($headers[0], '404') === false) {
-                return self::GITHUB_BASE_URL . $person->getTwitterHandle();
+                return self::GITHUB_BASE_URL.$person->getTwitterHandle();
             }
         }
 
         if (!empty($person->getName())) {
             $name = strtolower(str_replace(' ', '', $person->getName()));
-            $headers = get_headers(self::GITHUB_BASE_URL . $name);
+            $headers = get_headers(self::GITHUB_BASE_URL.$name);
             if (strpos($headers[0], '404') === false) {
-                return self::GITHUB_BASE_URL . $name;
+                return self::GITHUB_BASE_URL.$name;
             }
         }
 
@@ -113,20 +113,20 @@ class PersonFileGenerator extends FileGenerator
             throw new \Exception('no filename available for this file - does this person have a name?');
         }
 
-        $fileName = $this->slugify($person->getName()) . '.json';
-        $filePath = './data/people/' . $fileName;
+        $fileName = $this->slugify($person->getName()).'.json';
+        $filePath = './data/people/'.$fileName;
 
         $data = [
-            'name'           => $person->getName(),
-            'photo-url'      => $person->getPhotoUrl(),
-            'description'    => $person->getDescription(),
+            'name' => $person->getName(),
+            'photo-url' => $person->getPhotoUrl(),
+            'description' => $person->getDescription(),
             'twitter-handle' => $person->getTwitterHandle(),
-            'github-handle'  => $person->getGithubHandle(),
-            'website-url'    => $person->getWebsiteUrl(),
-            'meetup-id'      => $person->getMeetupId(),
+            'github-handle' => $person->getGithubHandle(),
+            'website-url' => $person->getWebsiteUrl(),
+            'meetup-id' => $person->getMeetupId(),
         ];
 
-        $handle = fopen($filePath, 'w') or die('Cannot open file:  ' . $filePath);
+        $handle = fopen($filePath, 'w') or die('Cannot open file:  '.$filePath);
         fwrite($handle, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
         fclose($handle);
 
