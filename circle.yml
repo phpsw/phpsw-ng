@@ -18,4 +18,4 @@ test:
   - vendor/bin/php-cs-fixer fix --dry-run --format=junit > $CIRCLE_TEST_REPORTS/phpcs/junit.xml
   - vendor/bin/security-checker security:check
   - vendor/bin/phpunit
-  - /opt/circleci/.phpenv/shims/php ci-runner.php phpsw:validate-data
+  - /opt/circleci/.phpenv/shims/php runner.php phpsw:validate-data
