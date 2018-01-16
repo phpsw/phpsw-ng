@@ -1,0 +1,13 @@
+<div>
+    <h2 class="mb-4">Sponsors</h2>
+
+    <ul class="list-reset flex flex-wrap items-center">
+        {% for sponsor in event.sponsors %}
+            <li class="w-1/2 lg:w-1/4 mb-3">
+                <a href="{{ sponsor.websiteUrl }}" class="block text-center">
+                    <img src="{{ sponsor.logoUrl }}" alt="{{ sponsor.name }}">
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,16 @@
+<div class="flex items-baseline mb-2">
+    <h2>
+        <a href="{{ eventUrl(event) }}">
+            {{ event.title }}
+        </a>
+    </h2>
+
+    <span class="text-sm text-grey-light ml-2">
+        {% set date = '01-' ~ event.month ~ '-' ~ event.year %}
+        {{ date|date('F Y') }}
+    </span>
+</div>
+
+<div class="text-sm leading-normal">
+    {{ event.description }}
+</div>
