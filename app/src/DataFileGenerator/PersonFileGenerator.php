@@ -2,9 +2,10 @@
 
 namespace Phpsw\Website\DataFileGenerator;
 
+use Phpsw\Website\Common\StringUtils;
 use Phpsw\Website\Entity\Person;
 
-class PersonFileGenerator extends FileGenerator
+class PersonFileGenerator
 {
     const GITHUB_BASE_URL = 'https://github.com/';
 
@@ -113,7 +114,7 @@ class PersonFileGenerator extends FileGenerator
             throw new \Exception('no filename available for this file - does this person have a name?');
         }
 
-        $fileName = $this->slugify($person->getName()).'.json';
+        $fileName = StringUtils::slugify($person->getName()).'.json';
         $filePath = './data/people/'.$fileName;
 
         $data = [
