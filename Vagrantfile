@@ -30,5 +30,5 @@ Vagrant.configure("2") do |config|
         ansible.playbook = "ansible/vagrant-up.yml"
     end
 
-    config.vm.synced_folder "./", "/vagrant", type: "nfs", mount_options: ["actimeo=2"]
+    config.vm.synced_folder "./", "/vagrant", type: "nfs", nfs_udp: false, mount_options: ["actimeo=2"]
 end
