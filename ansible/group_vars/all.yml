@@ -27,6 +27,8 @@ php_packages:
 - php7.2-dom
 - php7.2-mbstring
 
+composer_php_version: 7.2
+
 shorewall_enable: true
 shorewall_interfaces:
 - name: eth0
