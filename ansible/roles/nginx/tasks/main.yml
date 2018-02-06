@@ -1,32 +1,76 @@
 ---
-# TODO: re-enable to get http2 with ALPN in chrome, new openssl version required which is causing php segfaults
-#- name: Install backports openssl
-#  apt: pkg=openssl default_release=jessie-backports state=latest update_cache=yes cache_valid_time=3600
-
-- name: Install backports certbot
-  apt: pkg=certbot,python-certbot-nginx default_release=jessie-backports state=latest update_cache=yes cache_valid_time=3600
-
+# passlib for basic auth
 - name: Install Nginx
-  apt: pkg=nginx-light state=latest update_cache=yes cache_valid_time=3600
+  apt:
+    pkg: "{{ nginx_package }},python-passlib"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
 
 - name: Configure Nginx
-  template: src=etc/nginx/nginx.conf.j2 dest=/etc/nginx/nginx.conf
+  template:
+    src: etc/nginx/nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
   notify: restart nginx
 
 - name: Disable default Nginx site
-  file: path=/etc/nginx/sites-enabled/default state=absent
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
   notify: restart nginx
 
 - name: Add web user to ssl-cert group
-  user: name={{ nginx_user }} append=yes groups=ssl-cert
+  user:
+    name: "{{ nginx_user }}"
+    append: yes
+    groups: ssl-cert
+  notify: restart nginx
+
+- name: Install conf
+  template:
+    src: "templates/nginx/conf/{{ item.src }}"
+    dest: "/etc/nginx/conf.d/{{ item.dest }}"
+  with_items: "{{ nginx_conf }}"
+  notify: restart nginx
+
+- name: Install snippets
+  template:
+    src: "templates/nginx/snippets/{{ item.src }}"
+    dest: "/etc/nginx/snippets/{{ item.dest }}"
+  with_items: "{{ nginx_snippets }}"
   notify: restart nginx
 
 - name: Install vhosts
-  template: src='templates/vhosts/{{ item.src }}' dest='/etc/nginx/sites-available/{{ item.dest }}'
-  with_items: '{{ nginx_vhosts }}'
+  template:
+    src: "templates/nginx/vhosts/{{ item.src }}"
+    dest: "/etc/nginx/sites-available/{{ item.dest }}"
+  with_items: "{{ nginx_vhosts }}"
   notify: restart nginx
 
+- name: Create basic auth files
+  copy:
+    dest: "{{ item.path }}"
+    owner: "{{ nginx_user }}"
+    mode: 0600
+    content: ""
+    force: false
+  with_items: "{{ nginx_basic_auth }}"
+  no_log: true
+
+- name: Write basic auth passwords
+  htpasswd:
+    crypt_scheme: ldap_sha1
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"
+    path: "{{ item.path }}"
+  with_items: "{{ nginx_basic_auth }}"
+  notify: restart nginx
+  no_log: true
+
 - name: Enable vhosts
-  file: src='/etc/nginx/sites-available/{{ item.dest }}' dest='/etc/nginx/sites-enabled/{{ item.dest }}' state=link
-  with_items: '{{ nginx_vhosts }}'
+  file:
+    src: "/etc/nginx/sites-available/{{ item.dest }}"
+    path: "/etc/nginx/sites-enabled/{{ item.dest }}"
+    state: "{{ 'link' if item.enabled else 'absent' }}"
+  with_items: "{{ nginx_vhosts }}"
   notify: restart nginx
