@@ -1,7 +1,8 @@
 def apply_ansible_defaults(ansible)
     ansible.inventory_path = "ansible/inventories/vagrant"
     ansible.config_file = "ansible/ansible.cfg"
-    ansible.limit = 'vagrant'
+    ansible.limit = "vagrant"
+    ansible.compatibility_mode = "2.0"
 end
 
 Vagrant.configure("2") do |config|
