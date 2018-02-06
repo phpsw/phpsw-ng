@@ -29,6 +29,8 @@ php_packages:
 
 composer_php_version: 7.2
 
+node_apt_version: 8.x
+
 shorewall_enable: true
 shorewall_interfaces:
 - name: eth0
