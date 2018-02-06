@@ -133,5 +133,5 @@
     mode: 0644
   with_items: "{{ known_hosts }}"
 
-- include: vagrant.yml
+- include_tasks: vagrant.yml
   when: vagrant
