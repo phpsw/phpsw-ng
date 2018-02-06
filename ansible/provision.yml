@@ -16,8 +16,6 @@
   - composer
   - node
   - yarn
-  tasks:
-  - include: tasks/provision/app.yml
   post_tasks:
   - name: restart sshd
     service: name=ssh state=restarted enabled=yes
