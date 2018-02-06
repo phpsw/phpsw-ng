@@ -13,7 +13,7 @@ dependencies:
   - rm /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
   override:
   - yarn install
-  - composer install --no-interaction
+  - COMPOSER_CACHE_DIR=~/.cache/composer composer install --no-interaction
 
 test:
   pre:
