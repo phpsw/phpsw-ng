@@ -1,5 +1,6 @@
 def apply_ansible_defaults(ansible)
     ansible.inventory_path = "ansible/inventories/vagrant"
+    ansible.config_file = "ansible/ansible.cfg"
     ansible.limit = 'vagrant'
 end
 
