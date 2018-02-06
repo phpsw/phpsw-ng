@@ -7,12 +7,12 @@
 #    when: secure_vars_file is defined
   roles:
   - base
-  - dotdeb
   #- shorewall
   - ssl
   - nginx
   - git
-  - php7.0-cli
+  - php-repo-sury
+  - php-cli
   - composer
   - node
   - yarn

@@ -1,0 +1,41 @@
+---
+- name: Install PHP CLI
+  apt:
+    pkg: "php{{ php_cli_version }}-cli"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Install PHP packages
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items: "{{ php_packages }}"
+
+- name: Install Xdebug
+  apt:
+    pkg: php-xdebug
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  when: php_cli_xdebug
+
+- name: Apply PHP CLI settings
+  template:
+    src: php.ini
+    dest: "/etc/php/{{ php_cli_version }}/cli/php.ini"
+    owner: root
+    group: root
+    mode: 0644
+
+# TODO: review security
+#- name: Ensure opcache file cache dir exists
+#  file:
+#    path: "{{ php_cli_opcache_file_cache }}"
+#    owner: root
+#    group: root
+#    mode: 0777
+#    state: directory
+#  when: php_cli_opcache_file_cache_only == 1

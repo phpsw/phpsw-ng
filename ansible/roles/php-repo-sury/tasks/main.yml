@@ -1,0 +1,16 @@
+---
+- name: Install PHP repo dependencies
+  apt:
+    pkg: ca-certificates
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Add PHP repo key
+  apt_key:
+    data: "{{ lookup('file', 'php-sury-repo.asc') }}"
+    state: present
+
+- name: Add PHP repository
+  apt_repository:
+    repo: deb https://packages.sury.org/php/ {{ ansible_distribution_release }} main

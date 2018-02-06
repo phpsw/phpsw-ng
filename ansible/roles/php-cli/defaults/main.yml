@@ -6,7 +6,13 @@ php_cli_display_startup_errors: Off
 php_cli_track_errors: Off
 php_cli_mysqlnd_collect_statistics: Off
 php_cli_opcache_file_cache: /var/lib/php/opcache
-php_cli_opcache_file_cache_only: 1
+php_cli_opcache_file_cache_only: 0
 php_cli_curl_cainfo:
 php_cli_openssl_cafile:
-php_xdebug: false
+php_cli_xdebug: false
+php_cli_xdebug_remote_enable: true
+php_cli_xdebug_remote_host:
+php_cli_xdebug_remote_autostart: true
+php_cli_xdebug_idekey: cli
+php_cli_xdebug_max_nesting_level: 500
+php_packages: []
