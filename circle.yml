@@ -11,6 +11,9 @@ dependencies:
   - "~/.cache/composer"
   pre:
   - rm /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
+  override:
+  - yarn install
+  - composer install --no-interaction
 
 test:
   pre:
@@ -20,4 +23,6 @@ test:
   - vendor/bin/php-cs-fixer fix --dry-run --verbose --format=junit > $CIRCLE_TEST_REPORTS/phpcs/junit.xml
   - vendor/bin/security-checker security:check
   - vendor/bin/phpunit --log-junit=$CIRCLE_TEST_REPORTS/phpunit/junit.xml
-  - /opt/circleci/.phpenv/shims/php runner.php phpsw:validate-data
+  - ./runner.php phpsw:validate-data
+  - ./runner.php phpsw:generate-website
+  - yarn run encore dev
