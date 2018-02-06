@@ -24,7 +24,7 @@
         "symfony/routing": "3.2"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "~2.0.0",
+        "friendsofphp/php-cs-fixer": "~2.10.0",
         "sensiolabs/security-checker": "~4.0",
         "phpunit/phpunit": "^6.0"
     },
