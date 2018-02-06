@@ -56,7 +56,7 @@ class DirectoryReader
 
             if (is_dir("$directory/$file") && (!in_array($file, ['.', '..']))) {
                 $return = array_merge($return, $this->getDirectoryContentsRecursively($fullPath));
-            } elseif (substr($file, -5) === '.json') {
+            } elseif ('.json' === substr($file, -5)) {
                 $entityName = substr($file, 0, -5);
                 $return[$entityName] = $fullPath;
             }

@@ -31,7 +31,7 @@ class PersonFileGenerator
     public function getPersonFromMeetup(int $meetupId)
     {
         $result = $this->meetupAPIClient->getMembers(['member_id' => $meetupId]);
-        if (count($result->results) !== 1) {
+        if (1 !== count($result->results)) {
             throw new \Exception("more than one member profile returned for id {$meetupId}");
         }
 
@@ -54,7 +54,7 @@ class PersonFileGenerator
             // /members seems to not be returning the bio, so try the /profiles endpoint
             // (this will only work if this person is a member of the php-sw meetup group)
             $r = $this->meetupAPIClient->getProfiles(['member_id' => $meetupId, 'group_urlname' => 'php-sw']);
-            if (count($r->results) === 1) {
+            if (1 === count($r->results)) {
                 $m = $r->results[0];
 
                 if (!empty($m->other_services->twitter->identifier)) {
@@ -112,7 +112,7 @@ class PersonFileGenerator
     {
         $fileName = strtolower(str_replace(' ', '-', $person->getName())).'.json';
 
-        if ($fileName === '.json') {
+        if ('.json' === $fileName) {
             throw new \Exception('no filename available for this file - does this person have a name?');
         }
         $filePath = './data/people/'.$fileName;

@@ -160,7 +160,7 @@ class MeetupApiClient
         $params = array_merge($parameters, $this->_parameters);
 
         //make sure 'sign' is included when using api key only
-        if (in_array('key', $params) && $url != self::ACCESS && $url != self::AUTHORIZE) {
+        if (in_array('key', $params) && self::ACCESS != $url && self::AUTHORIZE != $url) {
             //api request (any) - include sign parameters
             $params = array_merge(['sign', 'true'], $params);
         }
@@ -180,13 +180,13 @@ class MeetupApiClient
         curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 
         //either GET/POST/PUT/DELETE against api
-        if ($action == self::GET || $action == self::DELETE) {
+        if (self::GET == $action || self::DELETE == $action) {
             //GET + DELETE
 
             //include headers as specified by manual
-            if ($url == self::ACCESS) {
+            if (self::ACCESS == $url) {
                 array_push($headers, 'Content-Type: application/x-www-form-urlencoded');
-            } elseif (strpos($url, self::BASE) === 0 && in_array('access_token', $params)) {
+            } elseif (0 === strpos($url, self::BASE) && in_array('access_token', $params)) {
                 array_merge($params, ['token_type' => 'bearer']);
             }
 
