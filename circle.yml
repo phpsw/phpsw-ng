@@ -20,6 +20,7 @@ test:
   - mkdir -p $CIRCLE_TEST_REPORTS/{phpcs,phpunit}
   - cp $HOME/$CIRCLE_PROJECT_REPONAME/app/config/secrets_test.yml $HOME/$CIRCLE_PROJECT_REPONAME/app/config/secrets.yml
   override:
+  - vendor/bin/parallel-lint app runner.php
   - vendor/bin/php-cs-fixer fix --dry-run --verbose --format=junit > $CIRCLE_TEST_REPORTS/phpcs/junit.xml
   - vendor/bin/security-checker security:check
   - vendor/bin/phpunit --log-junit=$CIRCLE_TEST_REPORTS/phpunit/junit.xml
