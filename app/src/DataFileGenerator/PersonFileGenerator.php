@@ -51,7 +51,7 @@ class PersonFileGenerator
 
         // try to get the member's bio set for the php-sw group, if not see if they have the general bio
         $r = $this->meetupAPIClient->getProfiles(['member_id' => $meetupId, 'group_urlname' => 'php-sw']);
-        if (count($r->results) === 1) {
+        if (1 === count($r->results)) {
             $m = $r->results[0];
             if (!empty($m->bio)) {
                 $person->setDescription($m->bio);
@@ -85,7 +85,7 @@ class PersonFileGenerator
     {
         if (!empty($person->getTwitterHandle())) {
             $headers = get_headers(self::GITHUB_BASE_URL.$person->getTwitterHandle());
-            if (strpos($headers[0], '404') === false) {
+            if (false === strpos($headers[0], '404')) {
                 return self::GITHUB_BASE_URL.$person->getTwitterHandle();
             }
         }
@@ -93,7 +93,7 @@ class PersonFileGenerator
         if (!empty($person->getName())) {
             $name = strtolower(str_replace(' ', '', $person->getName()));
             $headers = get_headers(self::GITHUB_BASE_URL.$name);
-            if (strpos($headers[0], '404') === false) {
+            if (false === strpos($headers[0], '404')) {
                 return self::GITHUB_BASE_URL.$name;
             }
         }
