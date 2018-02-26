@@ -3,40 +3,9 @@
 {% block content %}
     <div class="-mx-4 md:flex">
         <div class="px-4 pb-6 md:w-2/3 md:pb-0">
-            <h1 class="title">
-                {{ talk.title }}
-
-                <span class="inline-block text-xl lg:text-2xl text-grey-light font-normal">
-                    {{ talk.event.title }} - {{ eventDate(talk.event) }}
-                </span>
-            </h1>
-
-            <div class="mb-6">
-                <p class="text-sm leading-normal">{{ talk.abstract }}</p>
-            </div>
-
-            <div>
-                <h2 class="mb-4">Speakers</h2>
-
-                <ul class="list-reset">
-                    {% for speaker in talk.speakers %}
-                        <li class="text-sm flex items-center mb-2">
-                            <div class="mr-2 leading-none">
-                                <img src="{{ speaker.photoUrl }}" alt="{{ speaker.name }}" class="w-12 h-12 rounded-full">
-                            </div>
-                            <div class="flex-grow">
-                                <a href="{{ personUrl(speaker) }}" class="block mb-1">
-                                    {{ speaker.name }}
-                                </a>
-
-                                <p class="text-grey-light">
-                                    {{ speaker.description }}
-                                </p>
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
+            {% include 'partials/talk/title.html.twig' %}
+            {% include 'partials/talk/abstract.html.twig' %}
+            {% include 'partials/talk/speakers.html.twig' %}
         </div>
 
         <div class="px-4 md:w-1/3">
