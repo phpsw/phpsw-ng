@@ -2,6 +2,7 @@
 
 namespace Phpsw\Website\WebsiteGenerator\TemplateRenderer;
 
+use Phpsw\Website\Repository\WebsiteInfoRepositoryInterface;
 use Phpsw\Website\WebsiteGenerator\WebsiteBaseDirectory;
 use Symfony\Component\Filesystem\Filesystem;
 use Twig_Environment;
@@ -22,6 +23,11 @@ class TemplateRenderer
     private $websiteBaseDirectory;
 
     /**
+     * @var WebsiteInfoRepositoryInterface
+     */
+    private $websiteInfoRepository;
+
+    /**
      * @var Filesystem
      */
     private $filesystem;
@@ -32,11 +38,15 @@ class TemplateRenderer
      * @param TwigWrapper $twigWrapper
      * @param WebsiteBaseDirectory $websiteBaseDirectory
      */
-    public function __construct(TwigWrapper $twigWrapper, WebsiteBaseDirectory $websiteBaseDirectory)
-    {
+    public function __construct(
+        TwigWrapper $twigWrapper,
+        WebsiteBaseDirectory $websiteBaseDirectory,
+        WebsiteInfoRepositoryInterface $websiteInfoRepository
+    ) {
         $this->websiteBaseDirectory = $websiteBaseDirectory;
         $this->filesystem = new Filesystem();
         $this->twig = $twigWrapper->getTwigEnvironment();
+        $this->websiteInfoRepository = $websiteInfoRepository;
     }
 
     /**
@@ -58,6 +68,8 @@ class TemplateRenderer
         }
 
         $data['page']['template'] = $templateName;
+
+        $this->twig->addGlobal('info', $this->websiteInfoRepository->getWebsiteInfo());
 
         $contents = $this->twig->render("{$templateName}.html.twig", $data);
         $this->filesystem->dumpFile($fullPath, $contents);
