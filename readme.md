@@ -30,6 +30,8 @@ There are a number of scripts to help generate the JSON data files. You can supp
 
 - **Generate person:** ```./runner.php  phpsw:generate-file-person <meetup-id>``` (meetup ID is optional, used to pull down as much data from Meetup as is available)
 
+- **Generate event:** ```./runner.php  phpsw:generate-file-event <meetup-id>```
+
 ### Build website
 
 To generate website run the following steps on the VM
