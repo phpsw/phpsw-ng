@@ -15,15 +15,33 @@
 
    <div class="-mx-4 md:flex">
         <div class="px-4 pb-6 md:w-2/3 md:pb-0">
-            <ul class="list-reset flex flex-wrap items-center -mx-4">
-                {% for sponsor in sponsors %}
-                    <li class="w-full sm:w-1/2 mb-16">
-                        <div class="px-4">
-                            {% include 'partials/sponsors/sponsor.html.twig' %}
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
+            <div class="mb-4">
+                <h2 class="mb-2">Full Sponsors</h2>
+
+                <ul class="list-reset flex flex-wrap items-center -mx-4">
+                    {% for sponsor in fullSponsors %}
+                        <li class="w-full sm:w-1/2 mb-16">
+                            <div class="px-4">
+                                {% include 'partials/sponsors/sponsor.html.twig' %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="mb-2">Event Sponsors</h2>
+
+                <ul class="list-reset flex flex-wrap items-center -mx-4">
+                    {% for sponsor in eventSponsors %}
+                        <li class="w-full sm:w-1/2 mb-16">
+                            <div class="px-4">
+                                {% include 'partials/sponsors/sponsor.html.twig' %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
 
        <div class="px-4 md:w-1/3">
