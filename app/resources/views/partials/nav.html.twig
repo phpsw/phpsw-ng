@@ -2,7 +2,7 @@
     <div class="container mx-auto sm:px-4">
         <div class="nav hidden sm:flex">
             <div class="flex-auto">
-                <a class="nav-item block sm:float-left py-3 px-4 text-sm text-grey hover:text-grey-darkest sm:py-4 {{ page.template == 'home' ? 'bg-grey-lighter' }}" href="/">Home</a>
+                <a class="nav-item block sm:float-left py-3 px-4 text-sm text-grey hover:text-grey-darkest sm:py-4 {{ page.template == 'home' ? 'bg-grey-lighter' }}" href="{{ url('home') }}">Home</a>
                 <a class="nav-item block sm:float-left py-3 px-4 text-sm text-grey hover:text-grey-darkest sm:py-4 {{ page.template matches '/(talk|events?)/' ? 'bg-grey-lighter' }}" href="#0">Events</a>
                 <a class="nav-item block sm:float-left py-3 px-4 text-sm text-grey hover:text-grey-darkest sm:py-4 {{ page.template matches '/speakers?/' ? 'bg-grey-lighter' }}" href="{{ url('speakers') }}">Speakers</a>
                 <a class="nav-item block sm:float-left py-3 px-4 text-sm text-grey hover:text-grey-darkest sm:py-4 {{ page.template == 'sponsors' ? 'bg-grey-lighter' }}" href="#0">Sponsors</a>
