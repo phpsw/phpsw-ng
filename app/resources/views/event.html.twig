@@ -1,5 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block content_top %}
+    {% include 'partials/hero.html.twig' with {
+        image_url: '/images/hero/events.jpeg',
+    } %}
+{% endblock %}
+
 {% block content %}
     <div class="-mx-4 md:flex">
         <div class="px-4 pb-6 md:w-2/3 md:pb-0">
