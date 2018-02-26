@@ -13,8 +13,7 @@
                 <h1>{{ event.title }}</h1>
 
                 <span class="inline-block mt-1 lg:ml-2 text-xl lg:text-2xl text-grey-light font-normal">
-                    {% set date = '01-' ~ event.month ~ '-' ~ event.year %}
-                    {{ date|date('F Y') }}
+                    {{ eventDate(event) }}
                 </span>
             </div>
 

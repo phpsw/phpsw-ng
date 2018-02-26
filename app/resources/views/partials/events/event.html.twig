@@ -6,8 +6,7 @@
     </h2>
 
     <span class="text-sm text-grey-light ml-2">
-        {% set date = '01-' ~ event.month ~ '-' ~ event.year %}
-        {{ date|date('F Y') }}
+        {{ eventDate(event) }}
     </span>
 </div>
 

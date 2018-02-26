@@ -23,6 +23,12 @@ services:
     tags:
       - {name: "TwigExtension"}
 
+  app.websiteGenerator.twigExtension.date:
+    class: \Phpsw\Website\WebsiteGenerator\TemplateRenderer\TwigExtension\DateTwigExtension
+    autowire: true
+    tags:
+      - {name: "TwigExtension"}
+
 
   # Register content type generators
   app.websiteGenerator.contentTypeGenerator.events:
