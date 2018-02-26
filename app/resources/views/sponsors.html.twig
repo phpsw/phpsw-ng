@@ -9,14 +9,18 @@
 {% endblock %}
 
 {% block content %}
-    <h1 class="title">Sponsors</h1>
+    <h1 class="title">
+        Sponsors
+    </h1>
 
    <div class="-mx-4 md:flex">
         <div class="px-4 pb-6 md:w-2/3 md:pb-0">
-            <ul class="list-reset flex flex-wrap items-center">
+            <ul class="list-reset flex flex-wrap items-center -mx-4">
                 {% for sponsor in sponsors %}
                     <li class="w-full sm:w-1/2 mb-16">
-                        {% include 'partials/sponsors/sponsor.html.twig' %}
+                        <div class="px-4">
+                            {% include 'partials/sponsors/sponsor.html.twig' %}
+                        </div>
                     </li>
                 {% endfor %}
             </ul>
