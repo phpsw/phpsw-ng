@@ -1,0 +1,23 @@
+<div class="flex flex-row-reverse items-center">
+    <div class="flex-1">
+        <h3 class="mb-2">
+            <a href="{{ talkUrl(talk) }}">
+                {{ talk.title }}
+            </a>
+        </h3>
+
+        <p class="text-sm mb-0 leading-normal">
+            {{ talk.speakers[0].name -}}
+
+            {%- if talk.speakers[0].description -%}
+                , {{ talk.speakers[0].description }}
+            {% endif %}
+        </p>
+    </div>
+
+    {% if talk.speakers[0].photoUrl %}
+        <div class="w-12 text-center mr-2">
+            <img src="{{ talk.speakers[0].photoUrl }}" alt="{{ talk.speakers[0].name }}" class="w-8 h-8 rounded-full">
+        </div>
+    {% endif %}
+</div>

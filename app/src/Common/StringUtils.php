@@ -13,10 +13,11 @@ class StringUtils
      * @param  string  $title
      * @param  string  $separator
      * @param  string  $language
+     * @param  int     $maxLengthChars
      *
      * @return string
      */
-    public static function slugify($title, $separator = '-', $language = 'en')
+    public static function slugify($title, $separator = '-', $language = 'en', $maxLengthChars = 30)
     {
         $title = static::ascii($title, $language);
 
@@ -34,7 +35,7 @@ class StringUtils
         // Replace all separator characters and whitespace by a single separator
         $title = preg_replace('!['.preg_quote($separator).'\s]+!u', $separator, $title);
 
-        return trim($title, $separator);
+        return substr(trim($title, $separator), 0, $maxLengthChars);
     }
 
     /**

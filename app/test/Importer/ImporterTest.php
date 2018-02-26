@@ -189,8 +189,10 @@ class ImporterTest extends TestCase
             $acme = new Sponsor();
             $acme->setSlug('acme');
             $acme->setName('Acme');
+            $acme->setDescription('A description');
             $acme->setWebsiteUrl('http://acme.com');
             $acme->setLogoUrl('http://acme.com/logo');
+            $acme->setSponsorType(Sponsor::SPONSOR_FULL);
 
             return $acme;
         });
