@@ -2,6 +2,7 @@
 
 namespace Phpsw\Website\WebsiteGenerator\ContentTypeGenerator;
 
+use Phpsw\Website\Entity\Sponsor;
 use Phpsw\Website\Repository\WebsiteInfoRepositoryInterface;
 use Phpsw\Website\WebsiteGenerator\TemplateRenderer\TemplateRenderer;
 
@@ -38,9 +39,17 @@ class SponsorsPageGenerator implements ContentTypeGeneratorsInterface
     public function generatePages(TemplateRenderer $templateRenderer)
     {
         $websiteInfo = $this->websiteInfoRepository->getWebsiteInfo();
+        $eventSponsors = [];
+        $fullSponsors = [];
 
-        $templateRenderer->render('sponsors/index.html', 'sponsors', [
-            'sponsors' => $websiteInfo->getSponsors(),
-        ]);
+        foreach ($websiteInfo->getSponsors() as $sponsor) {
+            if ($sponsor->getSponsorType() === Sponsor::SPONSOR_FULL) {
+                $fullSponsors[] = $sponsor;
+            } elseif ($sponsor->getSponsorType() === Sponsor::SPONSOR_EVENT) {
+                $eventSponsors[] = $sponsor;
+            }
+        }
+
+        $templateRenderer->render('sponsors/index.html', 'sponsors', compact('fullSponsors', 'eventSponsors'));
     }
 }
