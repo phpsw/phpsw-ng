@@ -17,4 +17,14 @@ class TalkRepository extends AbstractRepository implements TalkRepositoryInterfa
     {
         $this->persistEntity($talk);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getShowcaseTalks()
+    {
+        return array_filter($this->getAll(), function (Talk $talk) {
+            return $talk->isShowcase();
+        });
+    }
 }
