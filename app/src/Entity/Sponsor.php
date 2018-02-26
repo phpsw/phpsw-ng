@@ -59,6 +59,11 @@ class Sponsor
     private $sponsorType;
 
     /**
+     * @var string
+     */
+    private $description;
+
+    /**
      * @return string
      */
     public function getSlug()
@@ -136,6 +141,22 @@ class Sponsor
     public function setSponsorType(string $sponsorType)
     {
         $this->sponsorType = $sponsorType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
     }
 
     /**

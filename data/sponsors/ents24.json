@@ -1,5 +1,6 @@
 {
     "name": "Ents24",
+    "description" : "The UK's busiest live entertainment guide, helping millions of fans discover live shows and buy tickets every year. Made in Bristol with PHP since 1999",
     "logo-url": "https://secure.meetupstatic.com/photos/sponsor/4/3/b/5/iab120x90_2537333.jpeg",
     "website-url": "https://www.ents24.com/",
     "sponsor-type": "full"

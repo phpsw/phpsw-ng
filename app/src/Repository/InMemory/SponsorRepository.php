@@ -20,16 +20,12 @@ class SponsorRepository extends AbstractRepository implements SponsorRepositoryI
     }
 
     /**
-     * Returns all sponsors of the give type (see Sponsor object).
-     *
-     * @param string $sponsorType
-     *
-     * @return Sponsor[]
+     * {@inheritdoc}
      */
     public function getByType(string $sponsorType)
     {
         if (Sponsor::isValidSponsorType($sponsorType) === false) {
-            throw new RuntimeException("Invalid type [{$sponsorType}]");
+            throw new RuntimeException("Invalid sponsor type [{$sponsorType}]");
         }
 
         return array_filter($this->getAll(), function (Sponsor $sponsor) use ($sponsorType) {
