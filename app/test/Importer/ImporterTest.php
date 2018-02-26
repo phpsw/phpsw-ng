@@ -253,6 +253,7 @@ class ImporterTest extends TestCase
             $talk->setVideoUrl('http://talk.com/video');
             $talk->setJoindinUrl('http://joindin.com/talk');
             $talk->setSpeakers([$this->getFredBlogs()]);
+            $talk->setShowcase(true);
 
             return $talk;
         });
