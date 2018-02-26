@@ -43,12 +43,11 @@ class SponsorsPageGenerator implements ContentTypeGeneratorsInterface
         $fullSponsors = [];
 
         foreach ($websiteInfo->getSponsors() as $sponsor) {
-          if ($sponsor->getSponsorType() === Sponsor::SPONSOR_FULL) {
-            $fullSponsors[] = $sponsor;
-          }
-          elseif ($sponsor->getSponsorType() === Sponsor::SPONSOR_EVENT) {
-            $eventSponsors[] = $sponsor;
-          }
+            if ($sponsor->getSponsorType() === Sponsor::SPONSOR_FULL) {
+                $fullSponsors[] = $sponsor;
+            } elseif ($sponsor->getSponsorType() === Sponsor::SPONSOR_EVENT) {
+                $eventSponsors[] = $sponsor;
+            }
         }
 
         $templateRenderer->render('sponsors/index.html', 'sponsors', compact('fullSponsors', 'eventSponsors'));
