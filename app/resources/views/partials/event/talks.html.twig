@@ -1,0 +1,11 @@
+<div class="mb-8">
+    <h2 class="mb-3">Talks</h2>
+
+    <ul class="list-reset">
+        {% for talk in event.talks %}
+            <li class="mb-6">
+                {% include 'partials/event/talk.html.twig' %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
