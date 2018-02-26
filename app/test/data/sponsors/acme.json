@@ -1,5 +1,6 @@
 {
   "name": "Acme",
   "website-url": "http://acme.com",
-  "logo-url": "http://acme.com/logo"
+  "logo-url": "http://acme.com/logo",
+  "sponsor-type": "full"
 }

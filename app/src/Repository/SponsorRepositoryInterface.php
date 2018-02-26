@@ -28,4 +28,13 @@ interface SponsorRepositoryInterface
      * @return Sponsor|null
      */
     public function findBySlug(string $slug);
+
+    /**
+     * Returns all sponsors of the give type (see Sponsor object).
+     *
+     * @param string $sponsorType
+     *
+     * @return Sponsor[]
+     */
+    public function getByType(string $sponsorType);
 }
