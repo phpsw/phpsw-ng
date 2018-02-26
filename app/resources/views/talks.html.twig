@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1 class="title">Talks</h1>
+    <div class="px-4">
+        <h1 class="title">Talks</h1>
 
-    <ul class="list-reset">
-        {% for talk in talks %}
-            {% include 'partials/talks/talk.html.twig' %}
-        {% endfor %}
-    </ul>
+        <ul class="list-reset">
+            {% for talk in talks %}
+                {% include 'partials/talks/talk.html.twig' %}
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
