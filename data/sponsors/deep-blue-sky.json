@@ -1,5 +1,7 @@
 {
     "name": "Deep Blue Sky",
+    "description" : "Deep Blue Sky specialise in strategic web design and enterprise resource planning development, worldwide.",
     "logo-url": "https://secure.meetupstatic.com/photos/sponsor/4/7/7/a/iab120x90_2598298.jpeg",
-    "website-url": "https://deepbluesky.com/"
+    "website-url": "https://deepbluesky.com/",
+    "sponsor-type": "full"
 }

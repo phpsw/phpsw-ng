@@ -69,6 +69,11 @@ class Talk
     private $speakers;
 
     /**
+     * @var bool
+     */
+    private $showcase = false;
+
+    /**
      * @return string
      */
     public function getSlug()
@@ -198,5 +203,23 @@ class Talk
         foreach ($speakers as $speaker) {
             $speaker->addTalk($this);
         }
+    }
+
+    /**
+     * PHP-SW's best talks should have the showcase flag set to true. These talks will be shown on the talks page.
+     *
+     * @return bool
+     */
+    public function isShowcase(): bool
+    {
+        return $this->showcase;
+    }
+
+    /**
+     * @param bool $showcase
+     */
+    public function setShowcase(bool $showcase)
+    {
+        $this->showcase = $showcase;
     }
 }

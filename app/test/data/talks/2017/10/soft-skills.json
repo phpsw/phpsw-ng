@@ -5,6 +5,7 @@
   "slides-url" : "http://talk.com/slides",
   "video-url" : "http://talk.com/video",
   "joindin-url" : "http://joindin.com/talk",
+  "showcase": true,
   "speakers" : [
     "fred-blogs"
   ]

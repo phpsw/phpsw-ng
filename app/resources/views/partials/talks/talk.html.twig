@@ -1,0 +1,25 @@
+<div class="mb-8 flex flex-row-reverse">
+    <div>
+        <h2 class="mb-1">
+            <a href="{{ talkUrl(talk) }}">
+                {{ talk.title }}
+            </a>
+        </h2>
+
+        <div class="mb-2">
+            <a href="{{ personUrl(talk.speakers[0]) }}" class="text-sm">
+                {{ talk.speakers[0].name }}
+            </a>
+        </div>
+
+        <div>
+            <p class="text-sm text-grey-light leading-normal">
+                {{ talk.abstract }}
+            </p>
+        </div>
+    </div>
+
+    <div class="flex-none mr-4 leading-none flex items-center">
+        <img src="{{ talk.speakers[0].photoUrl }}" alt="{{ talk.speakers[0].name }}" class="w-12 h-12 rounded-full">
+    </div>
+</div>
