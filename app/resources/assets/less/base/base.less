@@ -1,4 +1,5 @@
 img {
+
     height: auto;
     max-width: 100%;
 }
@@ -18,7 +19,21 @@ a {
     @apply .text-sm;
 }
 
+.content {
+    @apply .leading-normal;
+}
+
 .content h1,
-.content p {
+.content p,
+.content ul,
+.content ol {
     @apply .mb-4;
+}
+
+.content h2 {
+    @apply .mb-2;
+}
+
+.content hr {
+    @apply .h-px .bg-grey-lighter .my-6;
 }

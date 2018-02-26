@@ -2,6 +2,7 @@
 
 namespace Phpsw\Website\DataFileGenerator;
 
+use Phpsw\Website\Common\StringUtils;
 use Phpsw\Website\Entity\Person;
 
 class PersonFileGenerator
@@ -48,19 +49,15 @@ class PersonFileGenerator
             $person->setPhotoUrl($member->photo->highres_link);
         }
 
-        if (!empty($member->bio)) {
-            $person->setDescription($member->bio);
-        } else {
-            // /members seems to not be returning the bio, so try the /profiles endpoint
-            // (this will only work if this person is a member of the php-sw meetup group)
-            $r = $this->meetupAPIClient->getProfiles(['member_id' => $meetupId, 'group_urlname' => 'php-sw']);
-            if (count($r->results) === 1) {
-                $m = $r->results[0];
-
-                if (!empty($m->other_services->twitter->identifier)) {
-                    $person->setTwitterHandle(str_replace('@', '', $m->other_services->twitter->identifier));
-                }
+        // try to get the member's bio set for the php-sw group, if not see if they have the general bio
+        $r = $this->meetupAPIClient->getProfiles(['member_id' => $meetupId, 'group_urlname' => 'php-sw']);
+        if (count($r->results) === 1) {
+            $m = $r->results[0];
+            if (!empty($m->bio)) {
+                $person->setDescription($m->bio);
             }
+        } elseif (!empty($member->bio)) {
+            $person->setDescription($member->bio);
         }
 
         if (!empty($member->other_services->twitter->identifier)) {
@@ -87,14 +84,17 @@ class PersonFileGenerator
     private function guessGithub(Person $person)
     {
         if (!empty($person->getTwitterHandle())) {
-            if ($fp = curl_init(self::GITHUB_BASE_URL.$person->getTwitterHandle())) {
+            $headers = get_headers(self::GITHUB_BASE_URL.$person->getTwitterHandle());
+            if (strpos($headers[0], '404') === false) {
                 return self::GITHUB_BASE_URL.$person->getTwitterHandle();
             }
         }
 
-        if (!empty($person->getSlug())) {
-            if ($fp = curl_init(self::GITHUB_BASE_URL.$person->getSlug())) {
-                return self::GITHUB_BASE_URL.$person->getSlug();
+        if (!empty($person->getName())) {
+            $name = strtolower(str_replace(' ', '', $person->getName()));
+            $headers = get_headers(self::GITHUB_BASE_URL.$name);
+            if (strpos($headers[0], '404') === false) {
+                return self::GITHUB_BASE_URL.$name;
             }
         }
 
@@ -110,11 +110,11 @@ class PersonFileGenerator
      */
     public function generateFile(Person $person)
     {
-        $fileName = strtolower(str_replace(' ', '-', $person->getName())).'.json';
-
-        if ($fileName === '.json') {
+        if (empty($person->getName())) {
             throw new \Exception('no filename available for this file - does this person have a name?');
         }
+
+        $fileName = StringUtils::slugify($person->getName()).'.json';
         $filePath = './data/people/'.$fileName;
 
         $data = [

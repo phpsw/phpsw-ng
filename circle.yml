@@ -13,8 +13,9 @@ dependencies:
 test:
   pre:
   - mkdir -p $CIRCLE_TEST_REPORTS/phpcs
+  - cp $HOME/$CIRCLE_PROJECT_REPONAME/app/config/secrets_test.yml $HOME/$CIRCLE_PROJECT_REPONAME/app/config/secrets.yml
   override:
   - vendor/bin/php-cs-fixer fix --dry-run --format=junit > $CIRCLE_TEST_REPORTS/phpcs/junit.xml
   - vendor/bin/security-checker security:check
   - vendor/bin/phpunit
-  - /opt/circleci/.phpenv/shims/php test-runner.php phpsw:validate-data
+  - /opt/circleci/.phpenv/shims/php runner.php phpsw:validate-data

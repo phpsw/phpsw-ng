@@ -4,5 +4,7 @@
   "event" : "the-final-pipeline",
   "speakers" : [
     "luis-ferro"
-  ]
+  ],
+  "video-url" : "https://www.youtube.com/watch?v=xCXHUJ5jECk",
+  "slides-url" : "https://github.com/lferro9000/jenkins-pipelines-slides/releases/tag/v1.0.3"
 }
