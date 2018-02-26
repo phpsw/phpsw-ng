@@ -43,6 +43,9 @@ class TalkPagesGenerator implements ContentTypeGeneratorsInterface
         foreach ($talks as $talk) {
             $this->generateTalkPage($templateRenderer, $talk);
         }
+
+        $talks = $this->talkRepository->getShowcaseTalks();
+        $templateRenderer->render('talks/index.html', 'talks', compact('talks'));
     }
 
     private function generateTalkPage(TemplateRenderer $templateRenderer, Talk $talk)
