@@ -4,15 +4,16 @@
     <ul class="list-reset">
         {% for speaker in talk.speakers %}
             <li class="text-sm flex items-center mb-2">
-                <div class="mr-2 leading-none">
+                <div class="mr-2 leading-none flex-none">
                     <img src="{{ speaker.photoUrl }}" alt="{{ speaker.name }}" class="w-12 h-12 rounded-full">
                 </div>
+
                 <div class="flex-grow">
                     <a href="{{ personUrl(speaker) }}" class="block mb-1">
                         {{ speaker.name }}
                     </a>
 
-                    <p class="text-grey-light">
+                    <p class="text-grey-light leading-normal">
                         {{ speaker.description }}
                     </p>
                 </div>
