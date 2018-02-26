@@ -7,8 +7,7 @@
                 {{ talk.title }}
 
                 <span class="inline-block text-xl lg:text-2xl text-grey-light font-normal">
-                    {% set date = '01-' ~ talk.event.month ~ '-' ~ talk.event.year %}
-                    {{ talk.event.title }} - {{ date|date('F Y') }}
+                    {{ talk.event.title }} - {{ eventDate(talk.event) }}
                 </span>
             </h1>
 
