@@ -90,37 +90,37 @@ class EventFileGenerator
         // rough guesses - delete as appropriate from each file
         if ($event->getDate()->getTimestamp() > strtotime('2016-02-10')) {
             $organisers = ['lee-stone', 'dave-liddament', 'kat-zien', 'oliver-davies'];
-        } else if (
+        } elseif (
             $event->getDate()->getTimestamp() > strtotime('2013-11-01')
             && $event->getDate()->getTimestamp() < strtotime('2015-10-01')
         ) {
             $organisers = ['steve-lacey', 'adrian-slade'];
-        } else if (
+        } elseif (
             $event->getDate()->getTimestamp() < strtotime('2013-12-01')
         ) {
             $organisers = ['andrew-martin', 'adrian-slade'];
         }
 
         $data = [
-            'meetup-id'   => $event->getMeetupId(),
-            'title'       => $event->getTitle(),
+            'meetup-id' => $event->getMeetupId(),
+            'title' => $event->getTitle(),
             'description' => $event->getDescription(),
-            'date'        => $event->getDate()->format('d F Y'),
-            'venue'       => $event->getVenue()->getSlug(),
-            'pub'         => $event->getPub(),
-            'organisers'  => $organisers,
-            'sponsors'    => ['basekit', 'brightpearl', 'deep-blue-sky', 'ents24', 'equiniti', 'meanbee']
+            'date' => $event->getDate()->format('d F Y'),
+            'venue' => $event->getVenue()->getSlug(),
+            'pub' => $event->getPub(),
+            'organisers' => $organisers,
+            'sponsors' => ['basekit', 'brightpearl', 'deep-blue-sky', 'ents24', 'equiniti', 'meanbee'],
         ];
 
-        $dir = './data/events/generated/' . $event->getDate()->format('Y');
-        $fileName = StringUtils::slugify($event->getTitle()) . '.json';
+        $dir = './data/events/generated/'.$event->getDate()->format('Y');
+        $fileName = StringUtils::slugify($event->getTitle()).'.json';
         $filePath = "{$dir}/{$fileName}";
 
         if (!file_exists($dir)) {
             mkdir($dir, 0777, true);
         }
 
-        $handle = fopen($filePath, 'w') or die('Cannot open file:  ' . $filePath);
+        $handle = fopen($filePath, 'w') or die('Cannot open file:  '.$filePath);
         fwrite($handle, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
         fclose($handle);
 
