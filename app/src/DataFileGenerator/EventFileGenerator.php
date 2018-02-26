@@ -109,8 +109,7 @@ class EventFileGenerator
             'venue'       => $event->getVenue()->getSlug(),
             'pub'         => $event->getPub(),
             'organisers'  => $organisers,
-            'sponsors'    => ['basekit', 'brightpearl', 'deep-blue-sky', 'ents24', 'equiniti', 'meanbee'],
-            'talks'       => []
+            'sponsors'    => ['basekit', 'brightpearl', 'deep-blue-sky', 'ents24', 'equiniti', 'meanbee']
         ];
 
         $dir = './data/events/generated/' . $event->getDate()->format('Y');
