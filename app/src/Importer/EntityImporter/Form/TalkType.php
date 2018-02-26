@@ -4,6 +4,7 @@ namespace Phpsw\Website\Importer\EntityImporter\Form;
 
 use Phpsw\Website\Entity\Talk;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -42,6 +43,7 @@ class TalkType extends AbstractType
         $builder->add('title', TextType::class);
         $builder->add('abstract', TextType::class);
         $builder->add('event', TextType::class);
+        $builder->add('showcase', CheckboxType::class);
         $builder->add('slides-url', TextType::class, ['property_path' => 'slidesUrl']);
         $builder->add('joindin-url', TextType::class, ['property_path' => 'joindinUrl']);
         $builder->add('video-url', TextType::class, ['property_path' => 'videoUrl']);
