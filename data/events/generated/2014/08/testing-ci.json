@@ -1,0 +1,20 @@
+{
+    "meetup-id": 195104522,
+    "title": "Testing & CI",
+    "description": "Talks on testing and continuous integration.",
+    "date": "20 August 2014",
+    "venue": "brightpearl",
+    "pub": "volunteer-tavern",
+    "organisers": [
+        "steve-lacey",
+        "adrian-slade"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

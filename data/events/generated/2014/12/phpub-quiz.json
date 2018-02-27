@@ -1,0 +1,20 @@
+{
+    "meetup-id": 215370812,
+    "title": "PHPub quiz",
+    "description": "We're trying something different to round off 2014, in December, we'll be hosting a tech-themed pub quiz to celebrate how we've redefined PHPSW this year! The questions will be techy, but not too serious, geeky, or necessarily, even PHP-orientated.",
+    "date": "10 December 2014",
+    "venue": "smoke-mirrors",
+    "pub": "",
+    "organisers": [
+        "steve-lacey",
+        "adrian-slade"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

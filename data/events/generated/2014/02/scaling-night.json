@@ -1,0 +1,20 @@
+{
+    "meetup-id": 158749832,
+    "title": "Scaling Night",
+    "description": "Talks on scaling! -\u00a0Auto-scaling PHP Applications using Chef and AWS \u00a0 \u00a0Andy Gale, Hello Future - Scaling at BaseKit \u00a0 \u00a0Ade Slade, BaseKit -\u00a0Scaling wild LAMP for managed hosting \u00a0 \u00a0Cl\u00e9ment Debiaune, Freelance BaseKit have kindly offered to sponsor the event again, and have offered their office as the venue, as well as beer and pizza!\u00a0Don't forget to check them out- and if you're looking, they are hiring.",
+    "date": "12 February 2014",
+    "venue": "basekit-office-bristol",
+    "pub": "",
+    "organisers": [
+        "steve-lacey",
+        "adrian-slade"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

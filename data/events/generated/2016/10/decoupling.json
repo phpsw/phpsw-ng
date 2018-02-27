@@ -1,0 +1,22 @@
+{
+    "meetup-id": 234476250,
+    "title": "Decoupling",
+    "description": "In October we're hosting a night of talks around the theme of Decoupling.",
+    "date": "12 October 2016",
+    "venue": "brightpearl",
+    "pub": "volunteer-tavern",
+    "organisers": [
+        "lee-stone",
+        "dave-liddament",
+        "kat-zien",
+        "oliver-davies"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

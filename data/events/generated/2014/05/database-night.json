@@ -1,0 +1,20 @@
+{
+    "meetup-id": 170468612,
+    "title": "Database Night",
+    "description": "Talks on databases! - From SQL to noSQL\u00a0 \u00a0Derick Rethans, PHP Engineer/Evangelist on MongoDB, internals expert &amp; author of Xdebug - One does not simply query a database\u00a0 \u00a0Kat Zien, Software Developer at Brightpearl - An introduction to graph databases\u00a0 \u00a0Kiel Doyle, newly Bristol-based freelancer BaseKit have kindly sponsored the event again, providing their office as the venue, as well as beer and pizza! Don't forget to check them out- and if you're looking, they are hiring.",
+    "date": "14 May 2014",
+    "venue": "basekit-office-bristol",
+    "pub": "",
+    "organisers": [
+        "steve-lacey",
+        "adrian-slade"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

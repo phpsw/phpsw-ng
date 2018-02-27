@@ -1,0 +1,22 @@
+{
+    "meetup-id": 233853545,
+    "title": "Security",
+    "description": "In September we're hosting a night of talks about security.",
+    "date": "14 September 2016",
+    "venue": "basekit",
+    "pub": "volunteer-tavern",
+    "organisers": [
+        "lee-stone",
+        "dave-liddament",
+        "kat-zien",
+        "oliver-davies"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

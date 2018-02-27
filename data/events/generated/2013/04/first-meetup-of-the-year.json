@@ -1,0 +1,20 @@
+{
+    "meetup-id": 114007332,
+    "title": "First meetup of the year",
+    "description": "There will be a talk on software design, OO stuff, unit testing with PHP examples.",
+    "date": "30 April 2013",
+    "venue": "stag-and-hounds",
+    "pub": "",
+    "organisers": [
+        "andrew-martin",
+        "adrian-slade"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "meetup-id": 242956550,
+    "title": "Devops (PHP-NW preview show)",
+    "description": "In September it's a PHP-NW preview show.",
+    "date": "13 September 2017",
+    "venue": "basekit",
+    "pub": "volunteer-tavern",
+    "organisers": [
+        "lee-stone",
+        "dave-liddament",
+        "kat-zien",
+        "oliver-davies"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

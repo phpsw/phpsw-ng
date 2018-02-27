@@ -1,0 +1,20 @@
+{
+    "meetup-id": 151042702,
+    "title": "Migrating a ZF1 REST API to Silex + PHP-FIG & PSR",
+    "description": "Last meetup of the year, okay, so we only had 1 other, but it's going to be a good one! BaseKit have kindly offered to sponsor the event and provide their office as the venue, as well as beer and pizza! Don't forget to check them out- and if you're looking, they are hiring.",
+    "date": "11 December 2013",
+    "venue": "basekit-office-bristol",
+    "pub": "",
+    "organisers": [
+        "steve-lacey",
+        "adrian-slade"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

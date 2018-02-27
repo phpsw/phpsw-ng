@@ -1,0 +1,20 @@
+{
+    "meetup-id": 168633652,
+    "title": "Social Night",
+    "description": "Meet up and talk about beer, how exciting May is going to be, and maybe even PHP too.",
+    "date": "09 April 2014",
+    "venue": "small-bar",
+    "pub": "",
+    "organisers": [
+        "steve-lacey",
+        "adrian-slade"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

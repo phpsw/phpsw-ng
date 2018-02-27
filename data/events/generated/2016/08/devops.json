@@ -1,0 +1,22 @@
+{
+    "meetup-id": 233043526,
+    "title": "DevOps",
+    "description": "In August we're hosting a night of DevOps related talks.",
+    "date": "10 August 2016",
+    "venue": "brightpearl",
+    "pub": "volunteer-tavern",
+    "organisers": [
+        "lee-stone",
+        "dave-liddament",
+        "kat-zien",
+        "oliver-davies"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

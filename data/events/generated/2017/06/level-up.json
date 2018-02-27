@@ -1,0 +1,22 @@
+{
+    "meetup-id": 240445980,
+    "title": "Level Up",
+    "description": "In June we're hosting a night of talks focussed around how to level up your skills as a developer.",
+    "date": "14 June 2017",
+    "venue": "basekit",
+    "pub": "volunteer-tavern",
+    "organisers": [
+        "lee-stone",
+        "dave-liddament",
+        "kat-zien",
+        "oliver-davies"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

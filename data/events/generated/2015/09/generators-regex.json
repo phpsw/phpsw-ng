@@ -1,0 +1,20 @@
+{
+    "meetup-id": 224872129,
+    "title": "Generators & Regex",
+    "description": "In September we're hosting a night of generators and regex! - How I learned to stop worrying and love Regular Expressions\u00a0\u00a0Jordi Boggiano, Author of Composer, Monolog, php-console and frequent contributor to Symfony2, Twig and other OS projects This session will cover Regular Expressions from the basics to the darkest corners of this arcane art.",
+    "date": "09 September 2015",
+    "venue": "just-eat-technology",
+    "pub": "",
+    "organisers": [
+        "steve-lacey",
+        "adrian-slade"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}
