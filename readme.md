@@ -32,6 +32,8 @@ There are a number of scripts to help generate the JSON data files. You can supp
 
 - **Generate event:** ```./runner.php  phpsw:generate-file-event <meetup-id>```
 
+- **Generate _all_ event files:** ```./data/scripts/generate-events.sh``` (Use with caution - this will re-generate all event files from meetup data but keep in mind that any manual edits which have been made to the existing event files will likely be lost. This script calls the `phpsw:generate-file-event` command for each event meetup ID from the list defined within.)
+
 ### Build website
 
 To generate website run the following steps on the VM
