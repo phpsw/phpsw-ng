@@ -17,8 +17,10 @@ class SponsorType extends AbstractType
     {
         $builder->add('slug', TextType::class);
         $builder->add('name', TextType::class);
+        $builder->add('description', TextType::class);
         $builder->add('logo-url', TextType::class, ['property_path' => 'logoUrl']);
         $builder->add('website-url', TextType::class, ['property_path' => 'websiteUrl']);
+        $builder->add('sponsor-type', TextType::class, ['property_path' => 'sponsorType']);
     }
 
     /**

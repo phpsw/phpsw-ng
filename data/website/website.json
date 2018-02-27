@@ -2,10 +2,11 @@
   "emailAddress": "info@phpsw.uk",
   "meetupUrl": "https://www.meetup.com/php-sw",
   "sponsors" : [
+      "basekit",
       "brightpearl",
       "deep-blue-sky",
+      "edo",
       "ents24",
-      "equiniti",
       "space-48"
   ],
   "organisers" : [

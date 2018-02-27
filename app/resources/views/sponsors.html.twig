@@ -2,12 +2,50 @@
 
 {% block title %}Sponsors &middot; {{ parent() }}{% endblock %}
 
-{% block body %}
-    <h1>PHP-SW sponsors</h1>
+{% block content_top %}
+    {% include "partials/hero.html.twig" with {
+        image_url: '/images/hero/sponsors.jpeg',
+    } %}
+{% endblock %}
 
-    <ul>
-        {% for sponsor in sponsors %}
-            <li><img src="{{ sponsor.logoUrl }}" /><a href="{{ sponsor.websiteUrl }}" >{{ sponsor.name }}</a></li>
-        {% endfor %}
-    </ul>
+{% block content %}
+    <h1 class="title">
+        Sponsors
+    </h1>
+
+   <div class="-mx-4 md:flex">
+        <div class="px-4 pb-6 md:w-2/3 md:pb-0">
+            <div class="mb-6">
+                <h2 class="mb-4">Full Sponsors</h2>
+
+                <ul class="list-reset flex flex-wrap items-center -mx-4">
+                    {% for sponsor in fullSponsors %}
+                        <li class="w-full sm:w-1/2 mb-16">
+                            <div class="px-4">
+                                {% include 'partials/sponsors/sponsor.html.twig' %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="mb-4">Event Sponsors</h2>
+
+                <ul class="list-reset flex flex-wrap items-center -mx-4">
+                    {% for sponsor in eventSponsors %}
+                        <li class="w-full sm:w-1/2 mb-16">
+                            <div class="px-4">
+                                {% include 'partials/sponsors/sponsor.html.twig' %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+       <div class="px-4 md:w-1/3">
+            {% include 'partials/interested-sponsoring.html.twig' %}
+        </div>
+   </div>
 {% endblock %}

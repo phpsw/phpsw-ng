@@ -69,13 +69,6 @@ class Event
     private $sponsors;
 
     /**
-     * @var string
-     *
-     * @Assert\Type("string")
-     */
-    private $joindInUrl;
-
-    /**
      * @var Talk[]
      */
     private $talks;
@@ -242,22 +235,6 @@ class Event
     public function setSponsors($sponsors)
     {
         $this->sponsors = $sponsors;
-    }
-
-    /**
-     * @return string
-     */
-    public function getJoindInUrl()
-    {
-        return $this->joindInUrl;
-    }
-
-    /**
-     * @param string $joindInUrl
-     */
-    public function setJoindInUrl($joindInUrl)
-    {
-        $this->joindInUrl = $joindInUrl;
     }
 
     /**

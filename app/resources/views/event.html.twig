@@ -1,25 +1,32 @@
-<h1> {{ event.description}}</h1>
+{% extends 'base.html.twig' %}
 
+{% block content_top %}
+    {% include 'partials/hero.html.twig' with {
+        image_url: '/images/hero/events.jpeg',
+    } %}
+{% endblock %}
 
+{% block content %}
+    <div class="-mx-4 md:flex">
+        <div class="px-4 pb-6 md:w-2/3 md:pb-0">
+            <div class="title lg:flex items-baseline">
+                <h1>{{ event.title }}</h1>
 
+                <span class="inline-block mt-1 lg:ml-2 text-xl lg:text-2xl text-grey-light font-normal">
+                    {{ eventDate(event) }}
+                </span>
+            </div>
 
-<h2>Talks</h2>
-<ul>
-    {% for talk in event.talks %}
-    <li>
-        <a href="{{ talkUrl(talk) }}">{{ talk.title }}</a>
-    </li>
-    {% endfor %}
-</ul>
+            <div class="mb-8">
+                <p class="leading-normal">{{ event.description }}</p>
+            </div>
 
+            {% include 'partials/event/talks.html.twig' %}
+            {% include 'partials/event/sponsors.html.twig' %}
+        </div>
 
-
-<h2>Sponsors</h2>
-<ul>
-    {% for sponsor in event.sponsors %}
-    <li>
-        <a href="{{ sponsor.websiteUrl }}">{{ sponsor.name }}</a>
-    </li>
-    {% endfor %}
-</ul>
-
+        <div class="px-4 md:w-1/3">
+            {% include 'partials/interested-speaking.html.twig' %}
+        </div>
+    </div>
+{% endblock %}

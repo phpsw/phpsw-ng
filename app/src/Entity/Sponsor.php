@@ -7,6 +7,16 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Sponsor
 {
     /**
+     * Full sponsor.
+     */
+    const SPONSOR_FULL = 'full';
+
+    /**
+     * Sponsor only covers occasional events.
+     */
+    const SPONSOR_EVENT = 'event';
+
+    /**
      * @var string
      *
      * @Assert\NotBlank()
@@ -39,6 +49,19 @@ class Sponsor
      * @Assert\Url()
      */
     private $websiteUrl;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank()
+     * @Assert\Choice(callback="getSponsorTypes")
+     */
+    private $sponsorType;
+
+    /**
+     * @var string
+     */
+    private $description;
 
     /**
      * @return string
@@ -102,5 +125,62 @@ class Sponsor
     public function setWebsiteUrl($websiteUrl)
     {
         $this->websiteUrl = $websiteUrl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSponsorType()
+    {
+        return $this->sponsorType;
+    }
+
+    /**
+     * @param string $sponsorType
+     */
+    public function setSponsorType(string $sponsorType)
+    {
+        $this->sponsorType = $sponsorType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * Returns true if sponsor type is valid.
+     *
+     * @param string $sponsorType
+     *
+     * @return bool
+     */
+    public static function isValidSponsorType(string $sponsorType): bool
+    {
+        return in_array($sponsorType, self::getSponsorTypes());
+    }
+
+    /**
+     * Returns valid sponsor types.
+     *
+     * @return string[]
+     */
+    public static function getSponsorTypes(): array
+    {
+        return [
+            self::SPONSOR_FULL,
+            self::SPONSOR_EVENT,
+        ];
     }
 }

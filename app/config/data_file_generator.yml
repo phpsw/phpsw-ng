@@ -3,6 +3,18 @@
 
 services:
 
+  # Event JSON data file generator command
+  app.fileGenerator.event.command:
+    class: \Phpsw\Website\DataFileGenerator\GenerateEventFileCommand
+    autowire: true
+    tags:
+      - {name: "ConsoleCommand" }
+
+  # Event JSON data file generator
+  app.fileGenerator.event:
+    class: \Phpsw\Website\DataFileGenerator\EventFileGenerator
+    autowire: true
+
   # Person JSON data file generator command
   app.fileGenerator.person.command:
     class: \Phpsw\Website\DataFileGenerator\GeneratePersonFileCommand

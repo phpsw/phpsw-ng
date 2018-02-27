@@ -57,7 +57,6 @@ class EventType extends AbstractType
         $builder->add('pub', TextType::class);
         $builder->add('organisers', CollectionType::class, ['entry_type' => TextType::class, 'allow_add' => true]);
         $builder->add('sponsors', CollectionType::class, ['entry_type' => TextType::class, 'allow_add' => true]);
-        $builder->add('joindin-url', TextType::class, ['property_path' => 'joindInUrl']);
 
         $builder->get('organisers')->addModelTransformer($this->peopleTransformer);
         $builder->get('sponsors')->addModelTransformer($this->sponsorsTransformer);
