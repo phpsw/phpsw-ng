@@ -24,7 +24,7 @@ class SponsorRepository extends AbstractRepository implements SponsorRepositoryI
      */
     public function getByType(string $sponsorType)
     {
-        if (Sponsor::isValidSponsorType($sponsorType) === false) {
+        if (false === Sponsor::isValidSponsorType($sponsorType)) {
             throw new RuntimeException("Invalid sponsor type [{$sponsorType}]");
         }
 
