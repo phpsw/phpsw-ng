@@ -1,4 +1,5 @@
 ---
+php_cli_version: "{{ php_version }}"
 php_cli_date_timezone: Europe/London
 php_cli_error_reporting: E_ALL & ~E_DEPRECATED & ~E_STRICT
 php_cli_display_errors: Off
@@ -15,4 +16,4 @@ php_cli_xdebug_remote_host:
 php_cli_xdebug_remote_autostart: true
 php_cli_xdebug_idekey: cli
 php_cli_xdebug_max_nesting_level: 500
-php_packages: []
+php_cli_packages: "{{ php_packages|default([]) }}"
