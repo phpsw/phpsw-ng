@@ -1,7 +1,17 @@
 ---
 - name: Install git
-  apt: pkg=git state=latest update_cache=yes cache_valid_time=3600
+  apt:
+    pkg: git
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
 
 - name: Add repository SSH known hosts # prevents issue with interactive question on unknown host
-  lineinfile: dest=/etc/ssh/ssh_known_hosts line='{{ item }}' create=yes owner=root group=root mode=0644
-  with_items: '{{ git_known_hosts }}'
+  lineinfile:
+    dest: /etc/ssh/ssh_known_hosts
+    line: "{{ item }}"
+    create: yes
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{git_known_hosts}}"
