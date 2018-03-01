@@ -3,7 +3,6 @@
 namespace Phpsw\Website\Importer\EntityImporter\Form;
 
 use Symfony\Component\Form\DataTransformerInterface;
-use Symfony\Component\Form\Exception\TransformationFailedException;
 
 /**
  * Transforms between array of strings representing Entity slugs and Entity objects.
@@ -52,10 +51,10 @@ abstract class AbstractEntityCollectionTransformer implements DataTransformerInt
         if (!empty($value)) {
             foreach ($value as $slug) {
                 $entity = $this->entityRepository->findBySlug($slug);
-                if (is_null($entity)) {
-                    throw new TransformationFailedException("Could not find entity [$slug]");
+
+                if (null !== $entity) {
+                    $entities[] = $entity;
                 }
-                $entities[] = $entity;
             }
         }
 

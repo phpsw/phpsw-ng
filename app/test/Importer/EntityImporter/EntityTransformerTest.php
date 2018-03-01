@@ -52,11 +52,9 @@ class EntityTransformerTest extends TestCase
         $this->assertEquals($this->location, $actual);
     }
 
-    /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
-     */
     public function testInvalidSlug()
     {
-        $this->locationTransformer->reverseTransform(self::INVALID_SLUG);
+        $actual = $this->locationTransformer->reverseTransform(self::INVALID_SLUG);
+        $this->assertNull($actual);
     }
 }

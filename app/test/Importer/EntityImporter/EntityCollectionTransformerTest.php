@@ -98,12 +98,11 @@ class EntityCollectionTransformerTest extends TestCase
         $this->assertEquals($personObjects, $actual);
     }
 
-    /**
-     * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
-     */
     public function testInvalidSlug()
     {
-        $this->peopleTransformer->reverseTransform([self::PERSON_1, self::PERSON_2, self::INVALID_SLUG]);
+        $actual = $this->peopleTransformer->reverseTransform([self::PERSON_1, self::INVALID_SLUG, self::PERSON_2]);
+        $expected = [$this->person1, $this->person2];
+        $this->assertEquals($expected, $actual);
     }
 
     private function createPerson(string $slug, PersonRepositoryInterface $personRepository)
