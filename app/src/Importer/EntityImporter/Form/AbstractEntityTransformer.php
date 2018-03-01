@@ -43,6 +43,9 @@ abstract class AbstractEntityTransformer implements DataTransformerInterface
      */
     public function reverseTransform($value)
     {
+        if (empty($value)) {
+            throw new TransformationFailedException('Could not find entity null slug');
+        }
         $entity = $this->entityRepository->findBySlug($value);
         if (is_null($entity)) {
             throw new TransformationFailedException("Could not find entity [$value]");
