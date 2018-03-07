@@ -1,0 +1,3 @@
+---
+node_apt_dist: "{{ ansible_distribution_release }}"
+node_global_packages: []

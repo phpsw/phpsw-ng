@@ -26,7 +26,7 @@ class WebsiteInfoRepository extends AbstractRepository implements WebsiteInfoRep
     public function getWebsiteInfo(): WebsiteInfo
     {
         $websiteInfos = $this->getAll();
-        if (count($websiteInfos) != 1) {
+        if (1 != count($websiteInfos)) {
             throw new \RuntimeException('There must be only 1 WebsiteInfo object');
         }
 

@@ -6,7 +6,9 @@
   register: swap_created
 
 - name: Secure swap file
-  file: path=/var/swap.1 mode=0600
+  file:
+    path: /var/swap.1
+    mode: 0600
 
 - name: Format swap file
   command: mkswap /var/swap.1
@@ -17,4 +19,11 @@
   when: swap_created|changed
 
 - name: Add swap to fstab
-  mount: src=/var/swap.1 name=none fstype=swap opts=defaults passno=0 dump=0 state=present
+  mount:
+    src: /var/swap.1
+    name: none
+    fstype: swap
+    opts: defaults
+    passno: 0
+    dump: 0
+    state: present

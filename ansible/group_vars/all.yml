@@ -19,12 +19,15 @@ default_users:
   authorized_keys:
   - files/keys/kzien.pub
 
-php_packages:
-- php7.0-opcache
-- php7.0-dom
-- php7.0-mbstring
+php_version: 7.1
+php_cli_xdebug: false
 
-php_xdebug: false
+php_packages:
+- php7.1-opcache
+- php7.1-dom
+- php7.1-mbstring
+
+node_apt_version: 8.x
 
 shorewall_enable: true
 shorewall_interfaces:

@@ -32,7 +32,7 @@ class EventFileGenerator
     {
         $result = $this->meetupAPIClient->getEvents(['event_id' => $meetupId]);
 
-        if (count($result->results) !== 1) {
+        if (1 !== count($result->results)) {
             throw new \Exception("more than one event returned for id {$meetupId}");
         }
 
@@ -58,7 +58,7 @@ class EventFileGenerator
 
             // guess the pub too
             $pub = '';
-            if (strpos($eventRaw->description, 'Volunteer Tavern') !== false) {
+            if (false !== strpos($eventRaw->description, 'Volunteer Tavern')) {
                 $pub = StringUtils::slugify('Volunteer Tavern');
             }
             $event->setPub($pub);

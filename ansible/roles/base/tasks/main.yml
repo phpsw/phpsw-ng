@@ -1,91 +1,121 @@
 ---
-- name: Set hostname
-  hostname: name={{ inventory_hostname }}
+- name: Clean /etc/hosts
+  template:
+    src: etc/hosts.j2
+    dest: /etc/hosts
   notify: restart rsyslog
 
-- name: Clean /etc/hosts
-  template: src=etc/hosts.j2 dest=/etc/hosts
+- name: Set hostname
+  hostname:
+    name: "{{ inventory_hostname_short }}"
   notify: restart rsyslog
 
 - name: Set DHCP config
-  template: src=etc/dhcp/dhclient.conf.j2 dest=/etc/dhcp/dhclient.conf
+  template:
+    src: etc/dhcp/dhclient.conf.j2
+    dest: /etc/dhcp/dhclient.conf
 
 # fixes repos on first install
 - name: Update APT
-  apt: update_cache=yes cache_valid_time=3600
-
-- name: Install aptitude
-  apt: pkg=aptitude state=latest update_cache=yes cache_valid_time=3600
-
-- name: Run APT upgrade
-  apt: upgrade=full update_cache=yes cache_valid_time=3600
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
 
 - name: Install system packages
-  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
   with_items:
-    - acl
-    - curl
-    - wget
-    - htop
-    - screen
-    - sudo
-    - nano
-    - openntpd
-    - rsync
-    - ssl-cert
-    - build-essential
+  - "{{ system_packages }}"
+  - ssl-cert
+  - acl
+  - curl
+  - wget
+  - vim
+  - nano
+  - rsync
+  - locales
+  - zip
+  - screen
+  - htop
+  - apt-transport-https
 
-- name: Configure openntpd
-  template: src=etc/openntpd/ntpd.conf.j2 dest=/etc/openntpd/ntpd.conf
-  notify: restart openntpd
-
-- name: Generate locales
-  locale_gen: name='{{ item }}' state=present
-  with_items: '{{ system_locales }}'
+- name: Generate required locales
+  locale_gen:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{system_locales}}"
 
 - name: Set default locale
-  template: src=etc/default/locale.j2 dest=/etc/default/locale
+  template:
+    src: etc/default/locale.j2
+    dest: /etc/default/locale
 
 - name: Set default timezone
-  copy: content="{{ system_timezone }}\n" dest=/etc/timezone owner=root group=root mode=0644
-  notify: [update timezone, restart cron]
+  timezone:
+    name: "{{ system_timezone }}"
+  notify: restart cron
 
 - name: Set adduser dir mode
-  lineinfile: regexp="^DIR_MODE=" line="DIR_MODE=0750" dest=/etc/adduser.conf
+  lineinfile:
+    regexp: "^DIR_MODE="
+    line: "DIR_MODE=0750"
+    dest: /etc/adduser.conf
 
 - name: Change skel permissions
-  file: path=/etc/skel/{{ item }} mode=o-r
+  file:
+    path: /etc/skel/{{ item }}
+    mode: o-r
   with_items:
-    - .bash_logout
-    - .bashrc
-    - .profile
+  - .bash_logout
+  - .bashrc
+  - .profile
 
 - name: Add ssh user group
-  group: name=ssh-users system=yes
+  group:
+    name: ssh-users
+    system: yes
 
 - name: Create users
-  user: name='{{ item.name }}' password='{{ item.password }}' append=yes groups='{{ item.groups }}' shell='{{ item.shell|default("/bin/bash") }}'
+  user:
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"
+    append: yes
+    groups: "{{ item.groups }}"
+    shell: "{{ item.shell|default('/bin/bash') }}"
   no_log: true
   with_items:
-  - '{{ default_users }}'
-  - '{{ users }}'
+  - "{{ default_users }}"
+  - "{{ users }}"
 
-- name: Assign authorized keys
-  authorized_key: user='{{ item.0.name }}' key='{{ lookup('file', item.1) }}'
+- name: Assign authorized keys - default users
+  authorized_key:
+    user: "{{ item.0.name }}"
+    key: "{{ lookup('file', item.1) }}"
   no_log: true
   with_subelements:
-    - '{{ default_users }}'
-    - authorized_keys
+  - "{{ default_users }}"
+  - authorized_keys
 
-- name: Assign authorized keys - machine users
-  authorized_key: user='{{ item.0.name }}' key='{{ lookup('file', item.1) }}'
+- name: Assign authorized keys - users
+  authorized_key:
+    user: "{{ item.0.name }}"
+    key: "{{ lookup('file', item.1) }}"
   no_log: true
   with_subelements:
-    - '{{ users }}'
-    - authorized_keys
+  - "{{ users }}"
+  - authorized_keys
 
 - name: Configure sshd
-  template: src=etc/ssh/sshd_config.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=0644 validate="sshd -t -f %s"
+  template:
+    src: etc/ssh/sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+    validate: "sshd -t -f %s"
   register: sshd_status
 
 - name: Prune moduli
@@ -93,8 +123,15 @@
   register: check_pruned_moduli
   changed_when: "'moduli identical' not in check_pruned_moduli.stdout"
 
-- name: Configure sudo
-  template: src=etc/sudoers.j2 dest=/etc/sudoers owner=root group=root mode=0440 validate="visudo -c -s -f %s"
+- name: Add system known hosts
+  lineinfile:
+    dest: /etc/ssh/ssh_known_hosts
+    line: "{{ item }}"
+    create: yes
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ known_hosts }}"
 
-- include: vagrant.yml
-  when: vagrant|default(false)
+- include_tasks: vagrant.yml
+  when: vagrant

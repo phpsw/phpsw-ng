@@ -142,7 +142,7 @@ class PersonImporterTest extends TestCase
         foreach ($expectedValidationErrors as $expectedValidationError) {
             $found = false;
             foreach ($actualValidationErrors as $actualValidationError) {
-                if (($actualValidationError->getEntityType() == Person::class) &&
+                if ((Person::class == $actualValidationError->getEntityType()) &&
                     ($actualValidationError->getField() == $expectedValidationError['field']) &&
                     ($actualValidationError->getEntity() == $expectedValidationError['entity'])
                 ) {

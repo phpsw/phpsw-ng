@@ -7,17 +7,15 @@
 #    when: secure_vars_file is defined
   roles:
   - base
-  - dotdeb
-  #- shorewall
+  - shorewall
   - ssl
   - nginx
   - git
-  - php7.0-cli
+  - php-repo-sury
+  - php-cli
   - composer
   - node
   - yarn
-  tasks:
-  - include: tasks/provision/app.yml
   post_tasks:
   - name: restart sshd
     service: name=ssh state=restarted enabled=yes

@@ -1,9 +1,15 @@
 ---
 - name: Install PHP zip extension
-  apt: pkg=php7.0-zip state=latest update_cache=yes cache_valid_time=3600
+  apt:
+    pkg: "php{{ composer_php_version }}-zip"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
 
 - name: Install Composer
-  shell: curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer creates=/usr/local/bin/composer
+  shell: curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+  args:
+    creates: /usr/local/bin/composer
 
 - name: Update Composer to latest version
   command: composer self-update
@@ -12,8 +18,11 @@
   when: composer_keep_updated
 
 - name: Install Composer global packages
-  composer: command='global require "{{ item.name }}={{ item.version }}"' prefer_dist=yes working_dir=/
-  with_items: '{{ composer_global_packages }}'
+  composer:
+    command: 'global require "{{ item.name }}={{ item.version }}"'
+    prefer_dist: yes
+    working_dir: /
+  with_items: "{{ composer_global_packages }}"
 
-- include: vagrant.yml
-  when: vagrant
+- include_tasks: vagrant.yml
+  when: vagrant and composer_create_swap

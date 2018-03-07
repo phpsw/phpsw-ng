@@ -1,6 +1,8 @@
 def apply_ansible_defaults(ansible)
     ansible.inventory_path = "ansible/inventories/vagrant"
-    ansible.limit = 'vagrant'
+    ansible.config_file = "ansible/ansible.cfg"
+    ansible.limit = "vagrant"
+    ansible.compatibility_mode = "2.0"
 end
 
 Vagrant.configure("2") do |config|
@@ -15,7 +17,7 @@ Vagrant.configure("2") do |config|
         ]
     end
 
-    config.vm.box = "debian/jessie64"
+    config.vm.box = "debian/stretch64"
 
     config.vm.network :private_network, ip: "192.168.42.10"
     config.ssh.forward_agent = true
@@ -30,5 +32,5 @@ Vagrant.configure("2") do |config|
         ansible.playbook = "ansible/vagrant-up.yml"
     end
 
-    config.vm.synced_folder "./", "/vagrant", type: "nfs", mount_options: ["actimeo=2"]
+    config.vm.synced_folder "./", "/vagrant", type: "nfs", nfs_udp: false, mount_options: ["actimeo=2"]
 end
