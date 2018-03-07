@@ -1,0 +1,20 @@
+{
+    "meetup-id": 219548416,
+    "title": "Server orchestration",
+    "description": "A light topic to ease us into the new year ;) in January we're hosting a night of talks on simplifying server orchestration and containerisation! -\u00a0Getting Started with Docker and PHP\u00a0\u00a0Rob Haswell, VP Engineering and Co-founder of ClusterHQ -\u00a0Ansible, EC2 and PHP: easy orchestration\u00a0\u00a0\u00a0Craig Marvelley, Head of Platform at Bipsync -- BaseKit have kindly offered to host the evening at their office, and as always there'll be beer and pizza.",
+    "date": "14 January 2015",
+    "venue": "basekit-office-bristol",
+    "pub": "",
+    "organisers": [
+        "steve-lacey",
+        "adrian-slade"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

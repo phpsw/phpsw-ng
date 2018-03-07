@@ -1,0 +1,22 @@
+{
+    "meetup-id": 242086980,
+    "title": "Build & Deploy",
+    "description": "In August we're hosting a night of talks themed around building and deployment.",
+    "date": "09 August 2017",
+    "venue": "basekit",
+    "pub": "volunteer-tavern",
+    "organisers": [
+        "lee-stone",
+        "dave-liddament",
+        "kat-zien",
+        "oliver-davies"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

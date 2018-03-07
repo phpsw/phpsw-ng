@@ -1,0 +1,17 @@
+{
+    "meetup-id": 227424666,
+    "title": "Profiling & Benchmarking",
+    "description": "In January we're hosting a night about Profiling &amp; Benchmarking! - Profiling your PHP application\u00a0 Michael Heap, Software Engineer at DataSift So, you've been through and changed all your double quotes to single quotes but your application still isn't running at the speed of light.",
+    "date": "13 January 2016",
+    "venue": "mixradio",
+    "pub": "",
+    "organisers": [],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

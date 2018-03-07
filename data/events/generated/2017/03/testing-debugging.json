@@ -1,0 +1,22 @@
+{
+    "meetup-id": 237881022,
+    "title": "Testing & Debugging",
+    "description": "In March we're hosting a night of talks focussed around testing and debugging.",
+    "date": "08 March 2017",
+    "venue": "basekit",
+    "pub": "volunteer-tavern",
+    "organisers": [
+        "lee-stone",
+        "dave-liddament",
+        "kat-zien",
+        "oliver-davies"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

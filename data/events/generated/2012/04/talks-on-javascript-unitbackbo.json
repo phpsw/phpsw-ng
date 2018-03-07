@@ -1,0 +1,20 @@
+{
+    "meetup-id": 58053142,
+    "title": "Talks on Javascript (Unit|Backbone) Testing and Symfony2",
+    "description": "Javascript Testing (Andrew Martin) JS Unit Testing: The State of the Art Backbone Model/View\u00a0Testing \u00a0 Symfony2 (Dom Udall) Symfony2: An Overview \u00a0 To be preceded, followed and interrupted by beer, Mexico's finest chilli and vocal dissent.",
+    "date": "11 April 2012",
+    "venue": "the-golden-guinea",
+    "pub": "",
+    "organisers": [
+        "andrew-martin",
+        "adrian-slade"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "meetup-id": 221484360,
+    "title": "Lightning talks",
+    "description": "After the success of the night last year, this month, we're hosting another night of 5-10 minute lightning talks, this time at Brightpearl! - Refactoring repositories\u00a0\u00a0Gavin Davies, Software Developer at Radify and author of Deal With It: Attitude for Coders Sometime a repository begins to smell; it's just not set up right.",
+    "date": "08 April 2015",
+    "venue": "brightpearl",
+    "pub": "volunteer-tavern",
+    "organisers": [
+        "steve-lacey",
+        "adrian-slade"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

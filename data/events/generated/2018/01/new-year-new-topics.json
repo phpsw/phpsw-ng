@@ -1,0 +1,22 @@
+{
+    "meetup-id": 246355497,
+    "title": "New Year, New Topics",
+    "description": "In January we present 'New Year, New Topics', a collection of talks on topics we haven't featured much (if at all) at PHPSW.",
+    "date": "10 January 2018",
+    "venue": "basekit",
+    "pub": "volunteer-tavern",
+    "organisers": [
+        "lee-stone",
+        "dave-liddament",
+        "kat-zien",
+        "oliver-davies"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

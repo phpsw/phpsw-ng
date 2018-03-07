@@ -1,0 +1,20 @@
+{
+    "meetup-id": 220161444,
+    "title": "Running PHP fast",
+    "description": "This month is all about monitoring, analysing and optimising the performance of your PHP apps! We'll talk about finding bottlenecks in your stack, tuning your Nginx and general performance hotspots in PHP applications.",
+    "date": "11 February 2015",
+    "venue": "brightpearl",
+    "pub": "volunteer-tavern",
+    "organisers": [
+        "steve-lacey",
+        "adrian-slade"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

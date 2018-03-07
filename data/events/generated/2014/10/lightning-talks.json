@@ -1,0 +1,20 @@
+{
+    "meetup-id": 208017562,
+    "title": "Lightning talks",
+    "description": "As a change of pace, in October we'll be hosting a night of 5-10 minute lightning talks at BaseKit! - Carbon, a simple API extension for DateTime\u00a0\u00a0Gavin Davies, Software Developer at Radify and author of Deal With It: Attitude for Coders - Kahlan, a BDD Framework a la RSpec/JSpec using a Jasmine style notation\u00a0\u00a0Warren Seymour, Software Developer at Radify - PHP static site generation\u00a0\u00a0Kiel Doyle, PHP Developer at ASDAN - Terraform\u00a0\u00a0Andy Gale, Web Consultant at Hello Future - Thumbor\u00a0\u00a0Tom Holder, Technical Director at Simpleweb - Vagrant\u00a0\u00a0Doug Fitzmaurice, Developer at Ents24 - Varnish &amp; ESI\u00a0\u00a0Ade Slade, PHP Developer at BaseKit - Versioning\u00a0\u00a0Dave Liddament, PHP, Java &amp; Python Software Developer - Working with legacy code\u00a0\u00a0Gareth Jones, Software Developer at Brightpearl -- BaseKit have kindly offered to host the evening at their office, and as always there'll be beer and pizza.",
+    "date": "08 October 2014",
+    "venue": "basekit-office-bristol",
+    "pub": "",
+    "organisers": [
+        "steve-lacey",
+        "adrian-slade"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

@@ -112,7 +112,7 @@ class EventFileGenerator
             'sponsors' => ['basekit', 'brightpearl', 'deep-blue-sky', 'ents24', 'equiniti', 'meanbee'],
         ];
 
-        $dir = './data/events/generated/'.$event->getDate()->format('Y');
+        $dir = __DIR__.'/../../../data/events/generated/'.$event->getDate()->format('Y/m');
         $fileName = StringUtils::slugify($event->getTitle()).'.json';
         $filePath = "{$dir}/{$fileName}";
 

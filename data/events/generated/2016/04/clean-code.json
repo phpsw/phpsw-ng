@@ -1,0 +1,22 @@
+{
+    "meetup-id": 229737809,
+    "title": "Clean Code",
+    "description": "In April we're hosting a night about Clean Code! We're at BaseKit's new office this month.",
+    "date": "13 April 2016",
+    "venue": "basekit",
+    "pub": "volunteer-tavern",
+    "organisers": [
+        "lee-stone",
+        "dave-liddament",
+        "kat-zien",
+        "oliver-davies"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

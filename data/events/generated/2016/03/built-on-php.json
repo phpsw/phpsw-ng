@@ -1,0 +1,22 @@
+{
+    "meetup-id": 229183260,
+    "title": "Built On PHP",
+    "description": "In March we're doing something a little different and taking a look at using projects which are built on PHP.",
+    "date": "09 March 2016",
+    "venue": "sift-digital",
+    "pub": "",
+    "organisers": [
+        "lee-stone",
+        "dave-liddament",
+        "kat-zien",
+        "oliver-davies"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "meetup-id": 228496580,
+    "title": "Testing",
+    "description": "In February we're hosting a night about Testing! We're at BaseKit's new office this month.",
+    "date": "10 February 2016",
+    "venue": "basekit",
+    "pub": "volunteer-tavern",
+    "organisers": [
+        "lee-stone",
+        "dave-liddament",
+        "kat-zien",
+        "oliver-davies"
+    ],
+    "sponsors": [
+        "basekit",
+        "brightpearl",
+        "deep-blue-sky",
+        "ents24",
+        "equiniti",
+        "meanbee"
+    ]
+}
