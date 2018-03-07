@@ -46,7 +46,7 @@ class StaticPagesGenerator implements ContentTypeGeneratorsInterface
         foreach ($routes as $route) {
             $template = $this->getTemplateNameIfExists($route);
 
-            if ($template !== null) {
+            if (null !== $template) {
                 $this->generateStaticPage($templateRenderer, $route, $template);
             }
         }
@@ -73,14 +73,14 @@ class StaticPagesGenerator implements ContentTypeGeneratorsInterface
     private function findTemplateName(array $array)
     {
         foreach ($array as $key => $value) {
-            if ($key === self::TEMPLATE_OPTION) {
+            if (self::TEMPLATE_OPTION === $key) {
                 return $value;
             }
 
             if (is_array($value)) {
                 $templateName = $this->findTemplateName($value);
 
-                if ($templateName !== null) {
+                if (null !== $templateName) {
                     return $templateName;
                 }
             }

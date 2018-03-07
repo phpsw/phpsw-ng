@@ -1,7 +1,9 @@
 machine:
   timezone: Europe/London
   php:
-    version: 7.0.11
+    version: 7.1.9
+  node:
+    version: 8.2.0
 
 dependencies:
   cache_directories:
@@ -9,13 +11,19 @@ dependencies:
   - "~/.cache/composer"
   pre:
   - rm /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
+  override:
+  - yarn install
+  - COMPOSER_CACHE_DIR=~/.cache/composer composer install --no-interaction
 
 test:
   pre:
-  - mkdir -p $CIRCLE_TEST_REPORTS/phpcs
+  - mkdir -p $CIRCLE_TEST_REPORTS/{phpcs,phpunit}
   - cp $HOME/$CIRCLE_PROJECT_REPONAME/app/config/secrets_test.yml $HOME/$CIRCLE_PROJECT_REPONAME/app/config/secrets.yml
   override:
-  - vendor/bin/php-cs-fixer fix --dry-run --format=junit > $CIRCLE_TEST_REPORTS/phpcs/junit.xml
+  - vendor/bin/parallel-lint app runner.php
+  - vendor/bin/php-cs-fixer fix --dry-run --verbose --format=junit > $CIRCLE_TEST_REPORTS/phpcs/junit.xml
   - vendor/bin/security-checker security:check
-  - vendor/bin/phpunit
-  - /opt/circleci/.phpenv/shims/php runner.php phpsw:validate-data
+  - vendor/bin/phpunit --log-junit=$CIRCLE_TEST_REPORTS/phpunit/junit.xml
+  - ./runner.php phpsw:validate-data
+  - ./runner.php phpsw:generate-website
+  - yarn run encore dev

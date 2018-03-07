@@ -1,10 +1,26 @@
 ---
-- name: Register NodeJS
-  shell: 'curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -'
-  creates: '/etc/apt/sources.list.d/nodesource.list'
+- name: Install Node repo key
+  apt_key:
+    data: "{{ lookup('file', 'nodesource-repo.asc') }}"
+    state: present
 
-- name: Install nodejs
+- name: Add Node repo
+  apt_repository:
+    repo: "{{ item }}"
+  with_items:
+    - "deb https://deb.nodesource.com/node_{{ node_apt_version }} {{ node_apt_dist }} main"
+    - "deb-src https://deb.nodesource.com/node_{{ node_apt_version }} {{ node_apt_dist }} main"
+
+- name: Install Node
   apt:
-    name: nodejs
+    pkg: nodejs
+    state: present
     update_cache: yes
     cache_valid_time: 3600
+
+- name: Install Node global packages
+  npm:
+    name: "{{ item }}"
+    global: yes
+    production: yes
+  with_items: "{{ node_global_packages }}"

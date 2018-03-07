@@ -1,3 +1,8 @@
 ---
 nginx_user: www-data
 nginx_vhosts: []
+nginx_basic_auth: []
+nginx_load_modules: []
+nginx_conf: []
+nginx_snippets: []
+nginx_package: nginx-light

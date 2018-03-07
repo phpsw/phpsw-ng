@@ -3,6 +3,9 @@ not been created for sshd. You need to add the following to the end of the playb
 
 ```
 - name: restart sshd
-  service: name=ssh state=restarted enabled=yes
+  service: 
+    name: ssh 
+    state: restarted 
+    enabled: yes
   when: sshd_status.changed
 ```
