@@ -104,7 +104,7 @@ class EventFileGenerator
             $organisers = ['andrew-martin', 'adrian-slade'];
         }
 
-        $event->setSponsors($this->guessSponsors($event->getVenue(), $event->getDate()));
+        $event->setSponsors($this->guessSponsors($event->getDate(), $event->getVenue()));
 
         $data = [
             'meetup-id'   => $event->getMeetupId(),
@@ -134,15 +134,37 @@ class EventFileGenerator
 
     /**
      * Guesses the sponsors based on the venue and date of the event.
+     * @param null|\DateTime $date
      * @param null|Location $venue
-     * @param null|DateTime $date
      * @return array
      */
-    private function guessSponsors(?Location $venue, ?DateTime $date)
+    private function guessSponsors(?\DateTime $date, ?Location $venue)
     {
         // sponsors as of 1 March 2018
         $sponsors = ['brightpearl', 'deep-blue-sky', 'ents24', 'space-48', 'helastel'];
 
+        // adjust based on the event's date
+        if (!empty($date)) {
+            // Meanbee got acquired by Space 48 in February 2018, so use 'meanbee' until then
+            if ($date < new \DateTime('2018-02-01')) {
+                $key = array_search('space-48', $sponsors);
+                unset($sponsors[$key]);
+                $sponsors[] = 'meanbee';
+            }
+
+            // Equiniti sponsored us until January 2018
+            if ($date < new \DateTime('2018-02-01')) {
+                $sponsors[] = 'equiniti';
+            }
+
+            // Helastel started sponsoring us in March 2018
+            if ($date < new \DateTime('2018-03-01')) {
+                $key = array_search('helastel', $sponsors);
+                unset($sponsors[$key]);
+            }
+        }
+
+        // adjust based on the event's venue
         if (!empty($venue)) {
             if ($venue->getSlug() === 'basekit') {
                 $sponsors[] = 'basekit';
@@ -153,24 +175,6 @@ class EventFileGenerator
             }
         }
 
-        if (!empty($date)) {
-            // Meanbee got acquired by Space 48 in February 2018, so use 'meanbee' until then
-            if ($date < new DateTime('2018-02-01')) {
-                unset($sponsors['space-48']);
-                $sponsors[] = 'meanbee';
-            }
-
-            // Equiniti sponsored us until January 2018
-            if ($date < new DateTime('2018-02-01')) {
-                $sponsors[] = 'equiniti';
-            }
-
-            // Helastel started sponsoring us in March 2018
-            if ($date < new DateTime('2018-03-01')) {
-                unset($sponsors['helastel']);
-            }
-        }
-
-        return $sponsors;
+        return array_values($sponsors);
     }
 }
