@@ -1,9 +1,8 @@
 <?php
 
 /**
- * Dirty screen scraper to get existing speakers from the old website
+ * Dirty screen scraper to get existing speakers from the old website.
  */
-
 function processName(array &$personData, $oneline)
 {
     $matches = [];
