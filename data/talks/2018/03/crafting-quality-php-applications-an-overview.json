@@ -1,0 +1,11 @@
+{
+    "title": "Crafting Quality PHP Applications: an overview",
+    "abstract": "This prototype works, but it's not pretty, and now it's in production. That legacy application really needs some TLC. Where do we start? When creating long lived applications, it's imperative to focus on good practices. The solution is to improve the whole development life cycle; from planning, better coding and testing, to automation, peer review and more. In this talk, we'll take a quick look into each of these areas, looking at how we can make positive, actionable change in our workflow.",
+    "event": "code-quality",
+    "slidesUrl": "",
+    "joindinUrl": "96cee",
+    "videoUrl": "",
+    "speakers": [
+        "james-titcumb"
+    ]
+}
