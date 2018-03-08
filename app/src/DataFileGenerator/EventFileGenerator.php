@@ -73,8 +73,6 @@ class EventFileGenerator
         return $event;
     }
 
-
-
     /**
      * @param Event $event
      *
@@ -106,25 +104,25 @@ class EventFileGenerator
         $event->setSponsors($this->guessSponsors($event->getDate(), $event->getVenue()));
 
         $data = [
-            'meetup-id'   => $event->getMeetupId(),
-            'title'       => $event->getTitle(),
+            'meetup-id' => $event->getMeetupId(),
+            'title' => $event->getTitle(),
             'description' => $event->getDescription(),
-            'date'        => $event->getDate()->format('d F Y'),
-            'venue'       => $event->getVenue()->getSlug(),
-            'pub'         => $event->getPub(),
-            'organisers'  => $organisers,
-            'sponsors'    => $event->getSponsors(),
+            'date' => $event->getDate()->format('d F Y'),
+            'venue' => $event->getVenue()->getSlug(),
+            'pub' => $event->getPub(),
+            'organisers' => $organisers,
+            'sponsors' => $event->getSponsors(),
         ];
 
-        $dir = __DIR__ . '/../../../data/events/generated/' . $event->getDate()->format('Y/m');
-        $fileName = StringUtils::slugify($event->getTitle()) . '.json';
+        $dir = __DIR__.'/../../../data/events/generated/'.$event->getDate()->format('Y/m');
+        $fileName = StringUtils::slugify($event->getTitle()).'.json';
         $filePath = "{$dir}/{$fileName}";
 
         if (!file_exists($dir)) {
             mkdir($dir, 0777, true);
         }
 
-        $handle = fopen($filePath, 'w') or die('Cannot open file:  ' . $filePath);
+        $handle = fopen($filePath, 'w') or die('Cannot open file:  '.$filePath);
         fwrite($handle, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
         fclose($handle);
 
@@ -133,8 +131,10 @@ class EventFileGenerator
 
     /**
      * Guesses the sponsors based on the venue and date of the event.
+     *
      * @param null|\DateTime $date
      * @param null|Location $venue
+     *
      * @return array
      */
     private function guessSponsors(?\DateTime $date, ?Location $venue)
@@ -165,11 +165,11 @@ class EventFileGenerator
 
         // adjust based on the event's venue
         if (!empty($venue)) {
-            if ($venue->getSlug() === 'basekit') {
+            if ('basekit' === $venue->getSlug()) {
                 $sponsors[] = 'basekit';
             }
 
-            if ($venue->getSlug() === 'mix-radio') {
+            if ('mix-radio' === $venue->getSlug()) {
                 $sponsors[] = 'mix-radio';
             }
         }
