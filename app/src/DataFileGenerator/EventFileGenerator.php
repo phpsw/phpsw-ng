@@ -5,7 +5,6 @@ namespace Phpsw\Website\DataFileGenerator;
 use Phpsw\Website\Common\StringUtils;
 use Phpsw\Website\Entity\Event;
 use Phpsw\Website\Entity\Location;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 class EventFileGenerator
 {
