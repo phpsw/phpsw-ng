@@ -94,22 +94,6 @@ class PersonImporterTest extends TestCase
         $this->personImporter->importEntity(self::SLUG, $inputData);
     }
 
-    public function testImportPersonWithMissingDescriptionField()
-    {
-        $inputData = [
-            'name' => self::NAME,
-        ];
-
-        try {
-            $this->personImporter->importEntity(self::SLUG, $inputData);
-            $this->fail('Expected ValidatorException to be thrown');
-        } catch (ValidationException $e) {
-            $this->assertValidationErrors([
-                ['field' => 'description', 'entity' => self::SLUG],
-            ], $e);
-        }
-    }
-
     public function testImportPersonWithInvalidData()
     {
         $inputData = [
