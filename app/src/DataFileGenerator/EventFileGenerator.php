@@ -5,6 +5,7 @@ namespace Phpsw\Website\DataFileGenerator;
 use Phpsw\Website\Common\StringUtils;
 use Phpsw\Website\Entity\Event;
 use Phpsw\Website\Entity\Location;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class EventFileGenerator
 {
@@ -51,6 +52,12 @@ class EventFileGenerator
             $event->setTitle($eventRaw->name);
         }
 
+        if (!empty($eventRaw->venue->name)) {
+            $venue = new Location();
+            $venue->setSlug(StringUtils::slugify($eventRaw->venue->name));
+            $event->setVenue($venue);
+        }
+
         if (!empty($eventRaw->description)) {
             $description = strip_tags($eventRaw->description);
             // take the first sentence only
@@ -64,14 +71,10 @@ class EventFileGenerator
             $event->setPub($pub);
         }
 
-        if (!empty($eventRaw->venue->name)) {
-            $venue = new Location();
-            $venue->setSlug(StringUtils::slugify($eventRaw->venue->name));
-            $event->setVenue($venue);
-        }
-
         return $event;
     }
+
+
 
     /**
      * @param Event $event
@@ -101,29 +104,73 @@ class EventFileGenerator
             $organisers = ['andrew-martin', 'adrian-slade'];
         }
 
+        $event->setSponsors($this->guessSponsors($event->getVenue(), $event->getDate()));
+
         $data = [
-            'meetup-id' => $event->getMeetupId(),
-            'title' => $event->getTitle(),
+            'meetup-id'   => $event->getMeetupId(),
+            'title'       => $event->getTitle(),
             'description' => $event->getDescription(),
-            'date' => $event->getDate()->format('d F Y'),
-            'venue' => $event->getVenue()->getSlug(),
-            'pub' => $event->getPub(),
-            'organisers' => $organisers,
-            'sponsors' => ['basekit', 'brightpearl', 'deep-blue-sky', 'ents24', 'equiniti', 'meanbee'],
+            'date'        => $event->getDate()->format('d F Y'),
+            'venue'       => $event->getVenue()->getSlug(),
+            'pub'         => $event->getPub(),
+            'organisers'  => $organisers,
+            'sponsors'    => $event->getSponsors(),
         ];
 
-        $dir = __DIR__.'/../../../data/events/generated/'.$event->getDate()->format('Y/m');
-        $fileName = StringUtils::slugify($event->getTitle()).'.json';
+        $dir = __DIR__ . '/../../../data/events/generated/' . $event->getDate()->format('Y/m');
+        $fileName = StringUtils::slugify($event->getTitle()) . '.json';
         $filePath = "{$dir}/{$fileName}";
 
         if (!file_exists($dir)) {
             mkdir($dir, 0777, true);
         }
 
-        $handle = fopen($filePath, 'w') or die('Cannot open file:  '.$filePath);
+        $handle = fopen($filePath, 'w') or die('Cannot open file:  ' . $filePath);
         fwrite($handle, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
         fclose($handle);
 
         return $filePath;
+    }
+
+    /**
+     * Guesses the sponsors based on the venue and date of the event.
+     * @param null|Location $venue
+     * @param null|DateTime $date
+     * @return array
+     */
+    private function guessSponsors(?Location $venue, ?DateTime $date)
+    {
+        // sponsors as of 1 March 2018
+        $sponsors = ['brightpearl', 'deep-blue-sky', 'ents24', 'space-48', 'helastel'];
+
+        if (!empty($venue)) {
+            if ($venue->getSlug() === 'basekit') {
+                $sponsors[] = 'basekit';
+            }
+
+            if ($venue->getSlug() === 'mix-radio') {
+                $sponsors[] = 'mix-radio';
+            }
+        }
+
+        if (!empty($date)) {
+            // Meanbee got acquired by Space 48 in February 2018, so use 'meanbee' until then
+            if ($date < new DateTime('2018-02-01')) {
+                unset($sponsors['space-48']);
+                $sponsors[] = 'meanbee';
+            }
+
+            // Equiniti sponsored us until January 2018
+            if ($date < new DateTime('2018-02-01')) {
+                $sponsors[] = 'equiniti';
+            }
+
+            // Helastel started sponsoring us in March 2018
+            if ($date < new DateTime('2018-03-01')) {
+                unset($sponsors['helastel']);
+            }
+        }
+
+        return $sponsors;
     }
 }
