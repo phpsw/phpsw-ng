@@ -46,7 +46,7 @@ class EventFileGeneratorTest extends TestCase
 
         $event = $this->eventFileGenerator->getEventFromMeetup(248129528);
 
-        $this->assertEquals("volunteer-tavern", $event->getPub()->getSlug());
+        $this->assertEquals('volunteer-tavern', $event->getPub()->getSlug());
     }
 
     public function testReturnsEmptyEventIfDataMissingFromMeetup()
@@ -71,7 +71,7 @@ class EventFileGeneratorTest extends TestCase
     public function testExceptionThrownIfMeetupDoesNotReturnAnyEventsForRequestedId()
     {
         $this->expectException('Exception');
-        $this->expectExceptionMessage('no events or more than one event returned for id ' . 123);
+        $this->expectExceptionMessage('no events or more than one event returned for id '. 123);
 
         $noResults = new \stdClass();
         $noResults->results = [];
@@ -86,7 +86,7 @@ class EventFileGeneratorTest extends TestCase
     public function testExceptionThrownIfMeetupReturnsMoreThanOneEventForRequestedId()
     {
         $this->expectException('Exception');
-        $this->expectExceptionMessage('no events or more than one event returned for id ' . 345);
+        $this->expectExceptionMessage('no events or more than one event returned for id '. 345);
 
         $manyResults = new \stdClass();
         $manyResults->results = [new \stdClass(), new \stdClass()];
