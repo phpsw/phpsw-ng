@@ -1,4 +1,10 @@
 {
+  "private": true,
+  "scripts": {
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production"
+  },
   "devDependencies": {
     "@symfony/webpack-encore": "^0.17.1",
     "autoprefixer": "^7.2.4",
