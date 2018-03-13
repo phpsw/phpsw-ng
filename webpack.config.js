@@ -17,7 +17,7 @@ class TailwindExtractor {
 
 Encore
     .setOutputPath('./web/build')
-    .setPublicPath('/')
+    .setPublicPath('/build')
     .cleanupOutputBeforeBuild()
     .enableLessLoader()
     .addStyleEntry('css/site', './app/resources/assets/less/main.less')
