@@ -1,9 +1,9 @@
 {
-    "meetup-id": 247171629,
-    "title": "Frameworks",
-    "description": "In February we present 'Frameworks', a collection of talks related to, as the name suggests, Frameworks.",
-    "date": "14 February 2018",
-    "venue": "basekit",
+    "meetup-id": 248129528,
+    "title": "Code Quality",
+    "description": "In March we're holding a night of talks around the topic of Code Quality.",
+    "date": "14 March 2018",
+    "venue": "brightpearl",
     "pub": "volunteer-tavern",
     "organisers": [
         "lee-stone",
@@ -12,10 +12,10 @@
         "oliver-davies"
     ],
     "sponsors": [
-        "basekit",
         "brightpearl",
         "deep-blue-sky",
         "ents24",
+        "helastel",
         "space-48"
     ]
 }

@@ -49,7 +49,6 @@ class Talk
      * @var string
      *
      * @Assert\Type("string")
-     * @Assert\Url()
      */
     private $joindinUrl;
 
