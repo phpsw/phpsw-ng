@@ -26,4 +26,4 @@ test:
   - vendor/bin/phpunit --log-junit=$CIRCLE_TEST_REPORTS/phpunit/junit.xml
   - ./runner.php phpsw:validate-data
   - ./runner.php phpsw:generate-website
-  - yarn run encore dev
+  - yarn build

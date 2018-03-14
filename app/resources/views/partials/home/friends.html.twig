@@ -5,7 +5,7 @@
         {% for friend in info.friends %}
             <li class="flex items-center w-1/6 md:w-1/5 lg:w-1/8">
                 <a href="{{ friend.websiteUrl }}" title="{{ friend.name }}" class="mr-2 mb-2">
-                    <img src="/images/community/{{ friend.logo }}" alt="{{ friend.name }} logo">
+                    <img src="/build/static/images/community/{{ friend.logo }}" alt="{{ friend.name }} logo">
                 </a>
             </li>
         {% endfor %}
