@@ -1,6 +1,7 @@
 var Encore = require('@symfony/webpack-encore');
 var glob = require('glob-all');
 var path = require('path');
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 var PurgecssPlugin = require('purgecss-webpack-plugin');
 
 /**
@@ -16,7 +17,7 @@ class TailwindExtractor {
 
 Encore
     .setOutputPath('./web/build')
-    .setPublicPath('/')
+    .setPublicPath('/build')
     .cleanupOutputBeforeBuild()
     .enableLessLoader()
     .addStyleEntry('css/site', './app/resources/assets/less/main.less')
@@ -28,6 +29,9 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     .enableVersioning(false)
     .enableBuildNotifications()
+    .addPlugin(new CopyWebpackPlugin([
+        { from: './app/resources/assets/static', to: 'static' }
+    ]));
 ;
 
 // PurgeCSS
