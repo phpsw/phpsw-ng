@@ -1,0 +1,8 @@
+{
+    "title": "Go Faster with Ansible",
+    "abstract": "Deploy PHP apps faster in 2017. This talk focuses on how PHP developers can use simple Ansible scripts to rapidly configure new dev and production servers from scratch, and deploy their apps. No more \"snowflake servers\"! -An introduction to the Symfony Console ComponentMike Lovely, developer at SimpleWeb Automate a task by creating a simple command for it. An introduction to the Symfony Console Component and how it could save you time.",
+    "speakers": [
+        "richard-donkin"
+    ],
+    "event-id": "2017-01-new-year-coding-resolutions"
+}

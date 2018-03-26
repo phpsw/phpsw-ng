@@ -1,0 +1,8 @@
+{
+    "title": "Deployment within a Traditional IT Environment",
+    "abstract": "Building line-of-business web applications for clients with traditional IT departments brings its own set of challenges when it comes to DevOps. In particular, the IT department adds additional constraints that you may not see in more forward-thinking companies. In this talk, I explore these complexities and shares some solutions we came up with in order to use modern development practices in nontraditional environments. I'll also cover the organizational and technical challenges encountered when IT departments are not used to developers having a say in the server environment and show you why it's worth spending time getting them on board.",
+    "speakers": [
+        "rob-allen"
+    ],
+    "event-id": "2017-08-build-deploy"
+}

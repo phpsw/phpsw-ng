@@ -42,7 +42,7 @@ class TalkType extends AbstractType
         $builder->add('slug', TextType::class);
         $builder->add('title', TextType::class);
         $builder->add('abstract', TextType::class);
-        $builder->add('event', TextType::class);
+        $builder->add('event-id', TextType::class, ['property_path' => 'event']);
         $builder->add('showcase', CheckboxType::class);
         $builder->add('slides-url', TextType::class, ['property_path' => 'slidesUrl']);
         $builder->add('joindin-url', TextType::class, ['property_path' => 'joindinUrl']);
@@ -50,7 +50,7 @@ class TalkType extends AbstractType
         $builder->add('speakers', CollectionType::class, ['entry_type' => TextType::class, 'allow_add' => true]);
 
         $builder->get('speakers')->addModelTransformer($this->peopleTransformer);
-        $builder->get('event')->addModelTransformer($this->eventTransformer);
+        $builder->get('event-id')->addModelTransformer($this->eventTransformer);
     }
 
     /**
