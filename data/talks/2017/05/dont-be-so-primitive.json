@@ -1,0 +1,8 @@
+{
+    "title": "Don't be so primitive",
+    "abstract": "A quick look at Value Objects, what they are, the benefits they offer and why sometimes they should be used instead of PHP’s primitive types.",
+    "speakers": [
+        "dave-liddament"
+    ],
+    "event-id": "2017-05-tips-tricks"
+}
