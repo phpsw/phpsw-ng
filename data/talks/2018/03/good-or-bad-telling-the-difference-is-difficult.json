@@ -1,0 +1,8 @@
+{
+    "title": "Good or bad? - telling the difference is hard",
+    "abstract": "A large part of being a programmer is making choices, whether it's what framework to use, what libraries to use or just how to structure code. Every day when we're programming we try to take choices that are good, and avoid choices that are bad. But what if actually we're all terrible at telling the difference between good and bad? What if we're all just not very good at a fundamental skill needed to do our jobs? In this talk I'm going to try to demonstrate a couple of common epistemological mistakes that people make, how you can try to analyze what is good and what is bad a bit better, and how to limit the consequences that come inevitably when bad choices are made.",
+    "event-id": "2018-03-code-quality",
+    "speakers": [
+        "dan-ackroyd"
+    ]
+}
