@@ -1,0 +1,8 @@
+{
+    "title": "Graphs are Everywhere",
+    "abstract": "No - not charts! Graphs are a data structure that are more than just the nodes and edges they contain: from mapping networks to representing arithmetic, from writing chat-bots to inferring relationships, applying graphs to a problem can quite often provide an elegant solution. In this light-hearted and accessible talk, Chris will cover the basics of graphs as well as go over a few simple but fun examples of this versatile concept.",
+    "speakers": [
+        "chris-hoult"
+    ],
+    "event-id": "2017-07-charting-your-escape-from-legacy-applications"
+}
