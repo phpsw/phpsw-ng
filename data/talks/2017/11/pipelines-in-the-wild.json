@@ -1,0 +1,8 @@
+{
+    "title": "pipelines-in-the-wild",
+    "abstract": "Jenkins is the golden standard in the software industry for Continuous Integration and Delivery. In this talk, we will review the base installation and setup of Jenkins 2 (very quickly). After that, we will learn what pipelines are, and how do they work their \"magic\" We will review how to setup a full basic PHP project, on it, what are the gotchas and pitfalls.",
+    "speakers": [
+        "luis-ferro"
+    ],
+    "event-id": "2017-11-the-final-pipeline"
+}
