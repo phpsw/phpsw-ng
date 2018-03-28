@@ -11,7 +11,6 @@ class Talk
      *
      * @Assert\NotBlank()
      * @Assert\Type("string")
-     * @Assert\Length(max="30")
      */
     private $slug;
 
