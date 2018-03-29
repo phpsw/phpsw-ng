@@ -26,6 +26,7 @@ php_packages:
 - php7.1-opcache
 - php7.1-dom
 - php7.1-mbstring
+- php7.1-curl
 
 node_apt_version: 8.x
 

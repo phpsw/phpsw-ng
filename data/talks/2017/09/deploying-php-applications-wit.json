@@ -1,0 +1,8 @@
+{
+    "title": "Deploying PHP Applications with Fabric",
+    "abstract": "You've built your application, and now you just need to deploy it. There are various ways that this could be done \u2013 from (S)FTP, to SCP and rsync, to running commands like \u201cgit pull\u201d and \u201ccomposer install\u201d directly on the server (not recommended). My favourite deployment tool of late isFabric\u2013 a Python based command line tool for running commands locally as well as on remote servers. It's language and framework agnostic, and unopinionated so you define the steps and workflow that you need \u2013 from a basic few-step deployment to a full Capistrano style zero-downtime deployment. This talk will cover some introduction to Fabric and how to write your own fabfiles, and then look at some examples of different use case deployments for your PHP project.",
+    "speakers": [
+        "oliver-davies"
+    ],
+    "event-id": "2017-09-devops-php-nw-preview-show"
+}

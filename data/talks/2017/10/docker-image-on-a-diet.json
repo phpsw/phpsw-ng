@@ -1,0 +1,8 @@
+{
+    "title": "Docker image on a diet",
+    "abstract": "Is your Docker image too big? If so see how to put it on a diet.",
+    "speakers": [
+        "peter-fisher"
+    ],
+    "event-id": "2017-10-lightning-talks"
+}

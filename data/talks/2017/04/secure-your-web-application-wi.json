@@ -1,0 +1,8 @@
+{
+    "title": "Secure your web application with 2FA",
+    "abstract": "Protecting your users' data with just a username and password is no longer satisfactory. Two-factor authentication (2FA) is the primary method of countering the effects of stolen passwords and is easy to implement in your web application. In this session we will discuss what two-factor authentication is, how it works and the challenges associated with it. We will then look how to integrate two-factor authentication into your PHP application's login workflow. We'll consider both YubiKey and Google Authenticator implementations, so you can make your users' accounts more secure.",
+    "speakers": [
+        "rob-allen"
+    ],
+    "event-id": "2017-04-security"
+}
