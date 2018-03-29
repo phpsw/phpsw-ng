@@ -4,5 +4,6 @@
     "event": "2018-01-new-year-new-topics",
     "speakers": [
         "phil-sturgeon"
-    ]
+    ],
+    "showcase": true
 }
