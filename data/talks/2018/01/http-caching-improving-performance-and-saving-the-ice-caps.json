@@ -1,8 +1,9 @@
 {
     "title": "HTTP Caching: Improving Performance & Saving the Ice Caps",
     "abstract": "HTTP Caching is something many people have heard of, and usually know a bit about but skip implementing in any real way. Browsers are expected to do everything correctly by default, and backend systems don’t bother because Redis Caching is apparently fine... Well it’s not. Balancing real-time information and avoiding making unnecessary requests isn’t a pipe dream, and there are plenty of tools out there to help you get it done right now.",
-    "event-id": "2018-01-new-year-new-topics",
+    "event": "2018-01-new-year-new-topics",
     "speakers": [
         "phil-sturgeon"
-    ]
+    ],
+    "showcase": true
 }

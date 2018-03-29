@@ -260,7 +260,7 @@ class Event
     /**
      * Returns a unique ID for the event.
      */
-    public function getEventId(): string
+    public function getId(): string
     {
         return "{$this->getYear()}-{$this->getMonth()}-{$this->getSlug()}";
     }

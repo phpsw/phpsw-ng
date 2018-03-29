@@ -38,7 +38,7 @@ class EventTransformer implements DataTransformerInterface
             return null;
         }
 
-        return $value->getEventId();
+        return $value->getId();
     }
 
     /**
@@ -52,6 +52,6 @@ class EventTransformer implements DataTransformerInterface
             return null;
         }
 
-        return $this->entityRepository->findByEventId($value);
+        return $this->entityRepository->findById($value);
     }
 }
