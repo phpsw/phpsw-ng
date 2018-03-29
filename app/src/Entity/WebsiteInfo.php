@@ -149,4 +149,14 @@ class WebsiteInfo
     {
         $this->friends = $friends;
     }
+
+    /**
+     * Returns unique ID.
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->getSlug();
+    }
 }
