@@ -4,5 +4,7 @@
     "event-id": "2018-01-new-year-new-topics",
     "speakers": [
         "phil-sturgeon"
-    ]
+    ],
+    "video-url": "https://www.youtube.com/watch?v=OwoVFGnpqpM",
+    "slides-url": "https://talks.philsturgeon.uk/instances/phpsw-jan18/http-caching-to-save-the-polar-bears/html/#/"
 }
