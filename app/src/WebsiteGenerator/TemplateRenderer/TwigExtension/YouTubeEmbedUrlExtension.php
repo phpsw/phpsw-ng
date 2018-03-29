@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: lee.stone
  * Date: 29/03/2018
- * Time: 17:51
+ * Time: 17:51.
  */
 
 namespace Phpsw\Website\WebsiteGenerator\TemplateRenderer\TwigExtension;
-
 
 use Phpsw\Website\Entity\Talk;
 use Twig_Extension;
@@ -15,7 +14,6 @@ use Twig_SimpleFunction;
 
 class YouTubeEmbedUrlExtension extends Twig_Extension
 {
-
     /**
      * {@inheritdoc}
      */
@@ -27,7 +25,7 @@ class YouTubeEmbedUrlExtension extends Twig_Extension
     }
 
     /**
-     * Returns the URL which can be used for a YouTube iFrame embed
+     * Returns the URL which can be used for a YouTube iFrame embed.
      *
      * @param Talk $talk
      *
@@ -39,5 +37,4 @@ class YouTubeEmbedUrlExtension extends Twig_Extension
 
         return $matches[1];
     }
-
 }

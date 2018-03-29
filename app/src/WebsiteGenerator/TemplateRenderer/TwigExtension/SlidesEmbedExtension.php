@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: lee.stone
  * Date: 29/03/2018
- * Time: 18:42
+ * Time: 18:42.
  */
 
 namespace Phpsw\Website\WebsiteGenerator\TemplateRenderer\TwigExtension;
-
 
 use Phpsw\Website\Entity\Talk;
 use Twig_Extension;
@@ -15,7 +14,6 @@ use Twig_SimpleFunction;
 
 class SlidesEmbedExtension extends Twig_Extension
 {
-
     /**
      * {@inheritdoc}
      */
@@ -28,7 +26,7 @@ class SlidesEmbedExtension extends Twig_Extension
     }
 
     /**
-     * Returns the string to embed the slides
+     * Returns the string to embed the slides.
      *
      * How we embed them will differ depending on the source
      *
@@ -38,13 +36,13 @@ class SlidesEmbedExtension extends Twig_Extension
      */
     public function getSlidesEmbed(Talk $talk): string
     {
-        $iFrameUrl = "";
-        $embedString = "";
+        $iFrameUrl = '';
+        $embedString = '';
 
-        if (substr($talk->getSlidesUrl(), -4) == '.pdf') {
+        if ('.pdf' == substr($talk->getSlidesUrl(), -4)) {
             // PDFs can be embedded via an iFrame
             $iFrameUrl = "https://mozilla.github.io/pdf.js/web/viewer.html?file={$talk->getSlidesUrl()}#zoom=page-fit";
-        } else if (strpos($talk->getSlidesUrl(), 'slideshare')){
+        } elseif (strpos($talk->getSlidesUrl(), 'slideshare')) {
             // We use embedly to embed slideshare
             $embedString = '<blockquote class="embedly-card"><h4><a href="'.$talk->getSlidesUrl().'">'.$talk->getTitle().'</a></h4></blockquote>
                 <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>';
@@ -62,7 +60,7 @@ class SlidesEmbedExtension extends Twig_Extension
 
     public function getSlidesLink(Talk $talk): string
     {
-        if (substr($talk->getSlidesUrl(), -4) == '.pdf') {
+        if ('.pdf' == substr($talk->getSlidesUrl(), -4)) {
             return '<a href="'.$talk->getSlidesUrl().'" class="block mb-1" target="_blank">
                 <svg class="fill-current w-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M4,18 L4,2 L12,2 L12,6 L16,6 L16,18 L4,18 Z M2,19 L2,0 L3,0 L12,0 L14,0 L18,4 L18,6 L18,20 L17,20 L2,20 L2,19 Z" id="Combined-Shape"></path></svg>
                 View PDF
@@ -74,5 +72,4 @@ class SlidesEmbedExtension extends Twig_Extension
                 </a>';
         }
     }
-
 }
