@@ -63,7 +63,7 @@ class Importer
         // Import each entity type in turn
         foreach ($this->entityImporterMappings as $entityImporterMapping) {
             $files = $this->directoryReader->getFileNameMappings($entityImporterMapping[self::DIRECTORY]);
-            foreach ($files as $slug => $filename) {
+            foreach ($files as $filename => $slug) {
                 $fileContents = file_get_contents($filename);
                 $entityData = json_decode($fileContents, true);
                 $entityImporterMapping[self::IMPORTER]->importEntity($slug, $entityData);

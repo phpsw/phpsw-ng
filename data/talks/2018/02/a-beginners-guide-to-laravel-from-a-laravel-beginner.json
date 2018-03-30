@@ -1,7 +1,7 @@
 {
     "title": "A Beginners Guide to Laravel from a Laravel Beginner",
     "abstract": "A beginners guide to some of the core Laravel concepts and a dive into a code example from a Laravel beginner.",
-    "event-id": "2018-02-framework",
+    "event": "2018-02-frameworks",
     "speakers": [
         "tom-metcalfe"
     ]

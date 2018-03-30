@@ -23,8 +23,8 @@ class DirectoryReaderTest extends TestCase
         $actual = $directoryReader->getFileNameMappings(self::TEST_DIRECTORY);
 
         $expected = [
-            'fred-bloggs' => "$fullDir/fred-bloggs.json",
-            'john-smith' => "$fullDir/john-smith.json",
+            "$fullDir/fred-bloggs.json" => 'fred-bloggs',
+            "$fullDir/john-smith.json" => 'john-smith',
         ];
 
         $this->assertEquals($expected, $actual);

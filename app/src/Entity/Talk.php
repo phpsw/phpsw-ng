@@ -221,4 +221,14 @@ class Talk
     {
         $this->showcase = $showcase;
     }
+
+    /**
+     * Returns a unique ID for the Talk.
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        return "{$this->getEvent()->getSlug()}-{$this->getSlug()}";
+    }
 }

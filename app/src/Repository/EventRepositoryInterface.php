@@ -19,13 +19,4 @@ interface EventRepositoryInterface
      * @return Event[]
      */
     public function getAll();
-
-    /**
-     * Each event has it's own unique ID. This returns the matching event.
-     *
-     * @param string $eventId
-     *
-     * @return null|Event
-     */
-    public function findByEventId(string $eventId): ?Event;
 }

@@ -36,7 +36,7 @@ abstract class AbstractEntityTransformer implements DataTransformerInterface
     }
 
     /**
-     * Transforms a slug to a Entity.
+     * Transforms an ID to an Entity.
      *
      * {@inheritdoc}
      */
@@ -46,6 +46,6 @@ abstract class AbstractEntityTransformer implements DataTransformerInterface
             return null;
         }
 
-        return $this->entityRepository->findBySlug($value);
+        return $this->entityRepository->findById($value);
     }
 }

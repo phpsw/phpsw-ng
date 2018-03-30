@@ -222,4 +222,14 @@ class Person
     {
         return $this->talks;
     }
+
+    /**
+     * Returns a unique ID for the Person.
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->getSlug();
+    }
 }

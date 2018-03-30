@@ -32,8 +32,8 @@ class DirectoryReader
      *
      * Example returned array might be:
      * [
-     *     'fred-blogs' => '/home/phpsw/data/people/fred-blogs.json',
-     *     'john-smith' => '/home/phpsw/data/people/john-smith.json',
+     *     '/home/phpsw/data/people/fred-blogs.json' => 'fred-blogs',
+     *     '/home/phpsw/data/people/john-smith.json' => 'john-smith',
      * ]
      *
      *
@@ -58,7 +58,7 @@ class DirectoryReader
                 $return = array_merge($return, $this->getDirectoryContentsRecursively($fullPath));
             } elseif ('.json' === substr($file, -5)) {
                 $entityName = substr($file, 0, -5);
-                $return[$entityName] = $fullPath;
+                $return[$fullPath] = $entityName;
             }
         }
 
