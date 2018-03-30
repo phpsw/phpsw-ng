@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lee.stone
- * Date: 29/03/2018
- * Time: 17:51.
- */
 
 namespace Phpsw\Website\WebsiteGenerator\TemplateRenderer\TwigExtension;
 
@@ -35,6 +29,6 @@ class YouTubeEmbedUrlExtension extends Twig_Extension
     {
         preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $talk->getVideoUrl(), $matches);
 
-        return $matches[1];
+        return 'https://www.youtube.com/embed/'.$matches[1];
     }
 }

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lee.stone
- * Date: 29/03/2018
- * Time: 18:42.
- */
 
 namespace Phpsw\Website\WebsiteGenerator\TemplateRenderer\TwigExtension;
 
@@ -44,8 +38,7 @@ class SlidesEmbedExtension extends Twig_Extension
             $iFrameUrl = "https://mozilla.github.io/pdf.js/web/viewer.html?file={$talk->getSlidesUrl()}#zoom=page-fit";
         } elseif (strpos($talk->getSlidesUrl(), 'slideshare')) {
             // We use embedly to embed slideshare
-            $embedString = '<blockquote class="embedly-card"><h4><a href="'.$talk->getSlidesUrl().'">'.$talk->getTitle().'</a></h4></blockquote>
-                <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>';
+            $embedString = '<blockquote class="embedly-card"><h4><a href="'.$talk->getSlidesUrl().'">'.$talk->getTitle().'</a></h4></blockquote><script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>';
         } else {
             $iFrameUrl = $talk->getSlidesUrl();
         }
