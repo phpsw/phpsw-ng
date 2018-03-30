@@ -69,6 +69,10 @@ let colors = {
   'red-dark': '#cc1f1a',
   'red': '#e3342f',
   'red-light': '#d9534f',
+
+  'orange': '#f0ad4e',
+  'orange-dark': '#ee8401',
+
 }
 
 module.exports = {
