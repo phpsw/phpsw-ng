@@ -52,7 +52,7 @@ class SlidesEmbedExtension extends Twig_Extension
 
         // If we have an iFrame URL, the embeddable should be an iFrame
         if ($iFrameUrl) {
-            $embedString = "<iframe src=\"$iFrameUrl\" frameborder=\"0\" allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe>";
+            $embedString = "<iframe class=\"w-full\" style=\"height:300px\" src=\"$iFrameUrl\" frameborder=\"0\" allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe>";
         }
 
         return $embedString;
