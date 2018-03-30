@@ -35,7 +35,7 @@ services:
     tags:
       - {name: "TwigExtension"}
 
-  app.websiteGenerator.twigExtension.slidesEmber:
+  app.websiteGenerator.twigExtension.slidesEmbed:
     class: \Phpsw\Website\WebsiteGenerator\TemplateRenderer\TwigExtension\SlidesEmbedExtension
     autowire: true
     tags:
