@@ -1,0 +1,8 @@
+{
+    "title": "Remote debugging with Xdebug",
+    "abstract": "Are you using var_dump, echo and die for debugging PHP? Imagine how much easier yourlife would be if you could follow the execution of your code, see and modify variablesas your app was running. I'll be talking about configuring, using and avoiding the pitfallsof Xdebug for remote debugging.",
+    "speakers": [
+        "tom-adam"
+    ],
+    "event": "2017-03-testing-debugging"
+}

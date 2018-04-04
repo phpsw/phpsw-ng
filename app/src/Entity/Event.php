@@ -256,4 +256,12 @@ class Event
     {
         return $this->talks;
     }
+
+    /**
+     * Returns a unique ID for the event.
+     */
+    public function getId(): string
+    {
+        return "{$this->getYear()}-{$this->getMonth()}-{$this->getSlug()}";
+    }
 }

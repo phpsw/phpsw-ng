@@ -21,13 +21,13 @@ interface SponsorRepositoryInterface
     public function getAll();
 
     /**
-     * Returns Sponsor object with the given slug of null if none exist.
+     * Returns Sponsor object with the given id or null if none exist.
      *
-     * @param string $slug
+     * @param string $id
      *
      * @return Sponsor|null
      */
-    public function findBySlug(string $slug);
+    public function findById(string $id);
 
     /**
      * Returns all sponsors of the give type (see Sponsor object).

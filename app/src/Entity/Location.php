@@ -152,4 +152,14 @@ class Location
     {
         $this->website = $website;
     }
+
+    /**
+     * Returns a unique ID for the Location.
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->getSlug();
+    }
 }

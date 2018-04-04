@@ -50,7 +50,7 @@ abstract class AbstractEntityCollectionTransformer implements DataTransformerInt
         $entities = [];
         if (!empty($value)) {
             foreach ($value as $slug) {
-                $entity = $this->entityRepository->findBySlug($slug);
+                $entity = $this->entityRepository->findById($slug);
 
                 if (null !== $entity) {
                     $entities[] = $entity;

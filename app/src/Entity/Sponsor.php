@@ -183,4 +183,14 @@ class Sponsor
             self::SPONSOR_EVENT,
         ];
     }
+
+    /**
+     * Returns a unique ID for the Sponsor.
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->getSlug();
+    }
 }

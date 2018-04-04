@@ -177,7 +177,9 @@ class MeetupApiClient
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 120);
         curl_setopt($ch, CURLOPT_TIMEOUT, 120);
         curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+        if (!empty($_SERVER['HTTP_USER_AGENT'])) {
+            curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+        }
 
         //either GET/POST/PUT/DELETE against api
         if (self::GET == $action || self::DELETE == $action) {

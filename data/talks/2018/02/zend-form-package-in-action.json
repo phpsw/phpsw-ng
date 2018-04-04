@@ -1,0 +1,8 @@
+{
+    "title": "Zend Form package in action",
+    "abstract": "How does the zendframework/zend-form package work? Exposure of the pragmatic approach behind its current architecture, the form flow and the simplicity of use. Also will present the idea of how to easily handle the forms in the middleware applications, with code examples.",
+    "event": "2018-02-frameworks",
+    "speakers": [
+        "jan-franciszek-kowalski"
+    ]
+}

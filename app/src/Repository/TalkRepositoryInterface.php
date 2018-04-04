@@ -21,7 +21,7 @@ interface TalkRepositoryInterface
     public function getAll();
 
     /**
-     * Returns all the talks order by talk slub (in alphabetical order) that are flagged as show case talks.
+     * Returns all the talks order by talk slug (in alphabetical order) that are flagged as show case talks.
      *
      * A showcase talk is one that shows PHP-SW at it's best. These talks will appear on the talks page.
      *
@@ -30,11 +30,11 @@ interface TalkRepositoryInterface
     public function getShowcaseTalks();
 
     /**
-     * Returns Talk object with the given slug of null if none exist.
+     * Returns Talk object with the given ID or null if none exist.
      *
-     * @param string $slug
+     * @param string $id
      *
      * @return Talk|null
      */
-    public function findBySlug(string $slug);
+    public function findById(string $id);
 }

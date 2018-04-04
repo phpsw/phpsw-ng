@@ -17,7 +17,7 @@ class StringUtils
      *
      * @return string
      */
-    public static function slugify($title, $separator = '-', $language = 'en', $maxLengthChars = 30)
+    public static function slugify($title, $separator = '-', $language = 'en', $maxLengthChars = 300)
     {
         $title = static::ascii($title, $language);
 

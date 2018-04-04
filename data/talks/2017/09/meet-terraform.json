@@ -1,0 +1,8 @@
+{
+    "title": "Meet Terraform",
+    "abstract": "We have a ton of options for provisioning machines once we have an SSH connectionavailable, but how do we get those machines in the first place?. In this talk, we'll take a look at what Terraform can do for you, walking through yourfirst Terraform configuration all the way to writing your own modules to encapsulateyour infrastructure across multiple deployments.",
+    "speakers": [
+        "michael-heap"
+    ],
+    "event": "2017-09-devops-php-nw-preview-show"
+}

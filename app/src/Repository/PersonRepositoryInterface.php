@@ -21,11 +21,11 @@ interface PersonRepositoryInterface
     public function getAll();
 
     /**
-     * Returns Person object with the given slug of null if none exist.
+     * Returns Person object with the given id or null if none exist.
      *
-     * @param string $slug
+     * @param string $id
      *
      * @return Person|null
      */
-    public function findBySlug(string $slug);
+    public function findById(string $id);
 }

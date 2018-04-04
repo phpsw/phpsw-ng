@@ -11,7 +11,6 @@ class Talk
      *
      * @Assert\NotBlank()
      * @Assert\Type("string")
-     * @Assert\Length(max="30")
      */
     private $slug;
 
@@ -221,5 +220,15 @@ class Talk
     public function setShowcase(bool $showcase)
     {
         $this->showcase = $showcase;
+    }
+
+    /**
+     * Returns a unique ID for the Talk.
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        return "{$this->getEvent()->getSlug()}-{$this->getSlug()}";
     }
 }

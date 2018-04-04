@@ -52,7 +52,7 @@ To generate website run the following steps on the VM
 
 1. `cd /vagrant`
 1. ```./runner.php  phpsw:generate-website```
-1. `yarn run encore dev` or `yarn run encore dev --watch` to generate and watch. 
+1. `yarn dev` or `yarn watch` to generate and watch.
 
 
 

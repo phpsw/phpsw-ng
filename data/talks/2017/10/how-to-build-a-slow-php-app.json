@@ -1,0 +1,8 @@
+{
+    "title": "How to build a slow PHP app",
+    "abstract": "Are you PHP apps running too fast? Ade Slade will show us how to build a slow PHP app!",
+    "speakers": [
+        "ade-slade"
+    ],
+    "event": "2017-10-lightning-talks"
+}

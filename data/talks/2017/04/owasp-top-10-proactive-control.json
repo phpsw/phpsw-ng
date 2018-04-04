@@ -1,0 +1,8 @@
+{
+    "title": "OWASP Top 10 Proactive Controls",
+    "abstract": "Cyber attacks are a real and growing threat to businesses and an increasing number of attacks take place at application layer. The best defence is to develop applications where security controls are incorporated as part of the software development cycle and used by developers while writing their code. OWASP Top 10 Proactive Controls considers security as part of development. This talk will present the proactive security controls that can be incorporated in development cycle and used while writing the software. By the end of this presentation you will have a better understanding of the recommended security controls that you can incorporate into your software projects. For each control, you will learn which OWASP Top 10 Risks can prevent.",
+    "speakers": [
+        "katy-anton"
+    ],
+    "event": "2017-04-security"
+}
