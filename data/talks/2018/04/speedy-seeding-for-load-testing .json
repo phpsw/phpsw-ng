@@ -1,0 +1,12 @@
+{
+    "title": "Speedy Seeding for Load Testing",
+    "abstract": "I will deliberate on the importance of stress-testing an application before launch and also introducing a very simple helper package that I made to speed up bulk inserting thousands of rows of test data. The package is Laravel-specific but the general concept is tech agnostic.",
+    "event": "2018-04-lightning-talks",
+    "speakers": [
+        "martin-joiner"
+    ],
+    "joindin-url": "87517",
+    "slides-url": "",
+    "video-url": "",
+    "showcase": true
+}
