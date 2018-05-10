@@ -237,7 +237,7 @@ class Talk
      *
      * @return string
      */
-    public function getOriginalRelativeUrl(): string
+    public function getOriginalRelativeUrl(): ?string
     {
         return $this->originalRelativeUrl;
     }
@@ -245,7 +245,7 @@ class Talk
     /**
      * @param string $originalRelativeUrl
      */
-    public function setOriginalRelativeUrl(string $originalRelativeUrl)
+    public function setOriginalRelativeUrl(?string $originalRelativeUrl)
     {
         $this->originalRelativeUrl = $originalRelativeUrl;
     }
