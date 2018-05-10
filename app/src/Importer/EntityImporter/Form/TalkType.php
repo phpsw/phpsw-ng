@@ -44,6 +44,7 @@ class TalkType extends AbstractType
         $builder->add('abstract', TextType::class);
         $builder->add('event', TextType::class);
         $builder->add('showcase', CheckboxType::class);
+        $builder->add('original-relative-url', TextType::class, ['property_path' => 'originalRelativeUrl']);
         $builder->add('slides-url', TextType::class, ['property_path' => 'slidesUrl']);
         $builder->add('joindin-url', TextType::class, ['property_path' => 'joindinUrl']);
         $builder->add('video-url', TextType::class, ['property_path' => 'videoUrl']);
