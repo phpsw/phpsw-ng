@@ -36,7 +36,6 @@ class Talk
      */
     private $event;
 
-
     /**
      * @var string
      *
@@ -249,7 +248,6 @@ class Talk
     {
         $this->originalRelativeUrl = $originalRelativeUrl;
     }
-
 
     /**
      * Returns a unique ID for the Talk.
