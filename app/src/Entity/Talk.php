@@ -36,6 +36,14 @@ class Talk
      */
     private $event;
 
+
+    /**
+     * @var string
+     *
+     * @Assert\Type("string")
+     */
+    private $originalRelativeUrl;
+
     /**
      * @var string
      *
@@ -221,6 +229,27 @@ class Talk
     {
         $this->showcase = $showcase;
     }
+
+    /**
+     * Returns the original relative URL (everything after https://phpsw.uk/) of the previous talk.
+     *
+     * This is used for redirecting old ULR to new URL.
+     *
+     * @return string
+     */
+    public function getOriginalRelativeUrl(): string
+    {
+        return $this->originalRelativeUrl;
+    }
+
+    /**
+     * @param string $originalRelativeUrl
+     */
+    public function setOriginalRelativeUrl(string $originalRelativeUrl)
+    {
+        $this->originalRelativeUrl = $originalRelativeUrl;
+    }
+
 
     /**
      * Returns a unique ID for the Talk.
