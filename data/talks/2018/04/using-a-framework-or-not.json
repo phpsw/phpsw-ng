@@ -1,0 +1,12 @@
+{
+    "title": "Using a framework or not",
+    "abstract": "For both the frontend and backend there are many frameworks that allow for the rapid and solid build of web applications. Many projects require the knowledge of a framework. In some cases this leads a developer to be more understanding of a framework instead of the language that the framework is written in. Should every application be built using a framework and if not, when is it OK not to use a framework?",
+    "event": "2018-04-lightning-talks",
+    "speakers": [
+        "peter-fisher"
+    ],
+    "joindin-url": "ba90b",
+    "slides-url": "",
+    "video-url": "",
+    "showcase": true
+}
