@@ -15,6 +15,4 @@ mix.disableNotifications()
         globs: [
             path.join(__dirname, 'app/resources/views/**/*.twig'),
         ],
-        whitelistPatterns: [/language/, /hljs/],
-        whitelistPatternsChildren: [/^markdown$/]
     });
