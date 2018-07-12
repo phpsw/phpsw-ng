@@ -1,23 +1,23 @@
 {
   "private": true,
   "scripts": {
-    "dev": "encore dev",
-    "watch": "encore dev --watch",
-    "build": "encore production"
+    "build": "npm run production",
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "devDependencies": {
-    "@symfony/webpack-encore": "^0.17.1",
-    "autoprefixer": "^7.2.4",
-    "copy-webpack-plugin": "^4.5.1",
+    "cross-env": "^5.1.5",
     "font-awesome": "^4.7.0",
     "glob-all": "^3.1.0",
-    "highlightjs": "^9.10.0",
-    "less": "^2.7.3",
-    "less-loader": "^4.0.5",
-    "less-plugin-npm-import": "^2.1.0",
-    "postcss-loader": "^2.0.10",
-    "purgecss-webpack-plugin": "^0.19.0",
-    "tailwindcss": "^0.4.0",
-    "webpack-notifier": "^1.5.0"
+    "laravel-mix": "^2.1.11",
+    "laravel-mix-tailwind": "^0.1.0",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "purgecss-webpack-plugin": "^1.2.0",
+    "tailwindcss": "^0.4.0"
   }
 }
