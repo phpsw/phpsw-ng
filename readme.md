@@ -32,7 +32,19 @@ There are a number of scripts to help generate the JSON data files. You can supp
 
 - **Generate event:** ```./runner.php  phpsw:generate-file-event <meetup-id>```
 
-- **Generate _all_ event files:** ```./data/scripts/generate-events.sh``` (Use with caution - this will re-generate all event files from meetup data but keep in mind that any manual edits which have been made to the existing event files will likely be lost. This script calls the `phpsw:generate-file-event` command for each event meetup ID from the list defined within.)
+- **Generate _all_ event files:** ```./data/scripts/generate-events.sh``` (run from the data/scripts/ dir)
+
+This script calls the `phpsw:generate-file-event` command for each event meetup ID from the list defined within. 
+
+Files are saved in data/events/**generated**/\<year\>/\<month\>/\<event-slug\>.json .
+
+- **Generate a stub talk file:** ```./runner.php  phpsw:generate-file-talk <meetup-id>``` (Pulls down the full description of the given event from meetup and saves it in a file alongside the event slug name. Makes it easier to extract talks from that.)
+
+- **Generate _all_ talk stub files:** ```./generate-talk-file-stubs.sh``` (run from the data/scripts/ dir)
+
+This script calls the `phpsw:generate-file-talk` command for each event meetup ID from the list defined within. 
+
+Files are saved in data/talks/**generated**/\<year\>/\<month\>/\<event-slug\>.json .
 
 ### Build website
 

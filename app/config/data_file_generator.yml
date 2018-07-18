@@ -15,6 +15,18 @@ services:
     class: \Phpsw\Website\DataFileGenerator\EventFileGenerator
     autowire: true
 
+  # Talk JSON data file generator command
+  app.fileGenerator.talk.command:
+    class: \Phpsw\Website\DataFileGenerator\GenerateTalkFileCommand
+    autowire: true
+    tags:
+      - {name: "ConsoleCommand" }
+
+  # Talk JSON data file generator
+  app.fileGenerator.talk:
+    class: \Phpsw\Website\DataFileGenerator\TalkFileGenerator
+    autowire: true
+
   # Person JSON data file generator command
   app.fileGenerator.person.command:
     class: \Phpsw\Website\DataFileGenerator\GeneratePersonFileCommand
