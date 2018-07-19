@@ -6,14 +6,13 @@
 
     <li class="mb-4">
         <h3 class="mb-1">
-            <a href="{{ talkUrl(talk) }}">
+            <a href="{{ talkUrl(talk) }}" class="link">
                 {{ talk.title }}
             </a>
         </h3>
 
-        
         <div class="text-xs mb-2">
-            <a href="{{ eventUrl(talk.event) }}">
+            <a href="{{ eventUrl(talk.event) }}" class="link">
                 {{- talk.event.title -}}
             </a>,
             <span class="text-grey-light">

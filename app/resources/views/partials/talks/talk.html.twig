@@ -1,13 +1,13 @@
 <div class="mb-8 flex flex-row-reverse">
     <div>
         <h2 class="mb-1">
-            <a href="{{ talkUrl(talk) }}">
+            <a href="{{ talkUrl(talk) }}" class="link">
                 {{ talk.title }}
             </a>
         </h2>
 
         <div class="mb-2">
-            <a href="{{ personUrl(talk.speakers[0]) }}" class="text-sm">
+            <a href="{{ personUrl(talk.speakers[0]) }}" class="text-sm link">
                 {{ talk.speakers[0].name }}
             </a>
         </div>

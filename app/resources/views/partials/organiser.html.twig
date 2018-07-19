@@ -2,7 +2,7 @@
     <div class="pl-16">
         <div class="mb-1 text-sm">
             {% if organiser.websiteUrl %}
-                <a href="{{ organiser.websiteUrl }}">{{ organiser.name }}</a>
+                <a href="{{ organiser.websiteUrl }}" class="link">{{ organiser.name }}</a>
             {% else %}
                 {{ organiser.name }}
             {% endif %}

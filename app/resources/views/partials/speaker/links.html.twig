@@ -1,7 +1,7 @@
 <ul class="list-reset leading-normal mb-8">
     {% if speaker.meetupId %}
         <li>
-            <a class="text-sm flex items-center" href="#0">
+            <a class="link text-sm flex items-center" href="#0">
                 {% include 'svg/calendar.html.twig' with { class: 'fill-current w-4 mr-2' } %}
                 Meetup profile
             </a>
@@ -10,7 +10,7 @@
 
     {% if speaker.websiteUrl %}
         <li>
-            <a class="text-sm flex items-center" href="{{ speaker.websiteUrl }}">
+            <a class="link text-sm flex items-center" href="{{ speaker.websiteUrl }}">
                 {% include 'svg/globe.html.twig' with { class: 'fill-current w-4 mr-2' } %}
                 Website
             </a>
@@ -19,7 +19,7 @@
 
     {% if speaker.twitterHandle %}
         <li>
-            <a class="text-sm flex items-center" href="https://twitter.com/{{ speaker.twitterHandle }}">
+            <a class="link text-sm flex items-center" href="https://twitter.com/{{ speaker.twitterHandle }}">
                 {% include 'svg/twitter.html.twig' with { class: 'fill-current w-4 mr-2' } %}
                 Twitter: @{{ speaker.twitterHandle }}
             </a>
@@ -28,7 +28,7 @@
 
     {% if speaker.githubHandle %}
         <li>
-            <a class="text-sm flex items-center" href="https://github.com/{{ speaker.githubHandle }}">
+            <a class="link text-sm flex items-center" href="https://github.com/{{ speaker.githubHandle }}">
                 {% include 'svg/github.html.twig' with { class: 'fill-current w-4 mr-2' } %}
                 GitHub: {{ speaker.githubHandle }}
             </a>
