@@ -819,4 +819,7 @@ module.exports = {
     separator: ':',
   },
 
+  plugins: [
+    require('tailwindcss/plugins/container')(),
+  ],
 }
