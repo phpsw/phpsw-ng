@@ -1,7 +1,7 @@
 <ul class="list-reset leading-normal mb-8">
     {% if speaker.meetupId %}
         <li>
-            <a class="text-sm flex items-center" href="#0">
+            <a class="text-sm flex items-center" href="https://www.meetup.com/members/{{ speaker.meetupId }}">
                 {% include 'svg/calendar.html.twig' with { class: 'fill-current w-4 mr-2' } %}
                 Meetup profile
             </a>
