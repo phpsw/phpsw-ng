@@ -18,8 +18,8 @@
             <ul class="flex flex-wrap list-reset speakers">
                 {% for speaker in speakers %}
                     <li class="text-center mb-4 w-1/4 sm:w-1/5 md:w-1/4 lg:w-1/5 xl:w-1/7">
-                        <a href="{{ personUrl(speaker) }}" class="flex flex-col-reverse">
-                            <div class="block text-sm mt-2 px-2">
+                        <a href="{{ personUrl(speaker) }}" class="flex flex-col-reverse group">
+                            <div class="block text-sm mt-2 px-2 group-hover:underline">
                                 {{ speaker.name }}
                             </div>
 

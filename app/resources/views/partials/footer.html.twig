@@ -15,25 +15,25 @@
 
                     <ul class="list-reset">
                         <li>
-                            <a class="text-teal-dark mb-2 flex items-center" href="/">
+                            <a class="link text-teal-dark mb-2 flex items-center" href="/">
                                 <svg class="fill-current w-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M18.672 11H17v6c0 .445-.194 1-1 1h-4v-6H8v6H4c-.806 0-1-.555-1-1v-6H1.328c-.598 0-.47-.324-.06-.748L9.292 2.22c.195-.202.451-.302.708-.312.257.01.513.109.708.312l8.023 8.031c.411.425.539.749-.059.749z"/></svg>
                                 Home
                             </a>
                         </li>
                         <li>
-                            <a class="text-teal-dark mb-2 flex items-center" href="{{ url('events') }}">
+                            <a class="link text-teal-dark mb-2 flex items-center" href="{{ url('events') }}">
                                 {% include 'svg/calendar.html.twig' with { class: 'fill-current w-4 mr-1' } %}
                                 Events
                             </a>
                         </li>
                         <li>
-                            <a class="text-teal-dark mb-2 flex items-center" href="{{ url('speakers') }}">
+                            <a class="link text-teal-dark mb-2 flex items-center" href="{{ url('speakers') }}">
                                 <svg class="fill-current w-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M1.228 10.891a.528.528 0 0 0-.159.69l1.296 2.244c.133.23.438.325.677.208L7 12.116V19h2v-7.854l4.071-1.973-2.62-4.54-9.223 6.258zm17.229-7.854a4.061 4.061 0 0 0-5.546-1.484c-.91.525-1.508 1.359-1.801 2.289l2.976 5.156c.951.212 1.973.11 2.885-.415a4.06 4.06 0 0 0 1.486-5.546z"/></svg>
                                 Speakers
                             </a>
                         </li>
                         <li>
-                            <a class="text-teal-dark mb-1 flex items-center" href="{{ url('sponsors') }}">
+                            <a class="link text-teal-dark mb-1 flex items-center" href="{{ url('sponsors') }}">
                                 <svg class="fill-current w-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9 10h2v2h9s-.149-4.459-.2-5.854C19.75 4.82 19.275 4 17.8 4h-3.208l-1.197-2.256C13.064 1.121 12.951 1 12.216 1H7.783c-.735 0-.847.121-1.179.744-.165.311-.7 1.318-1.196 2.256H2.199c-1.476 0-1.945.82-2 2.146C.145 7.473 0 12 0 12h9v-2zM7.649 2.916c.23-.432.308-.516.817-.516h3.067c.509 0 .588.084.816.516L12.924 4h-5.85l.575-1.084zM11 15H9v-2H.5s.124 1.797.199 3.322C.73 16.955.917 18 2.499 18H17.5c1.582 0 1.765-1.047 1.8-1.678.087-1.568.2-3.322.2-3.322H11v2z"/></svg>
                                 Sponsors
                             </a>
@@ -46,25 +46,25 @@
 
                     <ul class="list-reset">
                         <li>
-                            <a class="text-teal-dark mb-2 flex items-center" href="{{ url('codeOfConduct') }}">
+                            <a class="link text-teal-dark mb-2 flex items-center" href="{{ url('codeOfConduct') }}">
                                 {% include 'svg/calendar.html.twig' with { class: 'fill-current w-4 mr-1' } %}
                                 Code of conduct
                             </a>
                         </li>
                         <li>
-                            <a class="text-teal-dark mb-2 flex items-center" href="mailto:info@phpsw.uk">
+                            <a class="link text-teal-dark mb-2 flex items-center" href="mailto:info@phpsw.uk">
                                 <svg class="fill-current w-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M1.574 5.286l7.5 4.029c.252.135.578.199.906.199.328 0 .654-.064.906-.199l7.5-4.029c.489-.263.951-1.286.054-1.286H1.521c-.897 0-.435 1.023.053 1.286zm17.039 2.203l-7.727 4.027c-.34.178-.578.199-.906.199s-.566-.021-.906-.199-7.133-3.739-7.688-4.028C.996 7.284 1 7.523 1 7.707V15c0 .42.566 1 1 1h16c.434 0 1-.58 1-1V7.708c0-.184.004-.423-.387-.219z"/></svg>
                                 Get in touch
                             </a>
                         </li>
                         {# <li>
-                            <a class="text-teal-dark mb-2 flex items-center" href="#0">
+                            <a class="link text-teal-dark mb-2 flex items-center" href="#0">
                                 <svg class="fill-current w-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M1.228 10.891a.528.528 0 0 0-.159.69l1.296 2.244c.133.23.438.325.677.208L7 12.116V19h2v-7.854l4.071-1.973-2.62-4.54-9.223 6.258zm17.229-7.854a4.061 4.061 0 0 0-5.546-1.484c-.91.525-1.508 1.359-1.801 2.289l2.976 5.156c.951.212 1.973.11 2.885-.415a4.06 4.06 0 0 0 1.486-5.546z"/></svg>
                                 Submit a talk
                             </a>
                         </li>
                         <li>
-                            <a class="text-teal-dark mb-2 flex items-center" href="#0">
+                            <a class="link text-teal-dark mb-2 flex items-center" href="#0">
                                 <svg class="fill-current w-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 16.755V19H9v-2.143c-1.712-.1-3.066-.589-4.241-1.797l1.718-1.74c.859.87 2.023 1.16 3.282 1.16 1.565 0 2.405-.599 2.405-1.702 0-.483-.133-.889-.42-1.16-.267-.251-.572-.387-1.202-.483L8.9 10.903c-1.164-.174-2.022-.541-2.634-1.141-.648-.657-.973-1.546-.973-2.707 0-2.155 1.382-3.743 3.707-4.1V1h2v1.932c1.382.145 2.465.62 3.415 1.551l-1.679 1.682c-.859-.832-1.889-.947-2.787-.947-1.412 0-2.099.792-2.099 1.74 0 .348.115.716.401.986.267.252.706.464 1.26.541l1.602.232c1.241.174 2.023.522 2.596 1.063.726.696 1.05 1.702 1.05 2.92 0 2.25-1.567 3.662-3.759 4.055z"/></svg>
                                 Sponsor us
                             </a>
@@ -77,19 +77,19 @@
 
                     <ul class="list-reset">
                         <li>
-                            <a class="text-teal-dark mb-2 flex items-center" href="https://www.meetup.com/php-sw">
+                            <a class="link text-teal-dark mb-2 flex items-center" href="https://www.meetup.com/php-sw">
                                 {% include 'svg/calendar.html.twig' with { class: 'fill-current w-4 mr-1' } %}
                                 Find us on Meetup
                             </a>
                         </li>
                         <li>
-                            <a class="text-teal-dark mb-2 flex items-center" href="https://twitter.com/phpsw">
+                            <a class="link text-teal-dark mb-2 flex items-center" href="https://twitter.com/phpsw">
                                 {% include "svg/twitter.html.twig" with { class: 'fill-current w-4 mr-1' } %}
                                 Follow us on Twitter
                             </a>
                         </li>
                         <li>
-                            <a class="text-teal-dark mb-2 flex items-center" href="https://github.com/phpsw/phpsw-ng">
+                            <a class="link text-teal-dark mb-2 flex items-center" href="https://github.com/phpsw/phpsw-ng">
                                 {% include "svg/github.html.twig" with { class: 'fill-current w-4 mr-1' } %}
                                 Fork this on GitHub
                             </a>
