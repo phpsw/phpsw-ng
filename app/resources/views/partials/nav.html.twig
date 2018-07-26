@@ -1,6 +1,6 @@
 <div class="bg-grey-lightest">
     <div class="container mx-auto sm:px-4">
-        <div class="nav hidden sm:flex absolute sm:relative bg-white z-20 w-full sm:w-auto border border-grey-lighter sm:border-none">
+        <div class="nav bg-grey-lightest hidden sm:flex absolute sm:relative z-20 w-full sm:w-auto border border-grey-lighter sm:border-none">
             <div class="flex-auto">
                 <a class="nav-item block sm:float-left py-3 px-4 text-sm text-grey hover:text-grey-darkest sm:py-4 {{ page.template == 'home' ? 'bg-grey-lighter' }}" href="{{ url('home') }}">Home</a>
                 <a class="nav-item block sm:float-left py-3 px-4 text-sm text-grey hover:text-grey-darkest sm:py-4 {{ page.template matches '/^(talk|events?)$/' ? 'bg-grey-lighter' }}" href="{{ url('events') }}">Events</a>
