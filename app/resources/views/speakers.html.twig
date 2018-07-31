@@ -24,8 +24,13 @@
                             </div>
 
                             <div class="w-4/5 mx-auto">
-                                <div class="rounded-full bg-white hover:shadow-center flex items-center p-1 transition">
-                                    <img src="{{ speaker.photoUrl }}" class="h-16 w-16 mx-auto rounded-full transition hover:w-4 hover:max-w-sm">
+                                <div class="flex justify-center">
+                                    <div class="rounded-full overflow-hidden border-4 border-transparent hover:shadow-circle transition-box-shadow">
+                                        <img
+                                            src="{{ speaker.photoUrl }}"
+                                            class="block h-16 w-16"
+                                        >
+                                    </div>
                                 </div>
                             </div>
                         </a>
