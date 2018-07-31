@@ -793,7 +793,7 @@ module.exports = {
     textAlign: ['responsive'],
     textColors: ['responsive', 'hover'],
     textSizes: ['responsive'],
-    textStyle: ['responsive', 'hover'],
+    textStyle: ['responsive', 'hover', 'group-hover'],
     tracking: ['responsive'],
     userSelect: ['responsive'],
     verticalAlign: ['responsive'],
