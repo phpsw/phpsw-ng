@@ -16,10 +16,6 @@ h1, h2, h3 {
     @apply .border-b .border-grey-lighter .pb-4 .mb-8 .font-medium;
 }
 
-.transition {
-    transition: all .25s ease-in-out;
-}
-
 .visually-hidden {
     position: absolute !important;
     clip: rect(1px, 1px, 1px, 1px);
@@ -31,3 +27,8 @@ h1, h2, h3 {
 
 @tailwind components;
 @tailwind utilities;
+
+// TODO: Move into a Tailwind plugin.
+.group:hover .group-hover\:transform-zoom {
+    transform: scale(1.1);
+}

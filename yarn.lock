@@ -7020,6 +7020,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
+tailwindcss-transition@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/tailwindcss-transition/-/tailwindcss-transition-1.0.5.tgz#ae70fc3a883d563cfcecd485ea9459c30b3de38e"
+
 tailwindcss@^0.5.0:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-0.5.3.tgz#5444f85ab5e68a37c2bf13bc4ac097a7ee05321d"

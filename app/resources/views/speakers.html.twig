@@ -17,15 +17,20 @@
 
             <ul class="flex flex-wrap list-reset speakers">
                 {% for speaker in speakers %}
-                    <li class="text-center mb-4 w-1/4 sm:w-1/5 md:w-1/4 lg:w-1/5 xl:w-1/7">
+                    <li class="group text-center mb-4 w-1/4 sm:w-1/5 md:w-1/4 lg:w-1/5 xl:w-1/7">
                         <a href="{{ personUrl(speaker) }}" class="flex flex-col-reverse group">
                             <div class="block text-sm mt-2 px-2 group-hover:underline">
                                 {{ speaker.name }}
                             </div>
 
                             <div class="w-4/5 mx-auto">
-                                <div class="rounded-full bg-white hover:shadow-center flex items-center p-1 transition">
-                                    <img src="{{ speaker.photoUrl }}" class="h-16 w-16 mx-auto rounded-full transition hover:w-4 hover:max-w-sm">
+                                <div class="flex justify-center">
+                                    <div class="relative rounded-full overflow-hidden border-4 border-transparent hover:shadow-circle transition-box-shadow z-10">
+                                        <img
+                                            src="{{ speaker.photoUrl }}"
+                                            class="block h-16 w-16 transition-zoom group-hover:transform-zoom rounded-full"
+                                        >
+                                    </div>
                                 </div>
                             </div>
                         </a>

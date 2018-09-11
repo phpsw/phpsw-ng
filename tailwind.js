@@ -653,6 +653,7 @@ module.exports = {
     'lg': '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
     'inner': 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
     'none': 'none',
+    'circle': '0 0 10px #ccc',
   },
 
 
@@ -786,13 +787,13 @@ module.exports = {
     pointerEvents: ['responsive'],
     position: ['responsive'],
     resize: ['responsive'],
-    shadows: ['responsive'],
+    shadows: ['responsive', 'hover'],
     svgFill: [],
     svgStroke: [],
     textAlign: ['responsive'],
     textColors: ['responsive', 'hover'],
     textSizes: ['responsive'],
-    textStyle: ['responsive', 'hover'],
+    textStyle: ['responsive', 'hover', 'group-hover'],
     tracking: ['responsive'],
     userSelect: ['responsive'],
     verticalAlign: ['responsive'],
@@ -821,5 +822,14 @@ module.exports = {
 
   plugins: [
     require('tailwindcss/plugins/container')(),
+
+    require('tailwindcss-transition')({
+      standard: 'all .3s ease',
+      transitions: {
+        'box-shadow': 'box-shadow 0.25s ease-in-out',
+        'zoom': 'all 0.25s ease-in-out',
+      },
+      variants: ['responsive', 'hover'],
+    })
   ],
 }
