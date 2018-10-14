@@ -1,0 +1,12 @@
+{
+  "title": "Web Security - The Human Factor",
+  "abstract": "An overview of how web developers can protect their applications, their businesses, but most importantly; their sanity. It will include a brief overview of common mistakes made with web applications that could lead the developer, and/or others to a security faux pas. Some best practices to follow, and some real world examples of where I/others have screwed up.",
+  "event": "2018-05-security",
+  "speakers": [
+    "rob-wilson"
+  ],
+  "joindin-url": "dd98f",
+  "slides-url": "",
+  "video-url": "https://www.youtube.com/watch?v=4c-c8qUWve8",
+  "showcase": true
+}
