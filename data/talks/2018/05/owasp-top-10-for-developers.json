@@ -1,0 +1,12 @@
+{
+  "title": "OWASP Top 10 for Developers",
+  "abstract": "The OWASP Top 10 2017 is a powerful awareness document for web application security and a new version has been recently released. The list, which represents the most common vulnerabilities found in web applications, suits very well testers. But how can developers write more secure applications to prevent these ? What are the security techniques they can use while writing their software to prevent these? These are hard questions, as evidenced by the increased cyber breaches. In this talk, we will explore together the new OWASP Top10 2017. Staring from real world examples and breaches, we identify the security controls that developers can use in SDLC to help them to prevent the most common vulnerabilities.",
+  "event": "2018-05-security",
+  "speakers": [
+    "katy-anton"
+  ],
+  "joindin-url": "8f482",
+  "slides-url": "",
+  "video-url": "https://www.youtube.com/watch?v=te1tPuCngCc",
+  "showcase": true
+}
