@@ -1,5 +1,28 @@
 version: 2
 
+php-image: &php-image
+  docker:
+  - image: circleci/php:7.1-cli-stretch
+
+
+restore-php-cache: &restore-php-cache
+  restore_cache:
+    keys:
+    - php-vendors-v1-{{ checksum "yarn.lock"}}
+    - php-vendors-v1
+
+composer-install: &composer-install
+  run:
+    name: Composer install
+    command: composer install  --no-interaction --no-scripts --prefer-dist
+
+save-php-cache: &save-php-cache
+ save_cache:
+   key: php-vendors-v1-{{ checksum "composer.lock" }}
+   paths:
+   - vendor
+
+
 jobs:
   node:
     docker:
@@ -27,22 +50,13 @@ jobs:
 
 
   php:
-    docker:
-    - image: circleci/php:7.1-cli-stretch
+    <<: *php-image
 
     steps:
     - checkout
-    - restore_cache:
-        keys:
-        - php-vendors-v1-{{ checksum "composer.json" }}
-        - php-vendors-v1-
-
-    - run: composer install --no-interaction --no-scripts --prefer-dist
-
-    - save_cache:
-        key: php-vendors-v1-{{ checksum "composer.json" }}
-        paths:
-        - vendor
+    - *restore-php-cache
+    - *composer-install
+    - *save-php-cache
 
     - run: cp app/config/secrets_test.yml app/config/secrets.yml
     - run: mkdir -p reports/phpcs
@@ -56,24 +70,17 @@ jobs:
         path: reports
 
   security:
-    docker:
-    - image: circleci/php:7.1-cli-stretch
+    <<: *php-image
 
     steps:
     - checkout
-    - restore_cache:
-        keys:
-        - php-vendors-v1-{{ checksum "composer.json" }}
-        - php-vendors-v1-
+    - *restore-php-cache
+    - *composer-install
+    - *save-php-cache
 
-    - run: composer install --no-interaction --no-scripts --prefer-dist
-
-    - save_cache:
-        key: php-vendors-v1-{{ checksum "composer.json" }}
-        paths:
-        - vendor
-
-    - run: vendor/bin/security-checker security:check
+    - run:
+        name: PHP security check
+        command: vendor/bin/security-checker security:check
 
 
 workflows:
