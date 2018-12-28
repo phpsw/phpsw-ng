@@ -67,6 +67,12 @@ services:
     tags:
       - {name: "ContentTypeGenerator"}
 
+  app.websiteGenerator.contentTypeGenerator.redirects:
+    class: \Phpsw\Website\WebsiteGenerator\ContentTypeGenerator\RedirectsGenerator
+    autowire: true
+    tags:
+      - {name: "ContentTypeGenerator"}
+
 
   # Website generator command
   app.websiteGenerator.command:

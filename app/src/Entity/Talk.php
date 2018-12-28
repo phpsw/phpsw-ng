@@ -37,7 +37,7 @@ class Talk
     private $event;
 
     /**
-     * @var string
+     * @var string|null
      *
      * @Assert\Type("string")
      */
@@ -244,7 +244,7 @@ class Talk
     /**
      * @param string $originalRelativeUrl
      */
-    public function setOriginalRelativeUrl(?string $originalRelativeUrl)
+    public function setOriginalRelativeUrl(?string $originalRelativeUrl): void
     {
         $this->originalRelativeUrl = $originalRelativeUrl;
     }

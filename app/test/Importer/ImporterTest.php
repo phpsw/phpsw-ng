@@ -254,6 +254,7 @@ class ImporterTest extends TestCase
             $talk->setSlidesUrl('http://talk.com/slides');
             $talk->setVideoUrl('http://talk.com/video');
             $talk->setJoindinUrl('http://joindin.com/talk');
+            $talk->setOriginalRelativeUrl('/talks/soft-skills');
             $talk->setSpeakers([$this->getFredBlogs()]);
             $talk->setShowcase(true);
 

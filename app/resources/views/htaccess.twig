@@ -1,0 +1,4 @@
+// Update to 301 once once tested
+{% for talk in talks %}
+Redirect 302 {{ talk.originalRelativeUrl }} {{ talkUrl(talk) }}
+{% endfor %}
