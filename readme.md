@@ -53,8 +53,11 @@ This assumes:
 - local hosts is setup (see getting started)
 
 
+## Auto fixing coding standards
+Prior to every commit execute ```composer cs-fix``` from within the VM. This will fix any code style issues.
+
 ## CI
-Execute ```ci/run.sh``` from within the VM to run the CI tests locally.
+Execute ```composer ci``` from within the VM to run the CI tests locally.
 
 
 ## Architecture

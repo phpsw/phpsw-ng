@@ -38,5 +38,23 @@
         "psr-4" : {
           "Phpsw\\Website\\Tests\\" : "app/test/"
         }
+    },
+    "scripts": {
+        "ci" : [
+          "@composer-validate",
+          "@lint",
+          "@cs",
+          "@test",
+          "@validate-data",
+          "@generate-website"
+        ],
+        "composer-validate" : "@composer validate --no-check-all --strict",
+        "lint" : "parallel-lint app runner.php",
+        "cs" : "php-cs-fixer fix -v --dry-run --verbose",
+        "cs-fix" : "php-cs-fixer fix -v",
+        "test" : "phpunit --log-junit reports/phpunit.xml",
+        "validate-data" : "php runner.php phpsw:validate-data",
+        "generate-website" : "php runner.php phpsw:generate-website",
+        "security" : "security-checker security:check"
     }
 }
