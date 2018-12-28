@@ -84,3 +84,14 @@ workflows:
     - php
     - security
 
+
+  security-check:
+    triggers:
+    - schedule:
+        cron: "33 12 * * *"
+        filters:
+          branches:
+            only: develop
+
+    jobs:
+    - security
