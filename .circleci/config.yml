@@ -57,14 +57,12 @@ jobs:
     - *restore-php-cache
     - *composer-install
     - *save-php-cache
-
-    - run: cp app/config/secrets_test.yml app/config/secrets.yml
-    - run: mkdir -p reports/phpcs
-    - run: vendor/bin/parallel-lint app runner.php
-    - run: vendor/bin/php-cs-fixer fix --dry-run --verbose --format=junit > reports/phpcs/junit.xml
-    - run: vendor/bin/phpunit --log-junit=reports/phpunit/junit.xml
-    - run: ./runner.php phpsw:validate-data
-    - run: ./runner.php phpsw:generate-website
+    - run:
+        name: Create test version of secrets.yml
+        command: cp app/config/secrets_test.yml app/config/secrets.yml
+    - run: 
+        name: Run CI
+        command: composer ci
 
     - store-test-results:
         path: reports
@@ -80,7 +78,7 @@ jobs:
 
     - run:
         name: PHP security check
-        command: vendor/bin/security-checker security:check
+        command: composer security
 
 
 workflows:
