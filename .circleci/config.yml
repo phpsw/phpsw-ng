@@ -60,7 +60,7 @@ jobs:
     - run:
         name: Create test version of secrets.yml
         command: cp app/config/secrets_test.yml app/config/secrets.yml
-    - run: 
+    - run:
         name: Run CI
         command: composer ci
 

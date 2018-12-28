@@ -50,9 +50,9 @@
         ],
         "composer-validate" : "@composer validate --no-check-all --strict",
         "lint" : "parallel-lint app runner.php",
-        "cs" : "php-cs-fixer fix -v --dry-run --verbose",
+        "cs" : "php-cs-fixer fix -v --dry-run --verbose --format=junit > reports/phpcs/junit.xml",
         "cs-fix" : "php-cs-fixer fix -v",
-        "test" : "phpunit --log-junit reports/phpunit.xml",
+        "test" : "phpunit --log-junit reports/phpunit/junit.xml",
         "validate-data" : "php runner.php phpsw:validate-data",
         "generate-website" : "php runner.php phpsw:generate-website",
         "security" : "security-checker security:check"
