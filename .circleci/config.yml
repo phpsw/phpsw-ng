@@ -1,0 +1,85 @@
+version: 2
+
+jobs:
+  node:
+    docker:
+    - image: circleci/node:8
+
+    steps:
+    - checkout
+    - restore_cache:
+        keys:
+        - npm-vendors-v1-{{ checksum "yarn.lock"}}
+        - npm-vendors-v1
+
+    - run:
+        name: Yarn install
+        command: yarn install
+
+    - save_cache:
+        key: npm-vendors-{{ checksum "yarn.lock"}}
+        paths:
+        - node_modules
+
+    - run:
+        name: Run front end build
+        command: yarn prod
+
+
+  php:
+    docker:
+    - image: circleci/php:7.1-cli-stretch
+
+    steps:
+    - checkout
+    - restore_cache:
+        keys:
+        - php-vendors-v1-{{ checksum "composer.json" }}
+        - php-vendors-v1-
+
+    - run: composer install --no-interaction --no-scripts --prefer-dist
+
+    - save_cache:
+        key: php-vendors-v1-{{ checksum "composer.json" }}
+        paths:
+        - vendor
+
+    - run: cp app/config/secrets_test.yml app/config/secrets.yml
+    - run: mkdir -p reports/phpcs
+    - run: vendor/bin/parallel-lint app runner.php
+    - run: vendor/bin/php-cs-fixer fix --dry-run --verbose --format=junit > reports/phpcs/junit.xml
+    - run: vendor/bin/phpunit --log-junit=reports/phpunit/junit.xml
+    - run: ./runner.php phpsw:validate-data
+    - run: ./runner.php phpsw:generate-website
+
+    - store-test-results:
+        path: reports
+
+  security:
+    docker:
+    - image: circleci/php:7.1-cli-stretch
+
+    steps:
+    - checkout
+    - restore_cache:
+        keys:
+        - php-vendors-v1-{{ checksum "composer.json" }}
+        - php-vendors-v1-
+
+    - run: composer install --no-interaction --no-scripts --prefer-dist
+
+    - save_cache:
+        key: php-vendors-v1-{{ checksum "composer.json" }}
+        paths:
+        - vendor
+
+    - run: vendor/bin/security-checker security:check
+
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+    - node
+    - php
+
