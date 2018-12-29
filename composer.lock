@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f34632ccad97e77e9a18c15c5b5879c",
+    "content-hash": "d023deda071543b8f86d0f5c5b97ca2e",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1795,6 +1795,69 @@
                 "performance"
             ],
             "time": "2018-11-29T10:59:02+00:00"
+        },
+        {
+            "name": "dave-liddament/sarb",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DaveLiddament/sarb.git",
+                "reference": "d9b49ceafe343a30d4ef848627cb7bd23848443d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DaveLiddament/sarb/zipball/d9b49ceafe343a30d4ef848627cb7bd23848443d",
+                "reference": "d9b49ceafe343a30d4ef848627cb7bd23848443d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "symfony/config": "^3.4 || ^4.0",
+                "symfony/console": "^3.4 || ^4.0",
+                "symfony/dependency-injection": "^3.4 || ^4.0",
+                "symfony/process": "^3.4 || ^4.0",
+                "symfony/yaml": "^3.4 || ^4.0",
+                "webmozart/assert": "^1.3",
+                "webmozart/path-util": "^2.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.13.1",
+                "jakub-onderka/php-parallel-lint": "~0.9",
+                "jakub-onderka/php-var-dump-check": "~0.2",
+                "phpstan/phpstan": "^0.10.5",
+                "phpstan/phpstan-strict-rules": "^0.10.1",
+                "phpstan/phpstan-webmozart-assert": "^0.10.0",
+                "phpunit/phpunit": "^7.0",
+                "sensiolabs/security-checker": "^5.0",
+                "symfony/filesystem": "^3.4 || ^4.0",
+                "vimeo/psalm": "^3.0.7"
+            },
+            "bin": [
+                "sarb"
+            ],
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "DaveLiddament\\StaticAnalysisResultsBaseliner\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Liddament",
+                    "email": "daveliddament@gmail.com"
+                }
+            ],
+            "description": "Provides tools for baselining static analysis results and comparing against that baseline",
+            "keywords": [
+                "baseline",
+                "php",
+                "static analysis"
+            ],
+            "time": "2018-12-29T00:12:37+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -5063,7 +5126,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "dave-liddament/sarb": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
