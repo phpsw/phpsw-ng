@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d023deda071543b8f86d0f5c5b97ca2e",
+    "content-hash": "5400628b62aa48d06ac22022c2dd2e25",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1798,7 +1798,7 @@
         },
         {
             "name": "dave-liddament/sarb",
-            "version": "dev-master",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DaveLiddament/sarb.git",
@@ -5126,9 +5126,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "dave-liddament/sarb": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
