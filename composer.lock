@@ -1802,12 +1802,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DaveLiddament/sarb.git",
-                "reference": "d9b49ceafe343a30d4ef848627cb7bd23848443d"
+                "reference": "1e9e05addc96ee5dd0777a6d326c696bc8936c38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DaveLiddament/sarb/zipball/d9b49ceafe343a30d4ef848627cb7bd23848443d",
-                "reference": "d9b49ceafe343a30d4ef848627cb7bd23848443d",
+                "url": "https://api.github.com/repos/DaveLiddament/sarb/zipball/1e9e05addc96ee5dd0777a6d326c696bc8936c38",
+                "reference": "1e9e05addc96ee5dd0777a6d326c696bc8936c38",
                 "shasum": ""
             },
             "require": {
@@ -1857,7 +1857,7 @@
                 "php",
                 "static analysis"
             ],
-            "time": "2018-12-29T00:12:37+00:00"
+            "time": "2018-12-30T20:40:22+00:00"
         },
         {
             "name": "doctrine/instantiator",
