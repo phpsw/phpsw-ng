@@ -69,8 +69,18 @@
         ],
 
         "static-analysis" : [
+          "@static-analysis-psalm",
+          "@static-analysis-phpstan"
+        ],
+
+        "static-analysis-psalm" : [
           "@psalm",
           "sarb remove-baseline-results -f reports/psalm/psalm.json reports/sarb/psalm-sarb-baseline.json reports/psalm/psalm-baseline-removed.json"
+        ],
+
+        "static-analysis-phpstan" : [
+          "@phpstan",
+          "sarb remove-baseline-results -f reports/phpstan/phpstan.json reports/sarb/phpstan-sarb-baseline.json reports/phpstan/phpstan-baseline-removed.json"
         ],
 
         "composer-validate" : "@composer validate --no-check-all --strict",
