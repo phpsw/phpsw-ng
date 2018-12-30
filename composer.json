@@ -53,7 +53,17 @@
           "@generate-website"
         ],
 
-        "create-sarb-baseline" : [
+        "create-sarb-baselines" : [
+          "@create-psalm-sarb-baseline",
+          "@create-phpstan-sarb-baseline"
+        ],
+
+        "create-phpstan-sarb-baseline": [
+          "@phpstan",
+          "sarb create-baseline reports/phpstan/phpstan.json reports/sarb/phpstan-sarb-baseline.json phpstan-json-tmp"
+        ],
+
+        "create-psalm-sarb-baseline": [
           "@psalm",
           "sarb create-baseline reports/psalm/psalm.json reports/sarb/psalm-sarb-baseline.json psalm-json"
         ],
@@ -71,8 +81,7 @@
         "validate-data" : "php runner.php phpsw:validate-data",
         "generate-website" : "php runner.php phpsw:generate-website",
         "security" : "security-checker security:check",
-        "psalm" : "psalm --report=reports/psalm/psalm.json  --output-format=compact || true"
-
-
+        "psalm" : "psalm --report=reports/psalm/psalm.json  --output-format=compact || true",
+        "phpstan" : "phpstan analyse --no-progress --error-format=json > reports/phpstan/phpstan.json || true"
     }
 }
