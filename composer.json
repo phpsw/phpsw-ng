@@ -58,6 +58,8 @@
         "test" : "phpunit --log-junit reports/phpunit/junit.xml",
         "validate-data" : "php runner.php phpsw:validate-data",
         "generate-website" : "php runner.php phpsw:generate-website",
-        "security" : "security-checker security:check"
+        "security" : "security-checker security:check",
+        "psalm" : "psalm --report=reports/psalm/psalm.json  --output-format=compact || true"
+
     }
 }
