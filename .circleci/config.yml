@@ -1,0 +1,102 @@
+version: 2
+
+php-image: &php-image
+  docker:
+  - image: circleci/php:7.1-cli-stretch
+
+
+restore-php-cache: &restore-php-cache
+  restore_cache:
+    keys:
+    - php-vendors-v1-{{ checksum "yarn.lock"}}
+    - php-vendors-v1
+
+composer-install: &composer-install
+  run:
+    name: Composer install
+    command: composer install  --no-interaction --no-scripts --prefer-dist
+
+save-php-cache: &save-php-cache
+ save_cache:
+   key: php-vendors-v1-{{ checksum "composer.lock" }}
+   paths:
+   - vendor
+
+
+jobs:
+  node:
+    docker:
+    - image: circleci/node:8
+
+    steps:
+    - checkout
+    - restore_cache:
+        keys:
+        - npm-vendors-v1-{{ checksum "yarn.lock"}}
+        - npm-vendors-v1
+
+    - run:
+        name: Yarn install
+        command: yarn install
+
+    - save_cache:
+        key: npm-vendors-{{ checksum "yarn.lock"}}
+        paths:
+        - node_modules
+
+    - run:
+        name: Run front end build
+        command: yarn prod
+
+
+  php:
+    <<: *php-image
+
+    steps:
+    - checkout
+    - *restore-php-cache
+    - *composer-install
+    - *save-php-cache
+    - run:
+        name: Create test version of secrets.yml
+        command: cp app/config/secrets_test.yml app/config/secrets.yml
+    - run:
+        name: Run CI
+        command: composer ci
+
+    - store-test-results:
+        path: reports
+
+  security:
+    <<: *php-image
+
+    steps:
+    - checkout
+    - *restore-php-cache
+    - *composer-install
+    - *save-php-cache
+
+    - run:
+        name: PHP security check
+        command: composer security
+
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+    - node
+    - php
+    - security
+
+
+  security-check:
+    triggers:
+    - schedule:
+        cron: "33 12 * * *"
+        filters:
+          branches:
+            only: develop
+
+    jobs:
+    - security
