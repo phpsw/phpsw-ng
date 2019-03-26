@@ -1,15 +1,10 @@
 ---
 - name: Install Shorewall
   apt:
-    pkg: "{{ item }}"
+    pkg: shorewall,shorewall6,fail2ban,python-pyinotify
     state: present
     update_cache: yes
     cache_valid_time: 3600
-  with_items:
-  - shorewall
-  - shorewall6
-  - fail2ban
-  - python-pyinotify
   notify:
   - restart shorewall
   - restart shorewall6
@@ -29,7 +24,7 @@
 
 - name: Test ipv4
   command: shorewall check
-  when: reg_shorewall_configure|changed
+  when: reg_shorewall_configure is changed
   notify: restart shorewall
 
 - name: Configure ipv6
@@ -46,7 +41,7 @@
 
 - name: Test ipv6
   command: shorewall6 check
-  when: reg_shorewall6_configure|changed
+  when: reg_shorewall6_configure is changed
   notify: restart shorewall6
 
 - name: Configure defaults
