@@ -8,11 +8,10 @@
 
 - name: Install PHP packages
   apt:
-    pkg: "{{ item }}"
+    pkg: "{{ php_cli_packages }}"
     state: present
     update_cache: yes
     cache_valid_time: 3600
-  with_items: "{{ php_cli_packages }}"
 
 - name: Install Xdebug
   apt:
@@ -24,7 +23,7 @@
 
 - name: Apply PHP CLI settings
   template:
-    src: php.ini
+    src: php.ini.j2
     dest: "/etc/php/{{ php_cli_version }}/cli/php.ini"
     owner: root
     group: root
