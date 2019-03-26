@@ -69,8 +69,8 @@
 
 - name: Enable vhosts
   file:
-    src: "/etc/nginx/sites-available/{{ item.dest }}"
     path: "/etc/nginx/sites-enabled/{{ item.dest }}"
     state: "{{ 'link' if item.enabled else 'absent' }}"
+    src: "{{ '/etc/nginx/sites-available/' ~ item.dest if item.enabled else omit }}"
   with_items: "{{ nginx_vhosts }}"
   notify: restart nginx
