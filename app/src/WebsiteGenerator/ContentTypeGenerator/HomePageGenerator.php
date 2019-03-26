@@ -36,7 +36,7 @@ class HomePageGenerator implements ContentTypeGeneratorsInterface
     {
         $websiteInfo = $this->websiteInfoRepository->getWebsiteInfo();
 
-        $templateRenderer->render('index.html', 'home', [
+        $templateRenderer->render('index.html', 'home.html', [
             'info' => $websiteInfo,
         ]);
     }

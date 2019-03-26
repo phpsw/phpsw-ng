@@ -71,7 +71,7 @@ class TemplateRenderer
 
         $this->twig->addGlobal('info', $this->websiteInfoRepository->getWebsiteInfo());
 
-        $contents = $this->twig->render("{$templateName}.html.twig", $data);
+        $contents = $this->twig->render("{$templateName}.twig", $data);
         $this->filesystem->dumpFile($fullPath, $contents);
     }
 }

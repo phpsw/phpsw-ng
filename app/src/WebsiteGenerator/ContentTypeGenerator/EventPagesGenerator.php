@@ -51,7 +51,7 @@ class EventPagesGenerator implements ContentTypeGeneratorsInterface
             $this->generateEventPage($templateRenderer, $event);
         }
 
-        $templateRenderer->render('events/index.html', 'events', [
+        $templateRenderer->render('events/index.html', 'events.html', [
             'events' => $events,
         ]);
     }
@@ -59,6 +59,6 @@ class EventPagesGenerator implements ContentTypeGeneratorsInterface
     private function generateEventPage(TemplateRenderer $templateRenderer, Event $event)
     {
         $filename = "events/{$event->getYear()}/{$event->getMonth()}/{$event->getSlug()}/index.html";
-        $templateRenderer->render($filename, 'event', ['event' => $event]);
+        $templateRenderer->render($filename, 'event.html', ['event' => $event]);
     }
 }

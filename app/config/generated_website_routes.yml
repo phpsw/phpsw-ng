@@ -28,4 +28,4 @@ talk:
 codeOfConduct:
   path: /code-of-conduct
   options:
-    - template: codeOfConduct
+    - template: codeOfConduct.html

@@ -27,7 +27,10 @@
         "friendsofphp/php-cs-fixer": "~2.10.0",
         "sensiolabs/security-checker": "~4.0",
         "phpunit/phpunit": "^6.0",
-        "jakub-onderka/php-parallel-lint": "^0.9.2"
+        "jakub-onderka/php-parallel-lint": "^0.9.2",
+        "phpstan/phpstan": "^0.10.7",
+        "vimeo/psalm": "^3.0.7",
+        "dave-liddament/sarb": "^0.3.0"
     },
     "autoload": {
         "psr-4" : {
@@ -45,9 +48,41 @@
           "@lint",
           "@cs",
           "@test",
+          "@static-analysis",
           "@validate-data",
           "@generate-website"
         ],
+
+        "create-sarb-baselines" : [
+          "@create-psalm-sarb-baseline",
+          "@create-phpstan-sarb-baseline"
+        ],
+
+        "create-phpstan-sarb-baseline": [
+          "@phpstan",
+          "sarb create-baseline reports/phpstan/phpstan.json reports/sarb/phpstan-sarb-baseline.json phpstan-json-tmp"
+        ],
+
+        "create-psalm-sarb-baseline": [
+          "@psalm",
+          "sarb create-baseline reports/psalm/psalm.json reports/sarb/psalm-sarb-baseline.json psalm-json"
+        ],
+
+        "static-analysis" : [
+          "@static-analysis-psalm",
+          "@static-analysis-phpstan"
+        ],
+
+        "static-analysis-psalm" : [
+          "@psalm",
+          "sarb remove-baseline-results -f reports/psalm/psalm.json reports/sarb/psalm-sarb-baseline.json reports/psalm/psalm-baseline-removed.json"
+        ],
+
+        "static-analysis-phpstan" : [
+          "@phpstan",
+          "sarb remove-baseline-results -f reports/phpstan/phpstan.json reports/sarb/phpstan-sarb-baseline.json reports/phpstan/phpstan-baseline-removed.json"
+        ],
+
         "composer-validate" : "@composer validate --no-check-all --strict",
         "lint" : "parallel-lint app runner.php",
         "cs" : "php-cs-fixer fix -v --dry-run --verbose --format=junit > reports/phpcs/junit.xml",
@@ -55,6 +90,8 @@
         "test" : "phpunit --log-junit reports/phpunit/junit.xml",
         "validate-data" : "php runner.php phpsw:validate-data",
         "generate-website" : "php runner.php phpsw:generate-website",
-        "security" : "security-checker security:check"
+        "security" : "security-checker security:check",
+        "psalm" : "psalm --report=reports/psalm/psalm.json  --output-format=compact || true",
+        "phpstan" : "phpstan analyse --no-progress --error-format=json > reports/phpstan/phpstan.json || true"
     }
 }

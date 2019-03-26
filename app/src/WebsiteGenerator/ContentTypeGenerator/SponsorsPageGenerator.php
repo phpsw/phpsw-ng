@@ -50,6 +50,6 @@ class SponsorsPageGenerator implements ContentTypeGeneratorsInterface
             }
         }
 
-        $templateRenderer->render('sponsors/index.html', 'sponsors', compact('fullSponsors', 'eventSponsors'));
+        $templateRenderer->render('sponsors/index.html', 'sponsors.html', compact('fullSponsors', 'eventSponsors'));
     }
 }
