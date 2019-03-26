@@ -7,7 +7,6 @@
 #    when: secure_vars_file is defined
   roles:
   - base
-  - ssl
   - nginx
   - git
   - php-repo-sury
