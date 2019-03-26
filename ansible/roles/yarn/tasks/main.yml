@@ -1,21 +1,23 @@
 ---
 - name: Remove cmdtest
   apt:
-    name: cmdtest
+    pkg: cmdtest
     state: absent
+    update_cache: yes
+    cache_valid_time: 3600
 
-- name: Install Yarn APT key
+- name: Install Yarn repo key
   apt_key:
-    data: "{{ lookup('file', 'pubkey.gpg') }}"
+    data: "{{ lookup('file', 'yarn-repo.asc') }}"
     state: present
 
-- name: Add yarn repository
+- name: Add Yarn repository
   apt_repository:
     repo: 'deb https://dl.yarnpkg.com/debian/ stable main'
 
-- name: Install yarn package
+- name: Install Yarn
   apt:
-    name: yarn
+    pkg: yarn
+    state: present
     update_cache: yes
     cache_valid_time: 3600
-  become: true
