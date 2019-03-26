@@ -1,6 +1,0 @@
----
-shorewall_enable: false
-shorewall_rules: []
-shorewall6_rules: []
-shorewall_interfaces: []
-shorewall6_interfaces: []

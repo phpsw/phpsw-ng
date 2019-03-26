@@ -1,6 +1,0 @@
-?FORMAT 2
-###############################################################################
-#ZONE	INTERFACE	OPTIONS
-{% for interface in shorewall6_interfaces %}
-{{ interface.zone }} {{ interface.name }} {{ interface.options }}
-{% endfor %}
