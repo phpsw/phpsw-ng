@@ -12,7 +12,7 @@ MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-ripemd160-
 
 AcceptEnv LANG LC_*
 AllowAgentForwarding yes
-AllowGroups ssh-users
+AllowGroups ssh-users {{ ssh_extra_user_groups | join(' ') }}
 AllowTcpForwarding yes
 AllowStreamLocalForwarding no
 AuthorizedKeysFile %h/.ssh/authorized_keys
@@ -68,3 +68,7 @@ VersionAddendum none
 X11DisplayOffset 10
 X11Forwarding no
 X11UseLocalhost yes
+
+{% for ssh_extra_conf_file in ssh_extra_conf_files %}
+{{ lookup('template', './ssh/'~ssh_extra_conf_file) }}
+{% endfor %}
