@@ -1,13 +1,13 @@
 ---
+- name: Set hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+  notify: restart rsyslog
+
 - name: Clean /etc/hosts
   template:
     src: etc/hosts.j2
     dest: /etc/hosts
-  notify: restart rsyslog
-
-- name: Set hostname
-  hostname:
-    name: "{{ inventory_hostname_short }}"
   notify: restart rsyslog
 
 - name: Set DHCP config
@@ -23,24 +23,10 @@
 
 - name: Install system packages
   apt:
-    pkg: "{{ item }}"
+    pkg: "{{ base_default_system_packages + system_packages }}"
     state: present
     update_cache: yes
     cache_valid_time: 3600
-  with_items:
-  - "{{ system_packages }}"
-  - ssl-cert
-  - acl
-  - curl
-  - wget
-  - vim
-  - nano
-  - rsync
-  - locales
-  - zip
-  - screen
-  - htop
-  - apt-transport-https
 
 - name: Generate required locales
   locale_gen:
@@ -73,10 +59,13 @@
   - .bashrc
   - .profile
 
-- name: Add ssh user group
+- name: Add ssh user groups
   group:
-    name: ssh-users
+    name: "{{ item }}"
     system: yes
+  with_items:
+  - ssh-users
+  - "{{ ssh_extra_user_groups }}"
 
 - name: Create users
   user:
@@ -85,28 +74,31 @@
     append: yes
     groups: "{{ item.groups }}"
     shell: "{{ item.shell|default('/bin/bash') }}"
-  no_log: true
   with_items:
   - "{{ default_users }}"
   - "{{ users }}"
+  loop_control:
+    label: "{{ item.name }}"
 
 - name: Assign authorized keys - default users
   authorized_key:
     user: "{{ item.0.name }}"
     key: "{{ lookup('file', item.1) }}"
-  no_log: true
   with_subelements:
   - "{{ default_users }}"
   - authorized_keys
+  loop_control:
+    label: "{{ item.0.name }} - {{ item.1 }}"
 
 - name: Assign authorized keys - users
   authorized_key:
     user: "{{ item.0.name }}"
     key: "{{ lookup('file', item.1) }}"
-  no_log: true
   with_subelements:
   - "{{ users }}"
   - authorized_keys
+  loop_control:
+    label: "{{ item.0.name }} - {{ item.1 }}"
 
 - name: Configure sshd
   template:

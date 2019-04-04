@@ -12,11 +12,11 @@
 
 - name: Format swap file
   command: mkswap /var/swap.1
-  when: swap_created|changed
+  when: swap_created is changed
 
 - name: Enable swapfile
   command: swapon /var/swap.1
-  when: swap_created|changed
+  when: swap_created is changed
 
 - name: Add swap to fstab
   mount:

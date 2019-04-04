@@ -5,6 +5,7 @@ php_cli_error_reporting: E_ALL & ~E_DEPRECATED & ~E_STRICT
 php_cli_display_errors: Off
 php_cli_display_startup_errors: Off
 php_cli_track_errors: Off
+php_cli_error_log:
 php_cli_mysqlnd_collect_statistics: Off
 php_cli_opcache_file_cache: /var/lib/php/opcache
 php_cli_opcache_file_cache_only: 0
