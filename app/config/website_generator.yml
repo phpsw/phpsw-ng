@@ -29,6 +29,18 @@ services:
     tags:
       - {name: "TwigExtension"}
 
+  app.websiteGenerator.twigExtension.youTubeEmbedUrl:
+    class: \Phpsw\Website\WebsiteGenerator\TemplateRenderer\TwigExtension\YouTubeEmbedUrlExtension
+    autowire: true
+    tags:
+      - {name: "TwigExtension"}
+
+  app.websiteGenerator.twigExtension.slidesEmbed:
+    class: \Phpsw\Website\WebsiteGenerator\TemplateRenderer\TwigExtension\SlidesEmbedExtension
+    autowire: true
+    tags:
+      - {name: "TwigExtension"}
+
 
   # Register content type generators
   app.websiteGenerator.contentTypeGenerator.events:
