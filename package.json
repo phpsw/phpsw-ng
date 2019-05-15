@@ -16,5 +16,8 @@
     "purgecss-webpack-plugin": "^1.2.0",
     "tailwindcss": "^1.0.1",
     "tailwindcss-transition": "^1.0.5"
+  },
+  "dependencies": {
+    "tailwindcss-list-reset": "^1.0.0"
   }
 }
