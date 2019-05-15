@@ -8,7 +8,7 @@ mix.disableNotifications()
     .less('app/resources/assets/less/main.less', 'web/build/css/site.css')
     .copyDirectory('app/resources/assets/static', 'web/build/static')
     .copyDirectory('node_modules/font-awesome/fonts', 'web/build/fonts')
-    .tailwind()
+    .tailwind('./tailwind.config.js')
     .options({
         processCssUrls: false
     })
