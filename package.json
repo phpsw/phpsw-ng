@@ -13,7 +13,7 @@
     "laravel-mix-tailwind": "^0.1.0",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
-    "purgecss-webpack-plugin": "^1.2.0",
+    "purgecss-webpack-plugin": "^2.0.5",
     "tailwindcss": "^0.5.0",
     "tailwindcss-transition": "^1.0.5"
   }
