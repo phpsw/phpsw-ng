@@ -56,5 +56,6 @@
         "validate-data" : "php runner.php phpsw:validate-data",
         "generate-website" : "php runner.php phpsw:generate-website",
         "security" : "security-checker security:check"
-    }
+    },
+    "abandoned": "phpsw/phpsw-symfony5"
 }
